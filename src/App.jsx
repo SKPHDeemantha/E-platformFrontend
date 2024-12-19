@@ -8,6 +8,7 @@ import LoginPage from './pages/loginpage'
 import HomePage from './pages/Homepage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AdminHomepage from './pages/AdminHomepage'
+import Signinpage from './pages/SigninPage'
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
-    <Route path="/signup" element={<Signuppage/>}/>
+    <Route path="/signup" element={<Signinpage/>}/>
     <Route path="/admin/*" element={<AdminHomepage/>}/>
     <Route path="/*" element={<HomePage/>}/>
     </Routes>
