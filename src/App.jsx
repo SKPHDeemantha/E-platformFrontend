@@ -7,6 +7,7 @@ import './App.css'
 import LoginPage from './pages/loginpage'
 import HomePage from './pages/Homepage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminHomepage from './pages/AdminHomepage'
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
     <Route path="/" element={<HomePage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
     <Route path="/signup" element={<Signuppage/>}/>
-    <Route path="/*" element={<h1>404 error</h1>}/>
+    <Route path="/admin/*" element={<AdminHomepage/>}/>
+    <Route path="/*" element={<HomePage/>}/>
     </Routes>
 
 
