@@ -11,7 +11,8 @@ export default function LoginPage(){
                 <input 
                     type="email" 
                     id="email" 
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
+                    focus:border-transparent " 
                     placeholder="Enter your email" 
                 />
             </div>
