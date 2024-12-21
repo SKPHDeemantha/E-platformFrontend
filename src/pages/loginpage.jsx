@@ -34,7 +34,7 @@ export default function LoginPage(){
         </form>
         <p class="text-center text-sm text-gray-600 mt-4">
             Don’t have an account? 
-            <a href="#" class="text-blue-500 hover:underline">Sign up</a>
+            <a href="http://localhost:5173/signup" class="text-blue-500 hover:underline">Sign up</a>
         </p>
     </div>
 </div>
