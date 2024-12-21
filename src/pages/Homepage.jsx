@@ -15,6 +15,7 @@ export default function HomePage() {
                 <h2>Welcome to MyWebsite</h2>
                 <p>Your one-stop destination for awesome content.</p>
                 <button className="cta-button">Get Started</button>
+                
             </header>
             <Link to="/login"></Link>
         </div>
