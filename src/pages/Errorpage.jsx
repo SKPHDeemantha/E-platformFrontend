@@ -6,7 +6,7 @@ export  default function Errorpage(){
         <div className="flex h-screen">
         <div className=" w-[45%] bg-gray-300 flex flex-col items-center justify-center">
             <div>
-                <h1 className="mt-52 text-4xl text-cyan-800  " >OOPS!</h1>
+                <h1 className="mt-52 text-4xl text-cyan-800">OOPS!</h1>
             </div>
             
             <h2 className="mt-5 font-bold text-6xl from-neutral-900">Page not found</h2>
@@ -17,7 +17,8 @@ export  default function Errorpage(){
         
         </div>
         
-        <div className="bg-red-300 mt-52 py-8 px-28 w-[100%] item center justify-center h-screen" >Hello</div>
+        <div className="bg-red-300 mt-52 py-8 px-28 w-[100%] item center justify-center h-screen" >ContactUs</div>
+        <Link to="/contactus"></Link>
        </div>
 
        <div className="bg-orange-200  h-screen w-[55%]">
@@ -29,6 +30,5 @@ export  default function Errorpage(){
      </div>
         
     );
-
 
 }

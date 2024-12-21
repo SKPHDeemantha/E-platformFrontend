@@ -24,6 +24,7 @@ export default function AdminHomepage(){
           <Route path="/products" element={< Adminproductpage/>} />
           <Route path="/orders" element={<h1 className="text-sky-400" >Orders</h1>} />
           <Route path="/customers" element={<h1 className="text-sky-400" >Customers</h1>} />
+          <Route path="/contactus" element={<h1 className="text-sky-400" >Contactus</h1>} />
           <Route path="/*" element={<h1 className="text-sky-400" >404 not found the admin page</h1>}/>
         </Routes>
         </div>

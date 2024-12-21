@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AdminHomepage from './pages/AdminHomepage'
 import Signinpage from './pages/SigninPage'
 import Errorpage from './pages/Errorpage'
+import Contactus from './pages/Home/contactus'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Route path="/signup" element={<Signinpage/>}/>
     <Route path="/admin/*" element={<AdminHomepage/>}/>
     <Route path="/error" element={<Errorpage/>}/>
+    <Route path="/contactus" element={<Contactus/>}/>
     <Route path="/*" element={<HomePage/>}/>
     </Routes>
 
