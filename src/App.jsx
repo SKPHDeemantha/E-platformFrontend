@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <Toaster/>
+    <Toaster position="top-right"/>
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
