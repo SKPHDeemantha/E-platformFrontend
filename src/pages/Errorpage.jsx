@@ -22,7 +22,7 @@ export  default function Errorpage(){
        </div>
 
        <div className="bg-orange-200  h-screen w-[55%]">
-        <img src="https://www.istockphoto.com/photo/warning-attention-symbol-with-exclamation-mark-in-the-triangle-on-the-abstract-human-gm2148676029-569861452?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Ferror%2F&utm_term=error"
+        <img src="/error.jpg"
           alt="This is a picture"
           className="max-h-full max-w-full object-contain"/>
        </div>

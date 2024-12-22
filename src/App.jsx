@@ -11,6 +11,7 @@ import AdminHomepage from './pages/AdminHomepage'
 import Signinpage from './pages/SigninPage'
 import Errorpage from './pages/Errorpage'
 import Contactus from './pages/Home/contactus'
+import { Toaster } from 'react-hot-toast'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <Toaster/>
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
