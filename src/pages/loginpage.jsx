@@ -35,7 +35,7 @@ export default function LoginPage() {
              max-w-sm w-full */}
             <div className="bg-white shadow-lg rounded-lg p-8 w-96 h-[500px] flex flex-col ">
 
-            <div className="w-32 h-32 mr-9">
+            <div className="w-32 h-32 items-center justify-center">
                 <img src="/company logo.jpg"
                 alt="company logo"
                 className="w-full h-full object-contain rounded-3xl "/>

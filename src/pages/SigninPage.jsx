@@ -1,4 +1,34 @@
+import axios from "axios";
+import { use } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
+
 export default function Signinpage(){
+        const [email,setEmail] =useState("")
+        const [firstName, setFirstName] =useState("")
+        const [lastName,setLastName] =useState("")
+        const[password,setPassword]=useState("")
+        const[type,setType]=useState("")
+        const[profilePicture,setProfilePicture]=useState("")
+
+        function signup(){
+          axios.post("http://localhost:3000/api/users/",{
+            email:email,
+            firstName:firstName,
+            lastName:lastName,
+            password:password,
+            type :type,
+            profilePicture :profilePicture
+          }).then((res)=>{
+            if(res.data.user.type === "admin"){
+              Navigate("/admin/*");
+            }else{
+              Navigate("/")
+            }
+          })
+        }
+
     return(
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -10,6 +40,7 @@ export default function Signinpage(){
               </label>
               <input
                 type="email"
+                onChange={(e)=> setEmail(e.target.value)}
                 id="email"
                 placeholder="Enter your email"
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -23,6 +54,7 @@ export default function Signinpage(){
               </label>
               <input
                 type="text"
+                onChange={(e)=>setFirstName(e.target.value)}
                 id="firstName"
                 placeholder="Enter your first name"
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -36,6 +68,7 @@ export default function Signinpage(){
               </label>
               <input
                 type="text"
+                onChange={(e)=>setLastName(e.target.value)}
                 id="lastName"
                 placeholder="Enter your last name"
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -49,6 +82,7 @@ export default function Signinpage(){
               </label>
               <input
                 type="password"
+                onChange={(e)=>setPassword(e.target.value)}
                 id="password"
                 placeholder="Enter your password"
                 className="mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -62,6 +96,7 @@ export default function Signinpage(){
                 <label className="flex items-center space-x-2 ">
                   <input
                     type="radio"
+                    onChange={(e)=>setType(e.target.value)}
                     name="type"
                     value="admin"
                     className="form-radio text-blue-500"
@@ -72,6 +107,7 @@ export default function Signinpage(){
                 <label className="flex items-center  space-x-2">
                   <input
                     type="radio"
+                    onChange={(e)=>setType(e.target.value)}
                     name="type"
                     value="customer"
                     className="form-radio text-blue-500"
@@ -92,16 +128,17 @@ export default function Signinpage(){
               </label>
               <input
                 type="file"
+                onChange={(e) => setProfilePicture(e.target.files[0])}
                 id="profilePicture"
                 accept="image/*"
                 className="mt-1 text-gray-500"
               />
             </div>
   
-            <button
+            <button  
               type="submit"
               className="w-full bg-blue-500 text-white font-medium py-2 rounded-md hover:bg-blue-600 transition duration-300"
-            >
+                  onClick={signup}>
               Signup
             </button>
             <p className="text-center text-gray-600 mt-4 text-sm">

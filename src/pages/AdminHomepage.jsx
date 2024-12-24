@@ -12,10 +12,10 @@ export default function AdminHomepage(){
         <div className="bg-cyan-600  w-full h-screen flex">
 
             <div className="bg-zinc-300 w-[20%] h-screen flex flex-col items-center text-justify ">
-                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900" to="/admin/dashboard  "><VscGraph/>Dashboard</Link>
-                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900" to="/admin/products "><FaJediOrder/>Products</Link>
-                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900"  to="/admin/orders "><MdProductionQuantityLimits/>Order</Link>
-                <Link className="flex flex-row items-center  text-zinc-600 hover:text-slate-900" to="/admin/customers  "><LiaUserCircle/>Customers</Link>
+                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900 mb-2 mr-4" to="/admin/dashboard  "><VscGraph/>Dashboard</Link>
+                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900 mb-2" to="/admin/products "><FaJediOrder/>Products</Link>
+                <Link className="flex flex-row items-center text-zinc-600 hover:text-slate-900 mb-2"  to="/admin/orders "><MdProductionQuantityLimits/>Order</Link>
+                <Link className="flex flex-row items-center  text-zinc-600 hover:text-slate-900 mb-2" to="/admin/customers  "><LiaUserCircle/>Customers</Link>
             </div>
 
     <div className="bg-indigo-950 w-[80%] h-screen" >
