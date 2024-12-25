@@ -12,6 +12,7 @@ import Signinpage from './pages/SigninPage'
 import Errorpage from './pages/Errorpage'
 import Contactus from './pages/Home/contactus'
 import { Toaster } from 'react-hot-toast'
+import AddproductForm from './pages/Admin/AdminproductForm'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <Route path="/login" element={<LoginPage/>}/>
     <Route path="/signup" element={<Signinpage/>}/>
     <Route path="/admin/*" element={<AdminHomepage/>}/>
+    <Route path="/admin/products/addProduct" element={<AddproductForm/>}/>
     <Route path="/error" element={<Errorpage/>}/>
     <Route path="/contactus" element={<Contactus/>}/>
     <Route path="/*" element={<HomePage/>}/>

@@ -3,8 +3,9 @@ import { VscGraph } from "react-icons/vsc";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaJediOrder } from "react-icons/fa";
 import { LiaUserCircle } from "react-icons/lia";
-import Adminproductpage from "./Adminproductpage/Adminproductpage";
+import Adminproductpage from "./Admin/Adminproductpage";
 import { Routes, Route } from "react-router-dom";
+import AddproductForm from "./Admin/AdminproductForm";
 
 
 export default function AdminHomepage(){
@@ -22,6 +23,7 @@ export default function AdminHomepage(){
     <Routes path="/*">
           <Route path="/dashboard" element={<h1 className="text-sky-400">Dashboard</h1>} />
           <Route path="/products" element={< Adminproductpage/>} />
+          <Route path="/admin/products/addproduct" element={<AddproductForm/>} />
           <Route path="/orders" element={<h1 className="text-sky-400" >Orders</h1>} />
           <Route path="/customers" element={<h1 className="text-sky-400" >Customers</h1>} />
           <Route path="/contactus" element={<h1 className="text-sky-400" >Contactus</h1>} />
