@@ -26,20 +26,21 @@ export default function AddProductForm() {
       price: price,
       lastPrice: lastPrice,
       stock: stock,
-      description: description,
+      description: description
     };
 
     const token = localStorage.getItem("token");
 
     try {
-      await axios.post("http://localhost:3000/api/products", product, {
+      const result =  await axios.post("http://localhost:3000/api/products", product, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-      navigate("/admin/products");
+      console.log(result);
+     navigate("/admin/products");
       toast.success("Product added successfully");
-    } catch (err) {
+    } catch (err) { 
       toast.error("Failed to add product");
     }
   }
@@ -124,8 +125,7 @@ export default function AddProductForm() {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
-        >
+          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
           Submit
         </button>
       </div>

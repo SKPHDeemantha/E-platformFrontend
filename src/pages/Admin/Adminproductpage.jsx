@@ -7,19 +7,31 @@ import { Link } from "react-router-dom";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
+  const [productsLoaded, setProductsLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/products").then((res) => {
-      setProducts(res.data);
-    });
-  }, []);
+    if (!productsLoaded) {
+      axios
+        .get("http://localhost:3000/api/products")
+        .then((res) => {
+          setProducts(res.data);
+          setProductsLoaded(true);
+        })
+        .catch((err) => {
+          console.error("Failed to fetch products:", err);
+        });
+    }
+  }, [productsLoaded]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-5">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-5">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-semibold text-gray-800">Admin Products</h1>
-          <Link to={"/admin/products/addProduct"} className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+          <Link
+            to="/admin/products/addProduct"
+            className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          >
             <IoMdAdd size={18} />
             <span>Add Product</span>
           </Link>
@@ -43,9 +55,7 @@ export default function AdminProductsPage() {
                 <td className="border border-gray-300 px-4 py-2">{product.productId}</td>
                 <td className="border border-gray-300 px-4 py-2">{product.productName}</td>
                 <td className="border border-gray-300 px-4 py-2">${product.price.toFixed(2)}</td>
-                <td className="border border-gray-300 px-4 py-2">
-                  ${product.lastPrice.toFixed(2)}
-                </td>
+                <td className="border border-gray-300 px-4 py-2">${product.lastPrice.toFixed(2)}</td>
                 <td className="border border-gray-300 px-4 py-2">{product.stock}</td>
                 <td className="border border-gray-300 px-4 py-2">{product.description}</td>
                 <td className="border border-gray-300 px-4 py-2">
