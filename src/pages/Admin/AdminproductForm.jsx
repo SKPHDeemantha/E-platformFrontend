@@ -38,7 +38,7 @@ export default function AddProductForm() {
         },
       });
       console.log(result);
-     navigate("/admin/products");
+   //  navigate("/admin/products");
       toast.success("Product added successfully");
     } catch (err) { 
       toast.error("Failed to add product");

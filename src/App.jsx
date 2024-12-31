@@ -13,6 +13,7 @@ import Errorpage from './pages/Errorpage'
 import Contactus from './pages/Home/contactus'
 import { Toaster } from 'react-hot-toast'
 import AddproductForm from './pages/Admin/AdminproductForm'
+import FileUploardTest from './pages/Test'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
     <Route path="/error" element={<Errorpage/>}/>
     <Route path="/contactus" element={<Contactus/>}/>
     <Route path="/*" element={<HomePage/>}/>
+    <Route path="/test" element={<FileUploardTest/>}/>
     </Routes>
 
 
