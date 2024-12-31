@@ -52,7 +52,7 @@ export default function AdminProductsPage() {
           <tbody>
             {products.map((product) => (
               <tr key={product._id} className="hover:bg-gray-50">
-                <td className="border border-gray-300 px-4 py-2">{product.productId}</td>
+                <td className="border border-gray-300 px-4 py-2">{product.ProductId}</td>
                 <td className="border border-gray-300 px-4 py-2">{product.productName}</td>
                 <td className="border border-gray-300 px-4 py-2">${product.price.toFixed(2)}</td>
                 <td className="border border-gray-300 px-4 py-2">${product.lastPrice.toFixed(2)}</td>

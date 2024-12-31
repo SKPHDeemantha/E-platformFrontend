@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export default function AddProductForm() {
-  const [productId, setProductId] = useState("");
+  const [ProductId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
   const [alternativeNames, setAlternativeNames] = useState("");
   const [imageUrls, setImageUrls] = useState("");
@@ -19,14 +19,14 @@ export default function AddProductForm() {
     const imgUrls = imageUrls.split(",");
 
     const product = {
-      productId: productId,
-      productName: productName,
-      altNames: altNames,
-      image: imgUrls,
-      price: price,
-      lastPrice: lastPrice,
-      stock: stock,
-      description: description
+      ProductId,
+      productName,
+      altNames,
+      images: imgUrls,
+      price: parseFloat(price),
+      lastPrice: parseFloat(lastPrice),
+      stock,
+      description,
     };
 
     const token = localStorage.getItem("token");
@@ -38,7 +38,7 @@ export default function AddProductForm() {
         },
       });
       console.log(result);
-   //  navigate("/admin/products");
+    navigate("/admin/products");
       toast.success("Product added successfully");
     } catch (err) { 
       toast.error("Failed to add product");
