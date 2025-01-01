@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
@@ -63,7 +64,28 @@ export default function AdminProductsPage() {
                     <button className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">
                       <ImPencil size={16} />
                     </button>
-                    <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                    <button
+                      className="text-red-500 hover:text-red-700 mr-2"
+                      title="Delete"
+
+                      onClick={()=>{
+                        const token = localStorage.getItem("token");
+
+                        axios.delete(`http://localhost:3000/api/products/${product.productId}`, {
+                          headers: {
+                            Authorization: `Bearer ${token}`,
+                          },
+                        }).then((res) => {
+                          console.log(res.data);
+                          toast.success("Product deleted successfully");
+                          setProductsLoaded(false);
+                        }).catch((error)=>{
+                          toast.error("Failed to deleted product");
+                          
+                        })
+                  
+                      }}
+                    >
                       <RiDeleteBin5Fill size={16} />
                     </button>
                   </div>

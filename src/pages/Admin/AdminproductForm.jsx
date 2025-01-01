@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import UploadMeadiaToSupabase from "../../utils/MediaUpload";
 
 export default function AddProductForm() {
   const [ProductId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
   const [alternativeNames, setAlternativeNames] = useState("");
-  const [imageUrls, setImageUrls] = useState("");
+  const [images, setImages] = useState(null);
   const [price, setPrice] = useState("");
   const [lastPrice, setLastPrice] = useState("");
   const [stock, setStock] = useState("");
@@ -16,13 +17,13 @@ export default function AddProductForm() {
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
-    const imgUrls = imageUrls.split(",");
+   // const imgUrls = imageUrls.split(",");
 
     const product = {
       ProductId,
       productName,
       altNames,
-      images: imgUrls,
+      images,
       price: parseFloat(price),
       lastPrice: parseFloat(lastPrice),
       stock,
@@ -36,13 +37,20 @@ export default function AddProductForm() {
         headers: {
           Authorization: "Bearer " + token,
         },
-      });
+      }); 
       console.log(result);
     navigate("/admin/products");
       toast.success("Product added successfully");
     } catch (err) { 
       toast.error("Failed to add product");
     }
+  }
+  async function handleimage() {
+    UploadMeadiaToSupabase(images).then((url)=>{
+      console.log(url)
+    })
+
+    
   }
 
   return (
@@ -79,11 +87,12 @@ export default function AddProductForm() {
 
         <label className="block text-gray-700 font-medium mb-2">Image URLs</label>
         <input
-          type="text"
+          type="File"
           id="image-urls"
-          onChange={(e) => setImageUrls(e.target.value)}
+          onClick={handleimage}
+          onChange={(e) => setImages(e.target.value)}
           className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter image URLs (comma-separated)"
+          placeholder="Enter image png or jpg"
         />
 
         <label className="block text-gray-700 font-medium mb-2">Price</label>
