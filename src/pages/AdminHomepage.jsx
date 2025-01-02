@@ -6,6 +6,7 @@ import { LiaUserCircle } from "react-icons/lia";
 import Adminproductpage from "./Admin/Adminproductpage";
 import { Routes, Route } from "react-router-dom";
 import AddproductForm from "./Admin/AdminproductForm";
+import Admincustomerpage from "./Admin/AdmincustomerPage";
 
 
 export default function AdminHomepage(){
@@ -25,7 +26,7 @@ export default function AdminHomepage(){
           <Route path="/products" element={< Adminproductpage/>} />
           <Route path="/admin/products/addproduct" element={<AddproductForm/>} />
           <Route path="/orders" element={<h1 className="text-sky-400" >Orders</h1>} />
-          <Route path="/customers" element={<h1 className="text-sky-400" >Customers</h1>} />
+          <Route path="/customers" element={<Admincustomerpage/>} />
           <Route path="/contactus" element={<h1 className="text-sky-400" >Contactus</h1>} />
           <Route path="/*" element={<h1 className="text-sky-400" >404 not found the admin page</h1>}/>
         </Routes>

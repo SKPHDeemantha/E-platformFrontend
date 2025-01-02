@@ -83,7 +83,7 @@ export default function AdminProductsPage() {
                           toast.error("Failed to deleted product");
                           
                         })
-                  
+                   
                       }}
                     >
                       <RiDeleteBin5Fill size={16} />
