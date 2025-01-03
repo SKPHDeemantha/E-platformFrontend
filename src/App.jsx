@@ -14,6 +14,7 @@ import Contactus from './pages/Home/contactus'
 import { Toaster } from 'react-hot-toast'
 import AddproductForm from './pages/Admin/AdminproductForm'
 import FileUploardTest from './pages/Test'
+import Productpage from './pages/Home/Productpage'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <Toaster position="top-right"/>
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
+    <Route path="/product" element={<Productpage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
     <Route path="/signup" element={<Signinpage/>}/>
     <Route path="/admin/*" element={<AdminHomepage/>}/>
