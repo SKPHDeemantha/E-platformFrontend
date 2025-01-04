@@ -9,7 +9,7 @@ export default function HomePage() {
       <nav className="navbar bg-slate-800 text-white py-4 px-8 flex justify-between items-center shadow-lg">
         <h1 className="text-3xl font-bold tracking-wide">MyWebsite</h1>
         <div className='flex flex-row '>
-        <input className='w-96'/>
+        <input className='w-96 rounded-sm'/>
         <Link className='p-2'><ImSearch /></Link>
         <Link className='p-2 text-2xl'><GiShoppingCart /></Link>
         </div>
