@@ -6,7 +6,6 @@ export default function AdminCustomerPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch users from the API
   const fetchUsers = async () => {
     try {
       const response = await axios.get("http://localhost:3000/api/users/details");
