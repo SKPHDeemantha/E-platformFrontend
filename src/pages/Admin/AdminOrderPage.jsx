@@ -1,23 +1,8 @@
-export default function Orders(){
+export default function AdminOrderPage(){
     return(
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order Id</th>
-                        <th>Email</th>
-                        <th>Order Id</th>
-                        <th>Order Id</th>
-                        <th>Order Id</th>
-                        <th>Order Id</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="bg-white w-screen  h-screen flex">
+           <div className="w-60 h-60 shadow-lg bg-slate-500">This is the Order.</div>
+    
         </div>
     )
 }

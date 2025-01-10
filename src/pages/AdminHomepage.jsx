@@ -8,6 +8,9 @@ import { Routes, Route } from "react-router-dom";
 import AddproductForm from "./Admin/AdminproductForm";
 import Admincustomerpage from "./Admin/AdmincustomerPage";
 import Dashboard from "./Admin/AdminDashBord";
+import Orders from "./Admin/AdminOrderPage";
+import AdminOrderPage from "./Admin/AdminOrderPage";
+import EditProductForm from "./Admin/EditProductForm";
 
 
 export default function AdminHomepage(){
@@ -25,10 +28,11 @@ export default function AdminHomepage(){
     <Routes path="/*">
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/products" element={< Adminproductpage/>} />
-          <Route path="/admin/products/addproduct" element={<AddproductForm/>} />
-          <Route path="/orders" element={<h1 className="text-sky-400" >Orders</h1>} />
+          <Route path="/products/addproduct" element={<AddproductForm/>}/>
+          <Route path="/products/editproduct" element={<EditProductForm/>}/>
+          <Route path="/orders" element={<AdminOrderPage/>}/>
           <Route path="/customers" element={<Admincustomerpage/>} />
-          <Route path="/contactus" element={<h1 className="text-sky-400" >Contactus</h1>} />
+          <Route path="/contactus" element={<h1 className="text-sky-400" >Contactus</h1>}/>
           <Route path="/*" element={<h1 className="text-sky-400" >404 not found the admin page</h1>}/>
         </Routes>
         </div>

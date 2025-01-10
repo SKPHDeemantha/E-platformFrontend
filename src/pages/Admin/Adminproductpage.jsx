@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
-import { data, Link } from "react-router-dom";
+import { data, Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function AdminProductsPage() {
@@ -23,7 +23,11 @@ export default function AdminProductsPage() {
         });
     }
   }, [productsLoaded]);
+ 
+  const navigate =useNavigate();
+  const Location =useLocation();
 
+  console.log(Location);
   return (
     <div className="min-h-screen bg-gray-100 p-5">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-5">
@@ -61,7 +65,27 @@ export default function AdminProductsPage() {
                 <td className="border border-gray-300 px-4 py-2">{product.description}</td>
                 <td className="border border-gray-300 px-4 py-2">
                   <div className="flex items-center gap-2">
-                    <button className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500">
+                    <button className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500"
+                      title="Edit"
+
+                      onClick={()=>{
+                        navigate("/admin/products/editproduct" , {state : {product : product}});
+                        // const token = localStorage.getItem("token");
+
+                        // axios.delete(`http://localhost:3000/api/products/${product.productId}`, {
+                        //   headers: {
+                        //     Authorization: `Bearer ${token}`,
+                        //   },
+                        // }).then((res) => {
+                        //   console.log(res.data);
+                        //   toast.success("Product Edited successfully");
+                        //   setProductsLoaded(false);
+                        // }).catch((error)=>{
+                        //   toast.error("Failed to Edited product");
+                          
+                        // })
+                   
+                      }}>
                       <ImPencil size={16} />
                     </button>
                     <button
@@ -88,6 +112,7 @@ export default function AdminProductsPage() {
                     >
                       <RiDeleteBin5Fill size={16} />
                     </button>
+                    
                   </div>
                 </td>
               </tr>
