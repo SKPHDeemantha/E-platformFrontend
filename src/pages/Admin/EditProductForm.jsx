@@ -32,7 +32,7 @@ const altNames =product.altNames.join(",");
     const productData = {
       ProductId,
       productName,
-      altNames,
+      altNames, 
       images,
       price: parseFloat(price),
       lastPrice: parseFloat(lastPrice),
