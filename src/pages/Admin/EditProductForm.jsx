@@ -11,7 +11,7 @@ export default function EditProductForm() {
 
   if (!product) {
     navigate("/admin/products");
-    return null; // Prevent rendering if no product is passed
+    return null; 
   }
 
   const [ProductId, setProductId] = useState(product.ProductId);
