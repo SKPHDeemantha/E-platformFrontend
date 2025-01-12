@@ -56,10 +56,15 @@ export default function EditProductForm() {
     }
   }
 
-  function handleImageUpload(e) {
-    const files = e.target.files;
-    setImages(files); 
-  }
+  async  function handleUpload(){
+    UploadMeadiaToSupabase(file).then((url)=>{
+      console.log(url)
+      toast.success("Image is uploaded successfully.");
+    }).catch((err)=>{
+       console.log("oops! coudn't upload image",err)
+       toast.error("Please try again");
+    })
+}
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
@@ -94,9 +99,10 @@ export default function EditProductForm() {
         />
          <label>Images</label>
         <input
-          type="file"
+          type="File"
           id="image-urls"
-          onChange={handleImageUpload}
+          onChange={handleUpload}
+          nChange={(e)=>{setImages(e.target.files[0])}}
           className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
           placeholder="upload Images"
         />

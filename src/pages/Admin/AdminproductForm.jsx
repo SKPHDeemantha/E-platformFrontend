@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import UploadMeadiaToSupabase from "../../utils/MediaUpload";
 
+
 export default function AddProductForm() {
   const [ProductId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
@@ -45,13 +46,15 @@ export default function AddProductForm() {
       toast.error("Failed to add product");
     }
   }
-  async function handleimage() {
-    UploadMeadiaToSupabase(images).then((url)=>{
+  async  function handleUpload(){
+    UploadMeadiaToSupabase(file).then((url)=>{
       console.log(url)
+      toast.success("Image is uploaded successfully.");
+    }).catch((err)=>{
+       console.log("oops! coudn't upload image",err)
+       toast.error("Please try again");
     })
-
-    
-  }
+}
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
@@ -89,8 +92,8 @@ export default function AddProductForm() {
         <input
           type="File"
           id="image-urls"
-          onClick={handleimage}
-          onChange={(e) => setImages(e.target.value)}
+          onClick={handleUpload}
+          onChange={(e) => setImages(e.target.files[0])}
           className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
           placeholder="Enter image png or jpg"
         />
