@@ -3,6 +3,7 @@ import { ImSearch } from "react-icons/im";
 import { GiShoppingCart } from "react-icons/gi";
 import Header from '../components/Header';
 import ProductOverView from './Home/ProductOverview';
+import Productpage from './Home/Productpage';
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
     <Route path='/*' element={<h1>Home page</h1>}></Route>
     <Route path='/login' element={<loginpage/>}></Route>
     <Route path='/productInfo/:id' element={<ProductOverView/>}></Route>
+    <Route path='/products' element={<Productpage/>}></Route>
     </Routes>
       
     </div>
