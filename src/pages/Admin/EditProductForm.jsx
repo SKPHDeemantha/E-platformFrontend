@@ -58,7 +58,7 @@ export default function EditProductForm() {
 
   function handleImageUpload(e) {
     const files = e.target.files;
-    setImages(files);
+    setImages(files); 
   }
 
   return (

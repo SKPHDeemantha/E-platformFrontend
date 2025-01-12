@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import ProductNotFound from "./ProductNotFound";
 
+
 export default function ProductOverView(){
     const params =useParams();
-    const productId =params.id;
+    let productId =params.id;
     const [product,setProduct] =useState("");
     const[status,setStatus] =useState("loading");
 
    useEffect(
     ()=>{
          console.log(productId);
-         axios.get("http://localhost:3000/api/products"+ product.ProductId).then((res)=>{
+         axios.get(`http://localhost:3000/api/products/${productId}`).then((res)=>{
             console.log(res.data);
 
              if(res.data== null){
@@ -43,10 +44,10 @@ export default function ProductOverView(){
                 {
                     status == "found" && (
                         <div className="w-full h-full flex items-center justify-center">
-                        <div className="w-[35%] h-full">
+                        {/* <div className="w-[35%] h-full">
                             
                           <ImageSlider images={product.images}/>
-                        </div>
+                        </div> */}
                         <div className="w-[65%] h-full p-4">
                           <h1 className="text-3xl font-bold text-gray-800">{product.productName}</h1>
                           {/* <h1 className="text-3xl font-bold text-gray-500">{product.altNames.join(" | ")}</h1> */}

@@ -27,7 +27,6 @@ export default function AdminProductsPage() {
   const navigate =useNavigate();
   const Location =useLocation();
 
-  console.log(Location);
   return (
     <div className="min-h-screen bg-gray-100 p-5">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-5">
@@ -94,8 +93,8 @@ export default function AdminProductsPage() {
 
                       onClick={()=>{
                         const token = localStorage.getItem("token");
-
-                        axios.delete(`http://localhost:3000/api/products/${product.productId}`, {
+                      // methana prashne thibbe oyage (product.ProductId) undifind wnewa ekai product eka delete une naththe
+                        axios.delete(`http://localhost:3000/api/products/${product.ProductId}`, {
                           headers: {
                             Authorization: `Bearer ${token}`,
                           },
