@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import ProductCard from '../../components/ProductCard';
 
 export default function Productpage(){
   const [products,setProducts] =useState([]);
@@ -26,13 +27,11 @@ export default function Productpage(){
   ,[])
 
   return(
-    <div className="flex flex-wrap justify-center items-center bg-slate-400 overflow-y-scroll w-full h-full">
+    <div className="flex flex-wrap justify-center items-center bg-slate-200 overflow-y-scroll w-full h-full">
         {
             products.map(
              (product)=>
-            <div key={product.id} className='flex flex-col items-center'>
-             <h1>{product.productName}</h1>
-                  </div>
+              <ProductCard product={product}/>
           
              )
            }
