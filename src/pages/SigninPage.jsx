@@ -3,6 +3,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import UploadMeadiaToSupabase from "../utils/MediaUpload";
+import { Link } from "react-router-dom";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function SignUpPage() {
   async function handleImageUpload(file) {
     try {
       const url = await UploadMeadiaToSupabase(file);
-      setProfilePicture(url); 
+      setProfilePicture(url);
       console.log("File uploaded successfully:", url);
       toast.success("Profile picture uploaded successfully!");
     } catch (error) {
@@ -36,7 +37,6 @@ export default function SignUpPage() {
     try {
       const result = await axios.post("http://localhost:3000/api/users", user);
       console.log(result.data);
-
       navigate("/login");
       toast.success("Signup successfully!");
     } catch (err) {
@@ -46,59 +46,74 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300">
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-        <label className="block mb-2 font-medium">Email</label>
+        <div className="flex justify-center mb-4">
+          <img
+            src="/company logo.jpg"
+            alt="Company Logo"
+            className="w-24 h-24 object-contain rounded-full border-4 border-pink-500"
+          />
+        </div>
+        <h1 className="text-2xl font-bold text-center text-pink-900 mb-6">Create Your Account</h1>
+
+        <label className="block mb-2 font-medium text-pink-700">Email</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter your email"
         />
 
-        <label className="block mb-2 font-medium">First Name</label>
+        <label className="block mb-2 font-medium text-pink-700">First Name</label>
         <input
           type="text"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter your first name"
         />
 
-        <label className="block mb-2 font-medium">Last Name</label>
+        <label className="block mb-2 font-medium text-pink-700">Last Name</label>
         <input
           type="text"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter your last name"
         />
 
-        <label className="block mb-2 font-medium">Password</label>
+        <label className="block mb-2 font-medium text-pink-700">Password</label>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter your password"
         />
 
-        <label className="block mb-2 font-medium">Profile Picture</label>
+        <label className="block mb-2 font-medium text-pink-700">Profile Picture</label>
         <input
           type="file"
           onChange={(e) => handleImageUpload(e.target.files[0])}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
         />
 
         <button
           type="button"
           onClick={submit}
-          className="w-full py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-lg"
+          className="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-lg shadow-lg transition duration-300"
         >
           Sign Up
         </button>
+
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Already have an account?{' '}
+          <Link to="/login" className="text-pink-500 hover:underline">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { GiShoppingCart } from "react-icons/gi";
 
 export default function Header() {
   return (
-    <header className="bg-secondary w-full h-[100px] flex justify-center items-center shadow-md">
+    <header className="bg-gradient-to-b from-primary to-accent w-full h-[100px] flex justify-center items-center shadow-md">
   
       <img
         src="/company logo.jpg"
@@ -17,7 +17,7 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search for products"
-            className="rounded-sm p-2 w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="rounded-lg p-2 w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
           />
           <Link className="p-2 hover:text-blue-300">
             <ImSearch />
