@@ -34,14 +34,14 @@ export default function LoginPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-blue-300">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white shadow-2xl rounded-lg p-8 w-96">
-            
+           
                 <div className="flex justify-center mb-6">
                     <img
                         src="/company logo.jpg"
                         alt="Company Logo"
-                        className="w-24 h-24 object-contain rounded-full border-2 border-blue-500"
+                        className="w-24 h-24 object-contain rounded-full border-2 border-mycolor"
                     />
                 </div>
                 
@@ -62,7 +62,7 @@ export default function LoginPage() {
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor focus:border-transparent"
                             placeholder="Enter your email"
                         />
                     </div>
@@ -78,13 +78,13 @@ export default function LoginPage() {
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor focus:border-transparent"
                             placeholder="Enter your password"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition"
+                        className="w-full bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor focus:ring-offset-2 transition"
                     >
                         Login
                     </button>
@@ -92,7 +92,7 @@ export default function LoginPage() {
          
                 <p className="text-center text-sm text-gray-600 mt-4">
                     Don’t have an account?{" "}
-                    <Link to="/signup" className="text-blue-500 hover:underline">
+                    <Link to="/signup" className="text-pink-500 hover:underline">
                         Sign up
                     </Link>
                 </p>
