@@ -16,9 +16,9 @@ export function addToCart(productId,qty){
         }
     )
     console.log(index)
-    if(index==-1){
+    if(index ===-1){
         cart.push(
-            {productId,qty}
+             {productId,qty}
         )
     }else{
         const newQty =cart[index].qty +qty

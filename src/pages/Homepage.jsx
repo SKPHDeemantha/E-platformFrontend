@@ -4,6 +4,7 @@ import { GiShoppingCart } from "react-icons/gi";
 import Header from '../components/Header';
 import ProductOverView from './Home/ProductOverview';
 import Productpage from './Home/Productpage';
+import Cart from './Home/Cart';
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
     <Route path='/login' element={<loginpage/>}></Route>
     <Route path='/productInfo/:id' element={<ProductOverView/>}></Route>
     <Route path='/products' element={<Productpage/>}></Route>
+    <Route path='/cart' element={<Cart/>}></Route>
     </Routes>
       
     </div>

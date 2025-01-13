@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import ProductNotFound from "./ProductNotFound";
+import { addToCart } from "../../utils/Cartfunction";
+import toast from "react-hot-toast";
 
 
 export default function ProductOverView(){
@@ -26,6 +28,10 @@ export default function ProductOverView(){
 
          })
     },[])
+    function onAddtoCartClick(){
+        addToCart(product.productId,1)
+        toast.success(product.productId+" Added to cart")
+      }
 
     return(
         <div className="w-full h-[calc(100vh-100px)]  bg-slate-200">
@@ -56,7 +62,7 @@ export default function ProductOverView(){
                           <span className="line-through text-red-500">LKR.{product.price}</span>
                           } <span>{"LKR."+product.lastPrice}</span></p>
                           <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
-                          {/* <button onClick={onAddtoCartClick} className="bg-accent text-white p-2 rounded-lg">Add to cart</button> */}
+                          <button onClick={onAddtoCartClick} className="bg-accent text-white p-2 rounded-lg">Add to cart</button>
                         </div>
                       </div>
                     )
