@@ -57,7 +57,7 @@ export default function EditProductForm() {
   }
 
   async  function handleUpload(){
-    UploadMeadiaToSupabase(file).then((url)=>{
+    UploadMeadiaToSupabase(images).then((url)=>{
       console.log(url)
       toast.success("Image is uploaded successfully.");
     }).catch((err)=>{
@@ -100,11 +100,12 @@ export default function EditProductForm() {
          <label>Images</label>
         <input
           type="File"
-          id="image-urls"
-          onChange={handleUpload}
-          nChange={(e)=>{setImages(e.target.files[0])}}
+          id="image-urls"   
+          onChange={(e)=>{setImages(e.target.files[0])}}
           className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
           placeholder="upload Images"
+          onClick={handleUpload}
+          value={images}
         />
          <label>Price</label>
          <input
