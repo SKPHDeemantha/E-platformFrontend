@@ -27,7 +27,7 @@ export default function Header() {
 
   
         <div className="relative">
-          <Link className="p-2 text-2xl hover:text-pink-900">
+          <Link className="p-2 text-2xl hover:text-pink-900" to={"/cart"}>
             <GiShoppingCart />
           </Link>
           <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
@@ -44,7 +44,7 @@ export default function Header() {
             Home
           </Link>
           <Link
-            to="/product"
+            to="/products"
             className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent"
           >
             Products

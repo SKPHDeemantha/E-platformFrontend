@@ -7,18 +7,18 @@ export function loadCart(){
     }
 }
 
-export function addToCart(productId,qty){
+export function addToCart(ProductId,qty){
     const cart =loadCart()
 
     const index= cart.findIndex(
         (item)=>{
-            return item.productId=productId
+            return item.ProductId == ProductId
         }
     )
     console.log(index)
     if(index ===-1){
         cart.push(
-             {productId,qty}
+             {ProductId,qty}
         )
     }else{
         const newQty =cart[index].qty +qty

@@ -16,7 +16,7 @@ export default function Cart(){
             Cart.map(
                 (item)=>{
                     return(
-                        <span>{item.producId}  * {item.qty}</span>
+                        <span>{item.ProducId}  x {item.qty}</span>
                     )
                 }
             )
