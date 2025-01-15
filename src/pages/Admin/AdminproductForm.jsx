@@ -1,9 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import UploadMeadiaToSupabase from "../../utils/MediaUpload";
-
 
 export default function AddProductForm() {
   const [ProductId, setProductId] = useState("");
@@ -14,11 +13,12 @@ export default function AddProductForm() {
   const [lastPrice, setLastPrice] = useState("");
   const [stock, setStock] = useState("");
   const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
-   // const imgUrls = imageUrls.split(",");
+    // const imgUrls = imageUrls.split(",");
 
     const product = {
       ProductId,
@@ -30,38 +30,54 @@ export default function AddProductForm() {
       stock,
       description,
     };
-
+    console.log(product);
     const token = localStorage.getItem("token");
 
     try {
-      const result =  await axios.post("http://localhost:3000/api/products", product, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }); 
+      const result = await axios.post(
+        "http://localhost:3000/api/products",
+        product,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
       console.log(result);
-    navigate("/admin/products");
+      navigate("/admin/products");
       toast.success("Product added successfully");
-    } catch (err) { 
+    } catch (err) {
       toast.error("Failed to add product");
     }
   }
-  async  function handleUpload(){
-    UploadMeadiaToSupabase(file).then((url)=>{
-      console.log(url)
-      toast.success("Image is uploaded successfully.");
-    }).catch((err)=>{
-       console.log("oops! coudn't upload image",err)
-       toast.error("Please try again");
-    })
-}
+  async function handleUpload() {
+    if (images) {
+      setIsLoading(true);
+      UploadMeadiaToSupabase(images)
+        .then((url) => {
+          console.log(url);
+          setImages(url);
+          setIsLoading(false);
+          toast.success("Image is uploaded successfully.");
+        })
+        .catch((err) => {
+          setIsLoading(false);
+          console.log("oops! coudn't upload image", err);
+          toast.error("Please try again");
+        });
+    }
+  }
 
+  console.log(isLoading);
   return (
+
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
       <h1 className="text-4xl font-bold text-white mb-8">Add New Product</h1>
 
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <label className="block text-gray-700 font-medium mb-2">Product ID</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Product ID
+        </label>
         <input
           type="text"
           id="product-id"
@@ -70,7 +86,9 @@ export default function AddProductForm() {
           placeholder="Enter product ID"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">Product Name</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Product Name
+        </label>
         <input
           type="text"
           id="product-name"
@@ -79,7 +97,9 @@ export default function AddProductForm() {
           placeholder="Enter product name"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">Alternative Names</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Alternative Names
+        </label>
         <input
           type="text"
           id="alternative-names"
@@ -88,9 +108,11 @@ export default function AddProductForm() {
           placeholder="Enter alternative names (comma-separated)"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">Image URLs</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Image URLs
+        </label>
         <input
-          type="File"
+          type="file"
           id="image-urls"
           onClick={handleUpload}
           onChange={(e) => setImages(e.target.files[0])}
@@ -107,7 +129,9 @@ export default function AddProductForm() {
           placeholder="Enter price"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">Last Price</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Last Price
+        </label>
         <input
           type="number"
           id="last-price"
@@ -125,7 +149,9 @@ export default function AddProductForm() {
           placeholder="Enter stock"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">Description</label>
+        <label className="block text-gray-700 font-medium mb-2">
+          Description
+        </label>
         <input
           type="text"
           id="description"
@@ -137,7 +163,8 @@ export default function AddProductForm() {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
+        >
           Submit
         </button>
       </div>

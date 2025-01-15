@@ -12,6 +12,7 @@ export default function Cart(){
 
     return(
         <div className="w-full h-full overflow-y-scroll flex flex-wrap justify-center">
+        
            {
             Cart.map(
                 (item)=>{
