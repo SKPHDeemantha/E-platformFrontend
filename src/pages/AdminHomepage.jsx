@@ -16,7 +16,7 @@ export default function AdminHomepage() {
   return (
     <div className="bg-pink-100 w-full h-screen flex">
 
-      {/* Sidebar */}
+    
       <div className="bg-pink-100 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg">
         <h1 className="text-pink-700 text-2xl font-bold mt-6">Admin Panel</h1>
         <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
@@ -45,7 +45,6 @@ export default function AdminHomepage() {
         </button>
       </div>
 
-      {/* Content Area */}
       <div className="bg-pink-50 w-[80%] h-screen p-6 overflow-auto">
         <Routes path="/*">
           <Route path="/dashboard" element={<Dashboard />} />

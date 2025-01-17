@@ -23,7 +23,7 @@ export default function LoginPage() {
                 toast.success(res.data.message);
                 localStorage.setItem("token", res.data.token);
                 if (res.data.user.type === "admin") {
-                    navigate("/admin/*");
+                    navigate("/admin/dashboard");
                 } else {
                     navigate("/");
                 }
