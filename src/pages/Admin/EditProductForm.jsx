@@ -36,7 +36,7 @@ export default function EditProductForm() {
       stock,
       description,
     };
-
+  console.log(productData);
     const token = localStorage.getItem("token");
 
     try {

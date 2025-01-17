@@ -12,11 +12,11 @@ export default function uploadMediaToSupabase(file) {
       reject("File not added");
     }
     let fileName = file.name;
-    const extension = fileName.split(".")[fileName.split(".").length - 1];
+    const extension = fileName.split(",")[fileName.split(",").length - 1];
 
     const timestamp = new Date().getTime();
 
-    fileName = timestamp + file.name + "." + extension;
+    fileName = timestamp + file.name + "," + extension;
 
     supabase.storage
       .from("images")
