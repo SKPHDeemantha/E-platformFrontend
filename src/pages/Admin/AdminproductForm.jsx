@@ -2,41 +2,49 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import UploadMeadiaToSupabase from "../../utils/MediaUpload";
+import uploadMediaToSupabase from "../../utils/MediaUpload";
 
 export default function AddProductForm() {
   const [ProductId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
   const [alternativeNames, setAlternativeNames] = useState("");
-  const [images, setImages] = useState(null);
+  const [imageFile, setImageFile] = useState([]);
   const [price, setPrice] = useState("");
   const [lastPrice, setLastPrice] = useState("");
   const [stock, setStock] = useState("");
   const [description, setDescription] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
-    // const imgUrls = imageUrls.split(",");
+   
+    const promisesArray = [];
+    let imgUrls = [];
+    if (imageFile.length > 0) {
+      for (let i = 0; i < imageFile.length; i++) {
+        promisesArray[i] = uploadMediaToSupabase(imageFile[i]);
+      }
+      imgUrls = await Promise.all(promisesArray);
+    }
 
-    const product = {
+    const productdeatails = {
       ProductId,
       productName,
       altNames,
-      images,
+      images: imgUrls,
       price: parseFloat(price),
       lastPrice: parseFloat(lastPrice),
       stock,
       description,
     };
-    console.log(product);
+    console.log(productdeatails);
     const token = localStorage.getItem("token");
 
     try {
       const result = await axios.post(
-        "http://localhost:3000/api/products",
-        product,
+       `http://localhost:3000/api/products`,
+        productdeatails,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -50,27 +58,8 @@ export default function AddProductForm() {
       toast.error("Failed to add product");
     }
   }
-  async function handleUpload() {
-    if (images) {
-      setIsLoading(true);
-      UploadMeadiaToSupabase(images)
-        .then((url) => {
-          console.log(url);
-          setImages(url);
-          setIsLoading(false);
-          toast.success("Image is uploaded successfully.");
-        })
-        .catch((err) => {
-          setIsLoading(false);
-          console.log("oops! coudn't upload image", err);
-          toast.error("Please try again");
-        });
-    }
-  }
 
-  console.log(isLoading);
   return (
-
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
       <h1 className="text-4xl font-bold text-white mb-8">Add New Product</h1>
 
@@ -114,10 +103,10 @@ export default function AddProductForm() {
         <input
           type="file"
           id="image-urls"
-          onClick={handleUpload}
-          onChange={(e) => setImages(e.target.files[0])}
+          onChange={(e) => setImageFile(e.target.files)}
           className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
           placeholder="Enter image png or jpg"
+          multiple
         />
 
         <label className="block text-gray-700 font-medium mb-2">Price</label>
