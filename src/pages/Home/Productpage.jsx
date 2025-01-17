@@ -35,8 +35,7 @@ export default function Productpage(){
           
              )
            }
-      
-//       </div>
+      </div>
   )
 }
 
