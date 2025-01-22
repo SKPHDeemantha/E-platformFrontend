@@ -34,7 +34,7 @@ export default function AdminProductsPage() {
           <h1 className="text-2xl font-semibold text-gray-800">Admin Products</h1>
           <Link
             to="/admin/products/addProduct"
-            className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+            className="flex items-center gap-2 bg-mycolor text-white px-4 py-2 rounded-lg hover:bg-accent"
           >
             <IoMdAdd size={18} />
             <span>Add Product</span>
@@ -64,7 +64,7 @@ export default function AdminProductsPage() {
                 <td className="border border-gray-300 px-4 py-2">{product.description}</td>
                 <td className="border border-gray-300 px-4 py-2">
                   <div className="flex items-center gap-2">
-                    <button className="bg-yellow-400 text-white px-3 py-1 rounded hover:bg-yellow-500"
+                    <button className="bg-secondary text-white px-3 py-1 rounded hover:bg-yellow-500 "
                       title="Edit"
 
                       onClick={()=>{
@@ -88,7 +88,7 @@ export default function AdminProductsPage() {
                       <ImPencil size={16} />
                     </button>
                     <button
-                      className="text-red-500 hover:text-red-700 mr-2"
+                      className="text-red-500  px-3 py-1 rounded  hover:text-red-700 mr-2"
                       title="Delete"
 
                       onClick={()=>{
@@ -109,7 +109,7 @@ export default function AdminProductsPage() {
                    
                       }}
                     >
-                      <RiDeleteBin5Fill size={16} />
+                     <RiDeleteBin5Fill size={16} />
                     </button>
                     
                   </div>

@@ -60,8 +60,8 @@ export default function AddProductForm() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
-      <h1 className="text-4xl font-bold text-white mb-8">Add New Product</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 p-6">
+      <h1 className="text-4xl font-bold text-pink-700 mb-8">Add New Product</h1>
 
       <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
         <label className="block text-gray-700 font-medium mb-2">
@@ -71,7 +71,7 @@ export default function AddProductForm() {
           type="text"
           id="product-id"
           onChange={(e) => setProductId(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter product ID"
         />
 
@@ -82,7 +82,7 @@ export default function AddProductForm() {
           type="text"
           id="product-name"
           onChange={(e) => setProductName(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter product name"
         />
 
@@ -93,7 +93,7 @@ export default function AddProductForm() {
           type="text"
           id="alternative-names"
           onChange={(e) => setAlternativeNames(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter alternative names (comma-separated)"
         />
 
@@ -104,7 +104,7 @@ export default function AddProductForm() {
           type="file"
           id="image-urls"
           onChange={(e) => setImageFile(e.target.files)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter image png or jpg"
           multiple
         />
@@ -114,7 +114,7 @@ export default function AddProductForm() {
           type="number"
           id="price"
           onChange={(e) => setPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter price"
         />
 
@@ -125,7 +125,7 @@ export default function AddProductForm() {
           type="number"
           id="last-price"
           onChange={(e) => setLastPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter last price"
         />
 
@@ -134,7 +134,7 @@ export default function AddProductForm() {
           type="number"
           id="stock"
           onChange={(e) => setStock(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter stock"
         />
 
@@ -145,14 +145,14 @@ export default function AddProductForm() {
           type="text"
           id="description"
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
           placeholder="Enter description"
         />
 
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
+          className="w-full bg-pink-400 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors"
         >
           Submit
         </button>
