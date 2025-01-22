@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import ProductOverView from './Home/ProductOverview';
 import Productpage from './Home/Productpage';
 import Cart from './Home/Cart';
+import { CarouselDefault } from '../components/Slideshow';
 
 export default function HomePage() {
   return (
@@ -18,7 +19,9 @@ export default function HomePage() {
     <Route path='/products' element={<Productpage/>}></Route>
     <Route path='/cart' element={<Cart/>}></Route>
     </Routes>
-    <div className='w-48 h-48 bg-slate-400 justify-center items-center'></div>
+    <div className='w-48 h-48 bg-slate-400 justify-center items-center'>
+      {/* <CarouselDefault/> */}
+    </div>
     </div>
      
     </div>
