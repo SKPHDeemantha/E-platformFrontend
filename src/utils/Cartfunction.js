@@ -40,6 +40,19 @@ export function clearCart(){
     localStorage.removeItem("cart")
 }
 
+export function deleteItem(ProductId){
+    const cart = loadCart()
+  
+    const index = cart.findIndex(
+      (item)=>{
+        return item.ProductId==ProductId
+      }
+    )
+  
+    if(index!=-1){
+      cart.splice(index,1)
+    }
+}
 
     // addItem(item) {
     //     this.items.push(item);
