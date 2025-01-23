@@ -1,73 +1,82 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import ProductNotFound from "./ProductNotFound";
 import { addToCart } from "../../utils/Cartfunction";
 import toast from "react-hot-toast";
+import ImageSlider from "../../components/ImageSlider";
 
+export default function ProductOverView() {
+  const params = useParams();
+  const productId = params.id;
+  const [product, setProduct] = useState(null);
+  const [status, setStatus] = useState("loading");
 
-export default function ProductOverView(){
-    const params =useParams();
-    let productId =params.id;
-    const [product,setProduct] =useState("");
-    const[status,setStatus] =useState("loading");
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/products/${productId}`)
+      .then((res) => {
+        if (res.data) {
+          setProduct(res.data);
+          setStatus("found");
+        } else {
+          setStatus("not found");
+        }
+      })
+      .catch(() => setStatus("not found"));
+  }, [productId]);
 
-   useEffect(
-    ()=>{
-         console.log(productId);
-         axios.get(`http://localhost:3000/api/products/${productId}`).then((res)=>{
-            console.log(res.data);
+  const onAddToCartClick = () => {
+    if (product) {
+      addToCart(product.productId, 1);
+      toast.success(`${product.productName} added to cart!`);
+    }
+  };
 
-             if(res.data== null){
-                setStatus("not found");
-             } 
-             if(res.data !=null){
-                setProduct(res.data);
-                setStatus("found");
-             }
-
-         })
-    },[])
-    function onAddtoCartClick(){
-        addToCart(product.productId,1)
-        toast.success(product.productId+" Added to cart")
-      }
-
-    return(
-        <div className="w-full h-[calc(100vh-100px)]  bg-slate-200">
-            {
-                status =="loading" && (
-                    <div className="w-full h-full flex items-center justify-center">
-            <div className="animate-spin rounded-full h-32 w-32  border-2 border-gray-500 border-b-accent border-b-4"></div>
-
-          </div>
-                )}
-                {
-                    status =="not found" &&(
-                        <ProductNotFound/>
-                    )
-                }
-                {
-                    status == "found" && (
-                        <div className="w-full h-full flex items-center justify-center">
-                        {/* <div className="w-[35%] h-full">
-                            
-                          <ImageSlider images={product.images}/>
-                        </div> */}
-                        <div className="w-[65%] h-full p-4">
-                          <h1 className="text-3xl font-bold text-gray-800">{product.productName}</h1>
-                          {/* <h1 className="text-3xl font-bold text-gray-500">{product.altNames.join(" | ")}</h1> */}
-                          <p className="text-xl text-gray-600">{
-                          (product.price>product.lastPrice)&&
-                          <span className="line-through text-red-500">LKR.{product.price}</span>
-                          } <span>{"LKR."+product.lastPrice}</span></p>
-                          <p className="text-lg text-gray-600 line-clamp-3">{product.description}</p>
-                          <button onClick={onAddtoCartClick} className="bg-accent text-white p-2 rounded-lg">Add to cart</button>
-                        </div>
-                      </div>
-                    )
-                    
-                }
+  return (
+    <div className="w-full h-auto min-h-[calc(100vh-100px)] bg-gray-100 p-4">
+      {status === "loading" && (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-300 border-t-accent"></div>
         </div>
-    )
+      )}
+      {status === "not found" && <ProductNotFound />}
+      {status === "found" && product && (
+        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center gap-6 p-4">
+        
+          <div className="w-full lg:w-1/2">
+            <ImageSlider images={product.images} />
+          </div>
+       
+          <div className="w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-6 space-y-4">
+            <h1 className="text-2xl lg:text-4xl font-extrabold text-gray-800">
+              {product.productName}
+            </h1>
+            <h2 className="text-sm lg:text-lg font-medium text-gray-500">
+              {product.altNames.join(" | ")}
+            </h2>
+            <p className="text-lg lg:text-xl">
+              {product.price > product.lastPrice && (
+                <span className="line-through text-red-500 mr-2">
+                  LKR {product.price}
+                </span>
+              )}
+              <span className="font-bold text-green-600">
+                LKR {product.lastPrice}
+              </span>
+            </p>
+            <p className="text-gray-600 text-sm lg:text-base line-clamp-3">
+              {product.description}
+            </p>
+            <button
+              onClick={onAddToCartClick}
+              className="bg-accent hover:bg-accent-dark text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
