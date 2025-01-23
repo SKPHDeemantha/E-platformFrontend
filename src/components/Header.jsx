@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
 import { GiShoppingCart } from "react-icons/gi";
+import { FiAlignJustify } from "react-icons/fi";
 
 export default function Header() {
   return (
@@ -61,6 +62,8 @@ export default function Header() {
           >
             Contact Us
           </Link>
+   
+          
          
         </div>
       </div>
