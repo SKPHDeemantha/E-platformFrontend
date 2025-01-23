@@ -72,7 +72,7 @@ export default function AdminCustomerPage() {
                 </td>
                 <td className="border border-gray-300 px-4 py-2">
                   <button
-                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                    className="bg-mycolor text-white px-3 py-1 rounded hover:bg-accent"
                   >
                     View
                   </button>
