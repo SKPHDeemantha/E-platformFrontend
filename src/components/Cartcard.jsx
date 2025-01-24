@@ -12,7 +12,7 @@ export default function CartCard(props){
   useEffect  (
     ()=>{
       if(!loaded){
-        axios.get("http://localhost:3000/api//products/"+ProductId).then(
+        axios.get("http://localhost:3000/api/products/"+ProductId).then(
 
           (response)=>{
             if(response.data!=null){
@@ -30,7 +30,7 @@ export default function CartCard(props){
           }
         )
       }
-    } , []
+    } , [loaded, ProductId]
   )
 
   return(

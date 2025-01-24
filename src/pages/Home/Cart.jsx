@@ -4,8 +4,9 @@ import CartCard from "../../components/Cartcard"
 import axios from "axios"
 
 export default function Cart(){
-    const [Cart,setCart] =useState([])
-    const[total,setTotal]=useState(0)
+    const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [labeledTotal, setLabeledTotal] = useState(0);
 
     useEffect(() => {
         const cartItems = loadCart();
@@ -37,26 +38,28 @@ export default function Cart(){
               <th>Total</th>
             </tr>
           </thead>
-          {Cart.map((item) => {
+          <tbody>
+          {cart.map((item) => {
             return (
               <CartCard
                 key={item.ProductId}
                 ProductId={item.ProductId}
                 qty={item.qty}
               />
-            );
+              );
           })}
+          </tbody>
         </table>
-        {/* <h1 className="text-3xl font-bold text-accent">
+        <h1 className="text-3xl font-bold text-accent">
           Total: LKR. {labeledTotal.toFixed(2)}
-        </h1> */}
-        {/* <h1 className="text-3xl font-bold text-accent">
+        </h1>
+        <h1 className="text-3xl font-bold text-accent">
           Discount: LKR. {(labeledTotal - total).toFixed(2)}
-        </h1> */}
-        {/* <h1 className="text-3xl font-bold text-accent">
+        </h1>
+        <h1 className="text-3xl font-bold text-accent">
           Grand Total: LKR. {total}
         </h1>
-   */}
+  
         <button onClick={onOrdercheckout}  className="bg-accent hover:bg-accent-light text-white p-2 rounded-lg w-[300px]">
           Checkout
         </button>

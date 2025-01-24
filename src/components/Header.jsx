@@ -2,33 +2,44 @@ import { Link } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
 import { GiShoppingCart } from "react-icons/gi";
 import { FiAlignJustify } from "react-icons/fi";
+import { useState } from "react";
+import NavSlider from "./NavSlider";
 
 export default function Header() {
+  const [isSliderOpen, setIsSliderOpen] = useState(false);
+
   return (
-    <header className="bg-gradient-to-b from-primary to-red-300 w-full h-[100px] flex justify-center items-center shadow-md">
-  
-      <img
-        src="/company logo.jpg"
-        alt="Company Logo"
-        className="cursor-pointer rounded-full absolute left-4 w-20 h-20"
-      />
-      <div className="h-full flex items-center w-full max-w-screen-lg justify-between px-4 md:px-8">
-   
-        <div className="flex items-center  p-2">
+    <>
+      {isSliderOpen && <NavSlider closeSlider={() => setIsSliderOpen(false)} />}
+      <header className="bg-gradient-to-b from-primary to-red-300 w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative">
+
+        <img
+          src="/company logo.jpg"
+          alt="Company Logo"
+          className="cursor-pointer rounded-full w-16 h-16 md:w-20 md:h-20 absolute left-4"
+        />
+
+        
+        <div className="flex items-center space-x-2 w-full max-w-[70%] lg:max-w-[50%] md:ml-20">
           <input
             type="text"
             placeholder="Search for products"
-            className="rounded-lg p-2 w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-            
+            className="rounded-lg p-2 w-full md:w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
           />
-          <Link className="p-2 hover:text-pink-900">
+          <Link className="p-2 text-xl text-gray-700 hover:text-pink-900">
             <ImSearch />
           </Link>
         </div>
 
-  
-        <div className="relative">
-          <Link className="p-2 text-2xl hover:text-pink-900" to={"/cart"}>
+        
+        <FiAlignJustify
+          onClick={() => setIsSliderOpen(true)}
+          className="text-3xl cursor-pointer text-mycolor lg:hidden absolute right-4"
+        />
+
+       
+        <div className="relative hidden lg:flex">
+          <Link className="p-2 text-2xl text-gray-700 hover:text-pink-900" to="/cart">
             <GiShoppingCart />
           </Link>
           <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
@@ -36,8 +47,8 @@ export default function Header() {
           </span>
         </div>
 
-   
-        <div className="hidden md:flex space-x-8">
+        
+        <div className="hidden lg:flex space-x-8 items-center">
           <Link
             to="/"
             className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent"
@@ -62,11 +73,17 @@ export default function Header() {
           >
             Contact Us
           </Link>
-   
-          
-         
         </div>
-      </div>
-    </header>
+
+        <div className="relative lg:hidden">
+          <Link className="p-2 text-2xl text-gray-700 hover:text-pink-900" to="/cart">
+            <GiShoppingCart />
+          </Link>
+          <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
+            3
+          </span>
+        </div>
+      </header>
+    </>
   );
 }
