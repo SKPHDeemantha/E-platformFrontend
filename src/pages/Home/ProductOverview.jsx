@@ -70,7 +70,7 @@ export default function ProductOverView() {
             </p>
             <button
               onClick={onAddToCartClick}
-              className="bg-accent hover:bg-accent-dark text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
+              className="bg-mycolor hover:bg-accent hover:text-wrap text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
             >
               Add to Cart
             </button>

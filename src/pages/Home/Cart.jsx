@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { loadCart } from "../../utils/Cartfunction"
 import CartCard from "../../components/Cartcard"
 import axios from "axios"
-import { GiToken } from "react-icons/gi";
+
 
 export default function Cart(){
     const [cart, setCart] = useState([]);
