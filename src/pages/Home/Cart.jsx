@@ -25,7 +25,11 @@ export default function Cart(){
    function onOrdercheckout(){
     const token = localStorage.getItem("token");
     axios.post("http://localhost:3000/api/orders",{
-      orderedItems : cart
+      orderedItems : cart,
+      //api methanata name ekak input krnna hadanna ona danata me nama denawa
+      name :"John Doe",
+      address : "Testing",
+      phone : "+94770348784"
       
     },{
       headers :{
