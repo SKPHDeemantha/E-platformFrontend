@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { loadCart } from "../../utils/Cartfunction"
 import CartCard from "../../components/Cartcard"
 import axios from "axios"
+import { GiToken } from "react-icons/gi";
 
 export default function Cart(){
     const [cart, setCart] = useState([]);
@@ -11,8 +12,8 @@ export default function Cart(){
     useEffect(() => {
         const cartItems = loadCart();
         setCart(cartItems);
-        axios.get("http://localhost:3000/api/orders/quote", {
-            params: { orderedItems: cartItems }
+        axios.post("http://localhost:3000/api/orders/quote", {
+            params: { orderedItems: cartItems },
         })
         .then((res) => {
             console.log(res.data);
@@ -22,7 +23,17 @@ export default function Cart(){
     }, []);
 
    function onOrdercheckout(){
-
+    const token = localStorage.getItem("token");
+    axios.post("http://localhost:3000/api/orders",{
+      orderedItems : cart
+      
+    },{
+      headers :{
+        Authorization: "Bearer " + token,
+      }
+    }).then((res)=>{
+      console.log(res.data)
+    })
     }
 
     return(

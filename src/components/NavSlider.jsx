@@ -13,7 +13,7 @@ export default function NavSlider(props) {
         />
         <IoMdClose
           onClick={closeSlider}
-          className="text-3xl absolute cursor-pointer text-accent right-[10px] lg:hidden"
+          className="text-3xl absolute cursor-pointer text-accent lg:hidden"
         />
         </div>
         <Link
