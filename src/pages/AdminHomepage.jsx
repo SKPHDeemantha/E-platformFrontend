@@ -48,6 +48,7 @@ export default function AdminHomepage() {
       <div className="bg-pink-50 w-[80%] h-screen p-6 overflow-auto">
         <Routes path="/*">
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/*" element={<Dashboard />} />
           <Route path="/products" element={<Adminproductpage />} />
           <Route path="/products/addproduct" element={<AddproductForm />} />
           <Route path="/products/editproduct" element={<EditProductForm />} />

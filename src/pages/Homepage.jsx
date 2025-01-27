@@ -19,9 +19,10 @@ export default function HomePage() {
     <Route path='/productInfo/:id' element={<ProductOverView/>}></Route>
     <Route path='/products' element={<Productpage/>}></Route>
     <Route path='/cart' element={<Cart/>}></Route>
+
     </Routes>
     
-    <CarouselDefault className='w-10 h-10 bg-slate-400' />
+    {/* <CarouselDefault className='w-10 h-10 bg-slate-400' /> */}
     </div>
      
     </div>
