@@ -37,7 +37,7 @@ export default function ProductOverView() {
     <div className="w-full h-auto min-h-[calc(100vh-100px)] bg-gray-100 p-4">
       {status === "loading" && (
         <div className="w-full h-full flex items-center justify-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-300 border-t-accent"></div>
+          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-accent"></div>
         </div>
       )}
       {status === "not found" && <ProductNotFound />}

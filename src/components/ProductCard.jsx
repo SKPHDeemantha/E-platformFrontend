@@ -5,7 +5,7 @@ export default function ProductCard(props) {
 
   return (
     <Link to={`/productinfo/${product.ProductId}`}>
-      <div className="w-[300px] h-[450px] m-[70px] justify-center bg-gradient-to-r from-secondary to-red-300 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 relative group">
+      <div className="w-[300px] h-[450px] m-[70px] justify-center bg-gradient-to-r  shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 relative group">
      
         {product.isNew && (
           <div className="absolute top-2 left-2 bg-green-500 text-white font-bold px-2 py-1 rounded-md shadow-md">
