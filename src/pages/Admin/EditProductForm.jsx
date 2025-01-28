@@ -11,10 +11,10 @@ export default function EditProductForm() {
 
   if (!product) {
     navigate("/admin/products");
-    return null; 
+    return null;
   }
 
-  const [ProductId, setProductId] = useState(product.ProductId);
+  const [ProductId] = useState(product.ProductId);
   const [productName, setProductName] = useState(product.productName);
   const [alternativeNames, setAlternativeNames] = useState(product.altNames.join(","));
   const [imageFile, setImageFile] = useState([]);
@@ -25,15 +25,16 @@ export default function EditProductForm() {
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
-     
     const promisesArray = [];
     let imgUrls = product.images;
+
     if (imageFile.length > 0) {
       for (let i = 0; i < imageFile.length; i++) {
         promisesArray[i] = uploadMediaToSupabase(imageFile[i]);
       }
       imgUrls = await Promise.all(promisesArray);
     }
+
     const productData = {
       ProductId,
       productName,
@@ -44,19 +45,13 @@ export default function EditProductForm() {
       stock,
       description,
     };
-  
+
     const token = localStorage.getItem("token");
 
     try {
-      const result = await axios.put(
-        `http://localhost:3000/api/products/${ProductId}`,
-        productData,
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      await axios.put(`http://localhost:3000/api/products/${ProductId}`, productData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       navigate("/admin/products");
       toast.success("Product updated successfully");
     } catch (err) {
@@ -65,88 +60,96 @@ export default function EditProductForm() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6">
-      <h1 className="text-4xl font-bold text-white mb-8">Edit Product</h1>
-
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <label>Product ID</label>
-        <input
-          disabled
-          type="text"
-          id="product-id"
-          value={ProductId}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-        />
-        <label>Product Name</label>
-        <input
-          type="text"
-          id="product-name"
-          value={productName}
-          onChange={(e) => setProductName(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Product Name"
-        />
-        <label>Alternative Names</label>
-        <input
-          type="text"
-          id="alternative-names"
-          value={alternativeNames}
-          onChange={(e) => setAlternativeNames(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Alternative Names"
-        />
-        <label>Images</label>
-        <input
-          type="file"
-          id="image-urls"
-          onChange={(e) => setImageFile(e.target.files)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Upload Images"
-        />
-        <label>Price</label>
-        <input
-          type="text"
-          id="price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Price"
-        />
-        <label>Last Price</label>
-        <input
-          type="text"
-          id="last-price"
-          value={lastPrice}
-          onChange={(e) => setLastPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Last Price"
-        />
-        <label>Stock</label>
-        <input
-          type="text"
-          id="stock"
-          value={stock}
-          onChange={(e) => setStock(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Stock"
-        />
-        <label>Description</label>
-        <input
-          type="text"
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-          placeholder="Enter Description"
-        />
-      
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors"
-        >
-          Update
-        </button>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 to-pink-300 p-6">
+      <div className="w-full max-w-lg bg-white shadow-lg rounded-xl p-8">
+        <h1 className="text-3xl font-bold text-pink-700 mb-6 text-center">Edit Product</h1>
+        <form className="space-y-5">
+          <div>
+            <label className="block text-gray-700 font-medium">Product ID</label>
+            <input
+              type="text"
+              value={ProductId}
+              disabled
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 cursor-not-allowed"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Product Name</label>
+            <input
+              type="text"
+              value={productName}
+              onChange={(e) => setProductName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Product Name"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Alternative Names</label>
+            <input
+              type="text"
+              value={alternativeNames}
+              onChange={(e) => setAlternativeNames(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Alternative Names"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Images</label>
+            <input
+              type="file"
+              onChange={(e) => setImageFile(e.target.files)}
+              multiple
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Price</label>
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Price"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Last Price</label>
+            <input
+              type="text"
+              value={lastPrice}
+              onChange={(e) => setLastPrice(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Last Price"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Stock</label>
+            <input
+              type="text"
+              value={stock}
+              onChange={(e) => setStock(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Stock"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium">Description</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter Description"
+              rows={3}
+            />
+          </div>
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors"
+          >
+            Update Product
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <>
       {isSliderOpen && <NavSlider closeSlider={() => setIsSliderOpen(false)} />}
-      <header className="bg-gradient-to-b from-primary to-red-300 w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative">
+      <header className="bg-gradient-to-b from-pink-900 to-red-300 w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative">
 
         <img
           src="/company logo.jpg"
@@ -26,7 +26,7 @@ export default function Header() {
             placeholder="Search for products"
             className="rounded-lg p-2 w-full md:w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
           />
-          <Link className="p-2 text-xl text-gray-700 hover:text-pink-900"><ImSearch /> </Link>
+          <Link className="p-2 text-xl text-white hover:text-pink-900"><ImSearch /> </Link>
         </div>
 
         
@@ -37,22 +37,22 @@ export default function Header() {
 
        
         <div className="relative hidden lg:flex">
-          <Link className="p-2 text-2xl text-gray-700 hover:text-pink-900" to="/cart"><GiShoppingCart /> </Link>
+          <Link className="p-2 text-2xl text-white hover:text-pink-900" to="/cart"><GiShoppingCart /> </Link>
           <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1"></span>
         </div>
 
         
         <div className="hidden lg:flex space-x-8 items-center"><Link to="/"
-            className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent">
+            className="text-white font-bold text-xl hover:border-b border-b-primary hover:text-accent">
             Home</Link>
           <Link to="/products"
-            className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent">Products</Link>
+            className="text-white font-bold text-xl hover:border-b border-b-primary hover:text-accent">Products</Link>
 
-          <Link to="/about" className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent">
+          <Link to="/about" className="text-white font-bold text-xl hover:border-b border-b-primary hover:text-accent">
           About Us</Link>
 
           <Link to="/contactus"
-            className="text-mycolor font-bold text-xl hover:border-b border-b-primary hover:text-accent" >
+            className="text-white font-bold text-xl hover:border-b border-b-primary hover:text-accent" >
             Contact Us </Link>
         </div>
 
