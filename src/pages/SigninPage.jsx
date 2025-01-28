@@ -46,8 +46,14 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+    <div className="flex justify-center items-center relative min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300">
+      <img
+                src="/Loginpage.jpg"
+                alt="Loginpage background"
+                className="absolute inset-0 w-full h-full object-cover opacity-50"
+            />
+
+      <div className="relative z-10 w-full max-w-md bg-white p-8 rounded-lg shadow-lg sm:mx-auto">
         <div className="flex justify-center mb-4">
           <img
             src="/company logo.jpg"

@@ -14,7 +14,7 @@ export default function ContactMe() {
       <Header />
 
       {/* Main Content Section */}
-      <div className="flex flex-col lg:flex-row bg-gradient-to-r from-gray-800 via-gray-700 to-gray-500 shadow-lg w-full h-[calc(100vh-4rem)] items-center justify-center p-10">
+      <div className="flex flex-col lg:flex-row bg-gradient-to-r from-gray-200 via-gray-100 to-slate-50 shadow-2xl w-full h-[calc(100vh-4rem)] items-center justify-center p-10">
         {/* Image Section */}
         <div className="w-full lg:w-[45%] h-[500px] p-5 flex justify-center items-center rounded-2xl shadow-lg">
           <img
@@ -25,7 +25,7 @@ export default function ContactMe() {
         </div>
 
         {/* Contact Details Section */}
-        <div className="w-full lg:w-[45%] h-[500px] p-6 shadow-xl flex flex-col justify-center items-center space-y-6 rounded-2xl bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="w-full lg:w-[45%] h-[500px] p-6 shadow-xl flex flex-col justify-center items-center space-y-6 rounded-2xl bg-gradient-to-b from-gray-400 to-gray-300">
           <h2 className="text-3xl font-semibold text-white">Get in Touch</h2>
           <p className="text-white text-lg text-center mb-6">
             Feel free to reach out to me via any of these platforms:
