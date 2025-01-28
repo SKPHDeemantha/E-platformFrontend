@@ -1,23 +1,57 @@
 import { Carousel } from "@material-tailwind/react";
- 
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { EffectCoverflow, Pagination, Navigation } from 'swiper';
+
 export function CarouselDefault() {
   return (
-    <Carousel className="rounded-xl transition={{ duration: 2 }}">
-      <img
-        src="/company logo.jpg"
-        alt="image 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-        alt="image 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-        alt="image 3"
-        className="h-full w-full object-cover"
-      />
-    </Carousel>
+    <div className="container">
+    <h1 className="heading">Flower Gallery</h1>
+    <Swiper
+      effect={'coverflow'}
+      grabCursor={true}
+      centeredSlides={true}
+      loop={true}
+      slidesPerView={'auto'}
+      coverflowEffect={{
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2.5,
+      }}
+      pagination={{ el: '.swiper-pagination', clickable: true }}
+      navigation={{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        clickable: true,
+      }}
+      modules={[EffectCoverflow, Pagination, Navigation]}
+      className="swiper_container"
+    >
+      <SwiperSlide>
+        <img src="EditPage.jpg" alt="slide_image" />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src="Loginpage.jpg" alt="slide_image" />
+      </SwiperSlide>
+      
+
+      <div className="slider-controler">
+        <div className="swiper-button-prev slider-arrow">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </div>
+        <div className="swiper-button-next slider-arrow">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </div>
+        <div className="swiper-pagination"></div>
+      </div>
+    </Swiper>
+  </div>
   );
 }

@@ -4,6 +4,7 @@ import { FaFacebookMessenger } from "react-icons/fa";
 import { IoIosMailUnread } from "react-icons/io";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const facebook = "https://www.facebook.com/heshan.deemantha.7/?viewas=100000686899395";
 
@@ -74,7 +75,9 @@ export default function ContactMe() {
             </Link>
           </div>
         </div>
+       
       </div>
+       <Footer/>
     </div>
   );
 }
