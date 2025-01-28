@@ -104,7 +104,7 @@ export default function LoginPage() {
 
                     <button
                         type="submit"
-                        className="w-full bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition"
+                        className="w-full bg-black hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition mt-4"
                         onClick={()=>{googlelogin()}}
                     >
                       Login with Google
