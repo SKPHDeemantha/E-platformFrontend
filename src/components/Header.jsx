@@ -44,13 +44,13 @@ export default function Header() {
 
         <div className="relative hidden lg:flex items-center">
           <Link
-            className="p-2 text-xl text-white hover:text-pink-900 hover:shadow-xl flex items-center"
+            className="p-2 text-xl text-white hover:text-pink-900 hover:shadow-xl hover:outline flex items-center"
             to="/cart"
           >
             View Cart <GiShoppingCart className="ml-1" />
           </Link>
           <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
-        
+       
           </span>
         </div>
 
@@ -58,25 +58,25 @@ export default function Header() {
         <nav className="hidden lg:flex space-x-8 items-center">
           <Link
             to="/"
-            className="text-white font-bold text-xl hover:border-b border-primary hover:text-pink-900"
+            className="text-white font-bold p-2 bg-opacity-30 text-xl hover:shadow-xl hover:outline hover:border-b border-primary hover:text-pink-900"
           >
             Home
           </Link>
           <Link
             to="/products"
-            className="text-white font-bold text-xl hover:border-b border-primary hover:text-pink-900"
+            className="text-white font-bold p-2 text-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900"
           >
             Products
           </Link>
           <Link
             to="/contactus"
-            className="text-white font-bold text-xl hover:border-b border-primary hover:text-pink-900"
+            className="text-white p-2 font-bold text-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900"
           >
             Contact Us
           </Link>
           <Link
             to="/signup"
-            className="text-white font-bold text-xl hover:border-b border-primary hover:text-pink-900"
+            className="text-white p-2 font-bold text-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900"
           >
             Sign Up
           </Link>
@@ -85,7 +85,7 @@ export default function Header() {
         {/* Cart for Mobile Screens */}
         <div className="relative lg:hidden">
           <Link
-            className="p-2 text-2xl text-white hover:text-pink-900"
+            className="p-2 text-2xl text-white hover:shadow-xl hover:outline hover:text-pink-900"
             to="/cart"
           >
             <GiShoppingCart />
