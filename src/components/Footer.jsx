@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-8 text-center text-sm">
-                    &copy; 2025 Your Company. All rights reserved.
+                    &copy; 2025 velvetglowcompany(pvt)Ltd. All rights reserved.
                 </div>
             </div>
         </footer>
