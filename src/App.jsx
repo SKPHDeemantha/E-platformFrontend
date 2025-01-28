@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast'
 import AddproductForm from './pages/Admin/AdminproductForm'
 import FileUploardTest from './pages/Test'
 import Productpage from './pages/Home/Productpage'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     <>
     <BrowserRouter>
     <Toaster position="top-right"/>
+    <GoogleOAuthProvider clientId='421627820068-hegiadvcp1a4arodscmffcr4qjb366a8.apps.googleusercontent.com'>
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
     <Route path="/product" element={<Productpage/>}/>
@@ -33,9 +35,10 @@ function App() {
     <Route path="/contactus" element={<Contactus/>}/>
     <Route path="/*" element={<HomePage/>}/>
     <Route path="/test" element={<FileUploardTest/>}/>
+   
     </Routes>
 
-
+ </GoogleOAuthProvider>
     </BrowserRouter>
     </>
   )

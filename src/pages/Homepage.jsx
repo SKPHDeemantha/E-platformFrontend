@@ -1,12 +1,42 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from "react-router-dom";
 import { ImSearch } from "react-icons/im";
 import { GiShoppingCart } from "react-icons/gi";
-import Header from '../components/Header';
-import ProductOverView from './Home/ProductOverview';
-import Productpage from './Home/Productpage';
-import Cart from './Home/Cart';
-import { Carousel } from '@material-tailwind/react';
-import Footer from '../components/Footer';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Header from "../components/Header";
+import ProductOverView from "./Home/ProductOverview";
+import Productpage from "./Home/Productpage";
+import Cart from "./Home/Cart";
+import { Carousel } from "@material-tailwind/react";
+import Footer from "../components/Footer";
+
+function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    isVisible && (
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 p-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600"
+      >
+        ↑
+      </button>
+    )
+  );
+}
 
 export default function HomePage() {
   return (
@@ -23,17 +53,28 @@ export default function HomePage() {
           transition={{ duration: 1.5 }}
         >
           {/* Slide 1 */}
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold"
+          >
             Welcome to Our Store - Your one-stop shop for everything!
-          </div>
+            <Link
+              to="/products"
+              className="mt-4 px-4 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform"
+            >
+              Shop Now
+            </Link>
+          </motion.div>
 
           {/* Slide 2 */}
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-pink-500 to-orange-500 text-white text-2xl font-bold">
+          <div className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-pink-500 to-orange-500 text-white text-2xl font-bold">
             Discover Amazing Products Handpicked Just for You!
           </div>
 
           {/* Slide 3 */}
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl font-bold">
+          <div className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl font-bold">
             Exclusive Deals & Discounts Await You!
           </div>
         </Carousel>
@@ -44,7 +85,7 @@ export default function HomePage() {
         {/* Explore Products Button */}
         <Link
           to="/products"
-          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform glow-on-hover"
         >
           Explore Products
         </Link>
@@ -52,7 +93,7 @@ export default function HomePage() {
         {/* Login Button */}
         <Link
           to="/login"
-          className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+          className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform glow-on-hover"
         >
           Login
         </Link>
@@ -88,6 +129,9 @@ export default function HomePage() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
 
       {/* Footer Section */}
       <Footer />
