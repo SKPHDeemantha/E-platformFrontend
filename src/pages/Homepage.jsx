@@ -14,25 +14,27 @@ export default function HomePage() {
       {/* Header Section */}
       <Header />
 
-      {/* Slideshow Section */}
-      <div className="w-full h-[50vh] flex items-center justify-center">
-        <Carousel
-          className="w-3/4 h-full rounded-2xl shadow-lg overflow-hidden"
-          loop
-          autoplay
-          transition={{ duration: 1.5 }}
-        >
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold">
-            Welcome to Our Store - Your one-stop shop for everything!
-          </div>
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-pink-500 to-orange-500 text-white text-2xl font-bold">
-            Discover Amazing Products Handpicked Just for You!
-          </div>
-          <div className="h-full flex items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl font-bold">
-            Exclusive Deals & Discounts Await You!
-          </div>
-        </Carousel>
-      </div>
+     {/* Slideshow Section */}
+<div className="w-full h-[50vh] flex items-center justify-center">
+  <Carousel
+    className="w-3/4 h-full rounded-2xl shadow-lg overflow-hidden"
+    loop
+    autoplay
+    transition={{ duration: 1.5 }}
+  >
+    <div className="h-full flex items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold">
+      Welcome to Our Store - Your one-stop shop for everything!
+    </div>
+    <div className="h-full flex items-center justify-center bg-gradient-to-r from-pink-500 to-orange-500 text-white text-2xl font-bold">
+      Discover Amazing Products Handpicked Just for You!
+    </div>
+    <div className="h-full flex items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl font-bold">
+      Exclusive Deals & Discounts Await You!
+    </div>
+
+  </Carousel>
+</div>
+
 
       {/* Button Navigation Section */}
       <div className="w-full py-8 flex justify-center space-x-6">
