@@ -18,7 +18,7 @@ export default function AddProductForm() {
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
-   
+
     const promisesArray = [];
     let imgUrls = [];
     if (imageFile.length > 0) {
@@ -28,7 +28,7 @@ export default function AddProductForm() {
       imgUrls = await Promise.all(promisesArray);
     }
 
-    const productdeatails = {
+    const productDetails = {
       ProductId,
       productName,
       altNames,
@@ -38,13 +38,13 @@ export default function AddProductForm() {
       stock,
       description,
     };
-    console.log(productdeatails);
+
     const token = localStorage.getItem("token");
 
     try {
       const result = await axios.post(
-       `http://localhost:3000/api/products`,
-        productdeatails,
+        `http://localhost:3000/api/products`,
+        productDetails,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -60,99 +60,102 @@ export default function AddProductForm() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 p-6">
-      <h1 className="text-4xl font-bold text-pink-700 mb-8">Add New Product</h1>
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 p-4">
+      {/* Background Image */}
+      <img
+        src="/EditPage.jpg"
+        alt="Page background"
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      />
 
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <label className="block text-gray-700 font-medium mb-2">
-          Product ID
-        </label>
+      {/* Form Container */}
+      <div className="relative z-10 w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-pink-700 text-center mb-6">Add New Product</h1>
+
+        {/* Product ID */}
+        <label className="block text-gray-700 font-medium mb-2">Product ID</label>
         <input
           type="text"
           id="product-id"
           onChange={(e) => setProductId(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter product ID"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">
-          Product Name
-        </label>
+        {/* Product Name */}
+        <label className="block text-gray-700 font-medium mb-2">Product Name</label>
         <input
           type="text"
           id="product-name"
           onChange={(e) => setProductName(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter product name"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">
-          Alternative Names
-        </label>
+        {/* Alternative Names */}
+        <label className="block text-gray-700 font-medium mb-2">Alternative Names</label>
         <input
           type="text"
           id="alternative-names"
           onChange={(e) => setAlternativeNames(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter alternative names (comma-separated)"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">
-          Image URLs
-        </label>
+        {/* Image Upload */}
+        <label className="block text-gray-700 font-medium mb-2">Image Upload</label>
         <input
           type="file"
-          id="image-urls"
+          id="image-upload"
           onChange={(e) => setImageFile(e.target.files)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
-          placeholder="Enter image png or jpg"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           multiple
         />
 
+        {/* Price */}
         <label className="block text-gray-700 font-medium mb-2">Price</label>
         <input
           type="number"
           id="price"
           onChange={(e) => setPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter price"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">
-          Last Price
-        </label>
+        {/* Last Price */}
+        <label className="block text-gray-700 font-medium mb-2">Last Price</label>
         <input
           type="number"
           id="last-price"
           onChange={(e) => setLastPrice(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter last price"
         />
 
+        {/* Stock */}
         <label className="block text-gray-700 font-medium mb-2">Stock</label>
         <input
           type="number"
           id="stock"
           onChange={(e) => setStock(e.target.value)}
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter stock"
         />
 
-        <label className="block text-gray-700 font-medium mb-2">
-          Description
-        </label>
-        <input
-          type="text"
+        {/* Description */}
+        <label className="block text-gray-700 font-medium mb-2">Description</label>
+        <textarea
           id="description"
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-mycolor"
+          className="w-full p-2 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
           placeholder="Enter description"
-        />
+        ></textarea>
 
+        {/* Submit Button */}
         <button
           type="submit"
           onClick={handleSubmit}
-          className="w-full bg-pink-400 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors"
+          className="w-full bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition-colors"
         >
           Submit
         </button>

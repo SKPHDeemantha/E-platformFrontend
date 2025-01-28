@@ -11,17 +11,17 @@ const facebook = "https://www.facebook.com/heshan.deemantha.7/?viewas=1000006868
 export default function ContactMe() {
   return (
     <div className="w-full h-screen">
-      {/* Header Section */}
+   
       <Header />
 
-      {/* Main Content Section */}
+    
       <div className="flex flex-col lg:flex-row bg-gradient-to-r from-gray-200 via-gray-100 to-slate-50 shadow-2xl w-full h-[calc(100vh-4rem)] items-center justify-center p-10">
-        {/* Image Section */}
+        
         <div className="w-full lg:w-[45%] h-[500px] p-5 flex justify-center items-center rounded-2xl shadow-lg">
           <img
-            src="/contact.jpg"
+            src="/contactus.png"
             alt="Contact"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg animate-pulse"
           />
         </div>
 
