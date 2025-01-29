@@ -45,6 +45,7 @@ export default function SignUpPage() {
     }
   }
 
+
   return (
     <div className="flex justify-center items-center relative min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 p-5">
       <img

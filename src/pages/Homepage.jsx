@@ -45,40 +45,43 @@ export default function HomePage() {
       <Header />
 
       {/* Slideshow Section */}
-      <div className="w-full h-[60vh] flex items-center justify-center">
-        <Carousel
-          className="w-3/4 h-full rounded-2xl shadow-lg overflow-hidden"
-          loop
-          autoplay
-          transition={{ duration: 1.5 }}
+<div className="w-full flex items-center justify-center py-6">
+  <div className="relative w-[85%] sm:w-3/4 md:w-2/3 h-[40vh] rounded-2xl overflow-hidden shadow-xl">
+    <Carousel
+      loop
+      autoplay
+      transition={{ duration: 1.5 }}
+      className="w-full h-full"
+    >
+      {/* Slide 1 */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xl md:text-2xl font-bold p-6 text-center"
+      >
+        Welcome to Our Store - Your one-stop shop for everything!
+        <Link
+          to="/products"
+          className="mt-4 px-5 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform"
         >
-          {/* Slide 1 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-2xl font-bold"
-          >
-            Welcome to Our Store - Your one-stop shop for everything!
-            <Link
-              to="/products"
-              className="mt-4 px-4 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform"
-            >
-              Shop Now
-            </Link>
-          </motion.div>
+          Shop Now
+        </Link>
+      </motion.div>
 
-          {/* Slide 2 */}
-          <div className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-pink-500 to-orange-500 text-white text-2xl font-bold">
-            Discover Amazing Products Handpicked Just for You!
-          </div>
-
-          {/* Slide 3 */}
-          <div className="h-full flex flex-col items-center justify-center bg-gradient-to-r from-green-500 to-teal-500 text-white text-2xl font-bold">
-            Exclusive Deals & Discounts Await You!
-          </div>
-        </Carousel>
+      {/* Slide 2 */}
+      <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-pink-500 to-orange-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
+        Discover Amazing Products Handpicked Just for You!
       </div>
+
+      {/* Slide 3 */}
+      <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-500 to-teal-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
+        Exclusive Deals & Discounts Await You!
+      </div>
+    </Carousel>
+  </div>
+</div>
+
 
       {/* Button Navigation Section */}
       <div className="w-full py-8 flex justify-center space-x-6">
