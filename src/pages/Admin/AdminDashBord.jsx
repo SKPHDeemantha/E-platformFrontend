@@ -1,4 +1,5 @@
 import React from "react";
+import FullCalendarComponent from "../../components/Calender";
 
 export default function Dashboard() {
     return (
@@ -25,7 +26,7 @@ export default function Dashboard() {
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-6">
                     <h2 className="text-sm font-medium text-gray-500">Revenue</h2>
-                    <p className="text-2xl font-bold text-red-600">25,678</p>
+                    <button><FullCalendarComponent/></button>
                 </div>
             </section>
 

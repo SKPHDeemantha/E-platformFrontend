@@ -27,7 +27,7 @@ export default function Productpage(){
   ,[])
 
   return(
-    <div className="flex flex-wrap justify-center items-center bg-slate-200 overflow-y-scroll w-full h-full">
+    <div className="flex flex-wrap justify-center items-center bg-{#f1f1f1} overflow-y-scroll w-full h-full">
         {
             products.map(
              (product)=>
