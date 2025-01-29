@@ -15,11 +15,11 @@ export default function ContactMe() {
       <Header />
 
     
-      <div className="flex flex-col lg:flex-row bg-gradient-to-r from-gray-200 via-gray-100 to-slate-50 shadow-2xl w-full h-[calc(100vh-4rem)] items-center justify-center p-10">
+      <div className="flex flex-col lg:flex-row bg-{#f1f1f1} to-slate-50 shadow-2xl w-full h-[calc(100vh-4rem)] items-center justify-center p-10">
         
         <div className="w-full lg:w-[45%] h-[500px] p-5 flex justify-center items-center rounded-2xl shadow-lg">
           <img
-            src="/contactus.png"
+            src="/Contact.jpg"
             alt="Contact"
             className="w-full h-full object-cover rounded-lg animate-pulse"
           />
