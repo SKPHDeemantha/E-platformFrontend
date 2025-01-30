@@ -42,19 +42,17 @@ function ScrollToTop() {
 export default function HomePage() {
   return (
     <div className="w-full h-auto flex flex-col bg-slate-100">
-      {/* Header Section */}
+ 
       <Header />
 
-      {/* Slideshow Section */}
 <div className="w-full flex items-center justify-center py-6">
   <div className="relative w-[85%] sm:w-3/4 md:w-2/3 h-[40vh] rounded-2xl overflow-hidden shadow-xl">
     <Carousel
       loop
       autoplay
       transition={{ duration: 1.5 }}
-      className="w-full h-full"
-    >
-      {/* Slide 1 */}
+      className="w-full h-full">
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -64,18 +62,16 @@ export default function HomePage() {
         Welcome to Our Store - Your one-stop shop for everything!
         <Link
           to="/products"
-          className="mt-4 px-5 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform"
-        >
+          className="mt-4 px-5 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform">
           Shop Now
         </Link>
       </motion.div>
 
-      {/* Slide 2 */}
+      
       <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-pink-500 to-orange-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
         Discover Amazing Products Handpicked Just for You!
       </div>
 
-      {/* Slide 3 */}
       <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-500 to-teal-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
         Exclusive Deals & Discounts Await You!
       </div>
@@ -83,10 +79,9 @@ export default function HomePage() {
   </div>
 </div>
 
-
-      {/* Button Navigation Section */}
+   
       <div className="w-full py-8 flex justify-center space-x-6">
-        {/* Explore Products Button */}
+        
         <Link
           to="/products"
           className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform glow-on-hover"
@@ -113,15 +108,12 @@ export default function HomePage() {
               <h1 className="text-slate-800 text-3xl text-center">
                 Welcome to the <br />
                 <span className="text-3xl text-pink-950 font-bold">VELVETGLOW!</span>
-              </h1>
-            }
-          />
+              </h1> }/>
 
       
           <Route
             path="/login"
-            element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}
-          />
+            element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}/>
           <Route path="/productInfo/:id" element={<ProductOverView />} />
      
           <Route path="/products" element={<Productpage />} />
