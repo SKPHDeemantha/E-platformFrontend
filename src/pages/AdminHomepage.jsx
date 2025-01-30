@@ -11,13 +11,15 @@ import Dashboard from "./Admin/AdminDashBord";
 import Orders from "./Admin/AdminOrderPage";
 import AdminOrderPage from "./Admin/AdminOrderPage";
 import EditProductForm from "./Admin/EditProductForm";
+import shipping from "./Home/Shipping";
+import Shipping from "./Home/Shipping";
 
 export default function AdminHomepage() {
   return (
     <div className="bg-pink-100 w-full h-screen flex">
 
     
-      <div className="bg-pink-800 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg">
+      <div className="bg-pink-900 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg">
         <h1 className="text-white text-2xl font-bold mt-6">Admin Panel</h1>
         <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
           <Link className="flex flex-row items-center text-white text-xl hover:text-pink-900" to="/admin/dashboard">
@@ -26,19 +28,19 @@ export default function AdminHomepage() {
           </Link>
         </button>
         <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-pink-700 hover:text-pink-900" to="/admin/products">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/products">
             <FaJediOrder className="mr-2" />
             Products
           </Link>
         </button>
         <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-pink-700 hover:text-pink-900" to="/admin/orders">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/orders">
             <MdProductionQuantityLimits className="mr-2" />
             Orders
           </Link>
         </button>
         <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-pink-700 hover:text-pink-900" to="/admin/customers">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/customers">
             <LiaUserCircle className="mr-2" />
             Customers
           </Link>
@@ -54,6 +56,7 @@ export default function AdminHomepage() {
           <Route path="/products/editproduct" element={<EditProductForm />} />
           <Route path="/orders" element={<AdminOrderPage />} />
           <Route path="/customers" element={<Admincustomerpage />} />
+          <Route path="/shipping" element={<Shipping/>}/>
           <Route path="/contactus" element={<h1 className="text-pink-600 text-3xl">Contact Us</h1>} />
           <Route path="/*" element={<h1 className="text-pink-600 text-3xl">404: Page Not Found</h1>} />
         </Routes>
