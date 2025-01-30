@@ -56,7 +56,6 @@ export default function AdminHomepage() {
           <Route path="/products/editproduct" element={<EditProductForm />} />
           <Route path="/orders" element={<AdminOrderPage />} />
           <Route path="/customers" element={<Admincustomerpage />} />
-          <Route path="/shipping" element={<Shipping/>}/>
           <Route path="/contactus" element={<h1 className="text-pink-600 text-3xl">Contact Us</h1>} />
           <Route path="/*" element={<h1 className="text-pink-600 text-3xl">404: Page Not Found</h1>} />
         </Routes>

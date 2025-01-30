@@ -9,6 +9,7 @@ import Productpage from "./Home/Productpage";
 import Cart from "./Home/Cart";
 import { Carousel } from "@material-tailwind/react";
 import Footer from "../components/Footer";
+import Shipping from "./Home/Shipping";
 
 function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -116,20 +117,17 @@ export default function HomePage() {
             }
           />
 
-          {/* Login Route */}
+      
           <Route
             path="/login"
             element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}
           />
-
-          {/* Product Overview Route */}
           <Route path="/productInfo/:id" element={<ProductOverView />} />
-
-          {/* Products Page Route */}
+     
           <Route path="/products" element={<Productpage />} />
 
-          {/* Cart Page Route */}
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shipping" element={<Shipping/>} />
         </Routes>
       </div>
 
