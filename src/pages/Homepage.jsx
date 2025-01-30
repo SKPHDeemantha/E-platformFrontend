@@ -127,7 +127,7 @@ export default function HomePage() {
           <Route path="/products" element={<Productpage />} />
 
           <Route path="/cart" element={<Cart />} />
-          
+          <Route path="/shipping" element={<Shipping/>}/>
         </Routes>
       </div>
 
