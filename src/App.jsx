@@ -14,6 +14,7 @@ import AddproductForm from './pages/Admin/AdminproductForm'
 import FileUploardTest from './pages/Test'
 import Productpage from './pages/Home/Productpage'
 import { GoogleOAuthProvider } from '@react-oauth/google'
+import Shipping from './pages/Home/Shipping'
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <GoogleOAuthProvider clientId='421627820068-hegiadvcp1a4arodscmffcr4qjb366a8.apps.googleusercontent.com'>
     <Routes path="/*">
     <Route path="/" element={<HomePage/>}/>
-    <Route path="/product" element={<Productpage/>}/>
+    <Route path="/products" element={<Productpage/>}/>
     <Route path="/login" element={<LoginPage/>}/>
     <Route path="/signup" element={<Signinpage/>}/>
     <Route path="/admin/*" element={<AdminHomepage/>}/>
@@ -35,7 +36,7 @@ function App() {
     <Route path="/contactus" element={<Contactus/>}/>
     <Route path="/*" element={<HomePage/>}/>
     <Route path="/test" element={<FileUploardTest/>}/>
-  
+    <Route path="/shipping" element={<Shipping/>} />
    
     </Routes>
 

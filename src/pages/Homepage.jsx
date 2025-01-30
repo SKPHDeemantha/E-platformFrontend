@@ -102,11 +102,11 @@ export default function HomePage() {
           Login
         </Link>
       </div>
+           
 
-      {/* Main Content Section */}
       <div className="w-full flex-grow flex items-center justify-center p-4">
         <Routes>
-          {/* Default Home Route */}
+        
           <Route
             path="/*"
             element={
@@ -127,14 +127,14 @@ export default function HomePage() {
           <Route path="/products" element={<Productpage />} />
 
           <Route path="/cart" element={<Cart />} />
-          <Route path="/shipping" element={<Shipping/>} />
+          
         </Routes>
       </div>
 
-      {/* Scroll to Top Button */}
+    
       <ScrollToTop />
 
-      {/* Footer Section */}
+
       <Footer />
     </div>
   );
