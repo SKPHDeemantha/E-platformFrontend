@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { VscGraph } from "react-icons/vsc";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaJediOrder } from "react-icons/fa";
@@ -13,8 +13,40 @@ import AdminOrderPage from "./Admin/AdminOrderPage";
 import EditProductForm from "./Admin/EditProductForm";
 import shipping from "./Home/Shipping";
 import Shipping from "./Home/Shipping";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function AdminHomepage() {
+  const [user,setUser]=useState(null);
+  const navigate =useNavigate();
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    if(!token){
+    
+      navigate("/login");
+      return;
+    }
+    axios.get("http://localhost:3000/api/users",{
+      headers :{
+        Authorization :`Bearer ${token}`,
+      },
+    }).then((res)=>{
+     console.log(res.data)
+     if(res.data.type!="admin"){
+      toast.error("Unathorized access")
+      navigate("/login")
+     }else{
+      setUser(res.data);
+     }
+
+    }).catch((err)=>{
+      console.error(err)
+      toast.error("Failed to fetch user data")
+      navigate("/login")
+    })
+    
+  },[])
   return (
     <div className="bg-pink-100 w-full h-screen flex">
 
@@ -47,8 +79,8 @@ export default function AdminHomepage() {
         </button>
       </div>
 
-      <div className="bg-pink-50 w-[80%] h-screen p-6 overflow-auto">
-        <Routes path="/*">
+     <div className="bg-pink-50 w-[80%] h-screen p-6 overflow-auto">
+          {user!=null&&<Routes path="/*">
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/*" element={<Dashboard />} />
           <Route path="/products" element={<Adminproductpage />} />
@@ -58,8 +90,15 @@ export default function AdminHomepage() {
           <Route path="/customers" element={<Admincustomerpage />} />
           <Route path="/contactus" element={<h1 className="text-pink-600 text-3xl">Contact Us</h1>} />
           <Route path="/*" element={<h1 className="text-pink-600 text-3xl">404: Page Not Found</h1>} />
-        </Routes>
-      </div>
+        </Routes>}
+
+        {user==null&&<div className="w-full h-full flex justify-center items-center">
+
+            <div className="animate-spin rounded-full h-32 w-32  border-b-2 border-t-2 border-blue-500"> </div>
+        </div>
+       
+        }
+      </div> 
     </div>
   );
 }
