@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../../components/ProductCard';
+import { ImSearch } from "react-icons/im";
+import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Productpage(){
   const [products,setProducts] =useState([]);
@@ -28,6 +32,17 @@ export default function Productpage(){
 
   return(
     <div className="flex flex-wrap justify-center items-center bg-[#f1f1f1] overflow-y-scroll w-full h-full">
+      <Header/>
+      <div className="flex items-center space-x-2 w-full max-w-[70%] lg:max-w-[50%] md:ml-20">
+          <input
+            type="text"
+            placeholder="Search for products"
+            className="rounded-lg p-2 w-full md:w-96 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
+          />
+          <Link className="p-2 text-xl text-white hover:text-pink-900">
+            <ImSearch />
+          </Link>
+        </div>
         {
             products.map(
              (product)=>
@@ -35,6 +50,7 @@ export default function Productpage(){
           
              )
            }
+           <Footer/>
       </div>
   )
 }

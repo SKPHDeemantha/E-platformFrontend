@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ImSearch } from "react-icons/im";
 import { GiShoppingCart } from "react-icons/gi";
 import { FiAlignJustify } from "react-icons/fi";
 import { useState } from "react";
@@ -23,7 +22,7 @@ export default function Header() {
           className="cursor-pointer rounded-full w-16 h-16 md:w-20 md:h-20 absolute left-4"
         />
 
-    
+{/*     
         <div className="flex items-center space-x-2 w-full max-w-[70%] lg:max-w-[50%] md:ml-20">
           <input
             type="text"
@@ -33,25 +32,22 @@ export default function Header() {
           <Link className="p-2 text-xl text-white hover:text-pink-900">
             <ImSearch />
           </Link>
-        </div>
+        </div> */}
 
        
         <FiAlignJustify
           onClick={() => setIsSliderOpen(true)}
-          className="text-3xl cursor-pointer text-white lg:hidden absolute right-4"
+          className="text-3xl cursor-pointer text-white lg:hidden absolute right-20"
         />
 
 
-        <div className="relative hidden lg:flex items-center">
+        <div className="relative hidden lg:flex items-center ">
           <Link
             className="p-2 text-xl text-white hover:text-pink-900 hover:shadow-xl hover:outline flex items-center hover:scale-105 transition-transform hover:rounded-lg"
-            to="/cart"
-          ><span className=" text-white hover:text-pink-900  text-transparent"> View Cart</span>
+            to="/cart" >
+            <span className=" text-white hover:text-pink-900  text-transparent"> View Cart</span>
             <GiShoppingCart className="ml-1" />
           </Link>
-          <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1 ">
-       
-          </span>
         </div>
 
       
