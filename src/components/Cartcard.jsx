@@ -12,7 +12,7 @@ export default function CartCard(props){
   useEffect  (
     ()=>{
       if(!loaded){
-        axios.get("http://localhost:3000/api/products"+ProductId).then(
+        axios.get("http://localhost:3000/api/products/"+ProductId).then(
 
           (response)=>{
             if(response.data!=null){
@@ -21,7 +21,7 @@ export default function CartCard(props){
               setLoaded(true)
             }else{
               deleteItem(ProductId)
-            }
+            }  
             
           }
         ).catch(
@@ -36,7 +36,7 @@ export default function CartCard(props){
   return(
     <tr className="hover:bg-accent hover:text-white cursor-pointer">
       <td className="">
-      <img src={product?.images[0]} className="w-[90px] h-[90px] object-cover mx-auto"/>
+      <img src={product?.images?.[0] || ''} className="w-[90px] h-[90px] object-cover mx-auto" alt="Product"/>
       </td>
       <td className="text-center">{product?.productName}</td>
       <td className="text-center">{ProductId}</td>
