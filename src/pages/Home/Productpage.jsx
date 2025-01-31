@@ -19,7 +19,7 @@ export default function Productpage(){
           
 
         ).catch(
-          (err)=>toast.error('Error loading products')
+          ()=>toast.error('Error loading products')
         )     
       }
       
@@ -27,7 +27,7 @@ export default function Productpage(){
   ,[])
 
   return(
-    <div className="flex flex-wrap justify-center items-center bg-{#f1f1f1} overflow-y-scroll w-full h-full">
+    <div className="flex flex-wrap justify-center items-center bg-[#f1f1f1] overflow-y-scroll w-full h-full">
         {
             products.map(
              (product)=>
