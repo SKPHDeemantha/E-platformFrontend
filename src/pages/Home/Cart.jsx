@@ -11,31 +11,24 @@ export default function Cart() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const cartItems = loadCart();
-    setCart(cartItems);
+    setCart(loadCart());
+    console.log(loadCart);
 
-    async function fetchCartTotal() {
-      try {
-        const res = await axios.post("http://localhost:3000/api/orders/quote", {
-          orderedItems: cartItems,
-        });
-
-        setTotal(res.data.total || 0);
-        setLabeledTotal(res.data.labeledTotal || 0);
-      } catch (error) {
-        console.error("Error fetching cart total:", error);
+    axios.post("http://localhost:3000/api/orders/quote",{
+      orderedItems:loadCart(),
+    }).then((res)=>{
+      console.log(res.data);
+      if(res.data.total !=null){
+        setTotal(res.data.total);
+        setLabeledTotal(res.data.total);
       }
-    }
-
-    if (cartItems.length > 0) {
-      fetchCartTotal();
-    }
+    })
   }, []);
 
   function onOrderCheckout() {
     navigate("/shipping", {
       state: {
-        items: cart,
+        items: loadCart()
       },
     });
 
@@ -73,17 +66,16 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map((item) => (
-            <CartCard
+          {cart.map((item)=>{
+            return(
+              <CartCard
               key={item.ProductId}
               ProductId={item.ProductId}
-              ProductName={item.ProductName}
-              qty={item.qty}
-              Price={item.Price}
-              Total={item.qty * item.Price}
-              Image={item.Image}
-            />
-          ))}
+              qty={item.qty}/>
+            )
+          })}
+           
+         
         </tbody>
       </table>
       <h1 className="text-3xl font-bold text-accent">

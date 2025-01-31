@@ -23,7 +23,7 @@ export function addToCart(ProductId,qty){
     }else{
         const newQty =cart[index].qty +qty
         if(newQty<=0){
-            cart.spile(index,1)
+            cart.splice(index,1)
         }else{
             cart[index].qty = newQty
         }
@@ -51,6 +51,7 @@ export function deleteItem(ProductId){
   
     if(index!=-1){
       cart.splice(index,1)
+      saveCart(cart)
     }
 }
 
