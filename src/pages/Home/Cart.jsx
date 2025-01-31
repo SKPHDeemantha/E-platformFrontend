@@ -17,7 +17,7 @@ export default function Cart() {
     const cartItems = loadCart();
     const productIds = cartItems.map(item => item.ProductId).join(',');
 
-    axios.post("http://localhost:3000/api/orders/quote?productIds=" + productIds, {
+    axios.post("http://localhost:3000/api/orders/quote"+ productIds, {
       orderedItems:loadCart(),
     }).then((res)=>{
       console.log(res.data);

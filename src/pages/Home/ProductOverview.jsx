@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductNotFound from "./ProductNotFound";
 import { addToCart } from "../../utils/Cartfunction";
 import toast from "react-hot-toast";
@@ -11,6 +11,7 @@ export default function ProductOverView() {
   const productId = params.id;
   const [product, setProduct] = useState(null);
   const [status, setStatus] = useState("loading");
+  const navigate =useNavigate();
 
   useEffect(() => {
     axios
@@ -32,6 +33,18 @@ export default function ProductOverView() {
       toast.success(`${product.productName} added to cart!`);
     }
   };
+
+  function onBynowClick(){
+    navigate("/shipping",{
+      state:{
+        items:[
+          {
+            qty :1
+          }
+        ]
+      }
+    })
+  }
 
   return (
     <div className="w-full h-auto min-h-[calc(100vh-100px)] bg-gray-100 p-4">
@@ -73,6 +86,12 @@ export default function ProductOverView() {
               className="bg-mycolor hover:bg-accent hover:text-wrap text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
             >
               Add to Cart
+            </button>
+            <button
+              onClick={onBynowClick}
+              className="bg-mycolor hover:bg-accent hover:text-wrap mx-3 text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
+            >
+              Buy Now 
             </button>
           </div>
         </div>

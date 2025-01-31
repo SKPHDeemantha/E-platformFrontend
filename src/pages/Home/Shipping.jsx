@@ -139,7 +139,7 @@ export default function ShippingPage() {
           </thead>
           <tbody>
             {cart.map((item) => (
-              <CartCard key={item.productId} product={item} />
+              <CartCard key={item.ProductId} product={item} />
             ))}
           </tbody>
         </table>
