@@ -3,6 +3,8 @@ import CartCard from "../../components/cartCard";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function ShippingPage() {
   const location = useLocation();
@@ -92,11 +94,12 @@ export default function ShippingPage() {
   }
 
   return (
-    <div className="w-full h-full bg-gray-100 p-4">
-      <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-4">Shipping Details</h1>
+    <div className="w-full h-full bg-gray-100 ">
+        <Header/>
+      <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 m-4 ">
+        <h1 className="text-2xl font-bold mb-4 text-fuchsia-900">Shipping Details</h1>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Name</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">Name</label>
           <input
             type="text"
             className="w-full p-2 border border-gray-300 rounded-md"
@@ -106,7 +109,7 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Address</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">Address</label>
           <textarea
             className="w-full p-2 border border-gray-300 rounded-md"
             value={address}
@@ -115,7 +118,7 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-gray-700 mb-1">Phone</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">Phone</label>
           <input
             type="text"
             className="w-full p-2 border border-gray-300 rounded-md"
@@ -125,7 +128,7 @@ export default function ShippingPage() {
           />
         </div>
 
-        <h2 className="text-xl font-bold mt-6 mb-4">Order Summary</h2>
+        <h2 className="text-xl font-bold mt-6 mb-4 text-purple-900">Order Summary</h2>
         <table className="w-full border-collapse border border-gray-300 mb-4">
           <thead>
             <tr className="bg-gray-200">
@@ -143,22 +146,23 @@ export default function ShippingPage() {
             ))}
           </tbody>
         </table>
-        <h1 className="text-lg font-bold text-gray-700 mb-2">
+        <h1 className="text-lg font-bold text-fuchsia-800 mb-2">
           Total: LKR. {total.toFixed(2)}
         </h1>
-        <h1 className="text-lg font-bold text-gray-700 mb-2">
+        <h1 className="text-lg font-bold text-fuchsia-800 mb-2">
           Discount: LKR. {(labeledTotal - total).toFixed(2)}
         </h1>
-        <h1 className="text-lg font-bold text-gray-700 mb-4">
+        <h1 className="text-lg font-bold text-fuchsia-800 mb-4">
           Grand Total: LKR. {labeledTotal.toFixed(2)}
         </h1>
         <button
-          className="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-lg w-full"
+          className="bg-pink-500 hover:bg-pink-700 text-white py-2 px-4 rounded-lg w-full"
           onClick={createOrder}
         >
           Checkout
         </button>
       </div>
+      <Footer/>
     </div>
   );
 }
