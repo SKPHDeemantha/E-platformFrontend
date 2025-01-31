@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { loadCart } from "../../utils/Cartfunction";
-import CartCard from "../../components/Cartcard";
+import CartCard from "../../components/cartCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,10 @@ export default function Cart() {
     setCart(loadCart());
     console.log(loadCart);
 
-    axios.post("http://localhost:3000/api/orders/quote",{
+    const cartItems = loadCart();
+    const productIds = cartItems.map(item => item.ProductId).join(',');
+
+    axios.post("http://localhost:3000/api/orders/quote?productIds=" + productIds, {
       orderedItems:loadCart(),
     }).then((res)=>{
       console.log(res.data);
