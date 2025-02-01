@@ -1,78 +1,56 @@
-export function loadCart(){
-    const cart =localStorage.getItem("cart");
-    if(cart!=null){
-        return JSON.parse(cart)
-    }else{
-        return[]
+export function loadCart() {
+    try {
+      const cart = localStorage.getItem("cart");
+      return cart ? JSON.parse(cart) : [];
+    } catch (error) {
+      console.error("Error loading cart from localStorage:", error);
+      return [];
     }
-}
-
-export function addToCart(ProductId,qty){
-    const cart =loadCart()
-
-    const index= cart.findIndex(
-        (item)=>{
-            return item.ProductId == ProductId
-        }
-    )
-    console.log(index)
-    if(index ===-1){
-        cart.push(
-             {ProductId,qty}
-        )
-    }else{
-        const newQty =cart[index].qty +qty
-        if(newQty<=0){
-            cart.splice(index,1)
-        }else{
-            cart[index].qty = newQty
-        }
-    }
-    saveCart(cart)
-    
-}
-
-export function saveCart(cart){
-    localStorage.setItem("cart",JSON.stringify(cart))
-}
-
-export function clearCart(){
-    localStorage.removeItem("cart")
-}
-
-export function deleteItem(ProductId){
-    const cart = loadCart()
+  }
   
-    const index = cart.findIndex(
-      (item)=>{
-        return item.ProductId==ProductId
+  export function saveCart(cart) {
+    try {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } catch (error) {
+      console.error("Error saving cart to localStorage:", error);
+    }
+  }
+  
+  export function addToCart(productId, qty = 1) {
+    const cart = loadCart();
+  
+    const index = cart.findIndex((item) => item.productId === productId);
+  
+    if (index === -1) {
+      cart.push({ productId, qty });
+    } else {
+      const newQty = cart[index].qty + qty;
+      if (newQty <= 0) {
+        cart.splice(index, 1); // Remove the item if quantity drops to zero or less
+      } else {
+        cart[index].qty = newQty; // Update quantity
       }
-    )
-  
-    if(index!=-1){
-      cart.splice(index,1)
-      saveCart(cart)
     }
-}
-
-    // addItem(item) {
-    //     this.items.push(item);
-    // }
-
-    // removeItem(itemId) {
-    //     this.items = this.items.filter(item => item.id !== itemId);
-    // }
-
-    // getTotalPrice() {
-    //     return this.items.reduce((total, item) => total + item.price, 0);
-    // }
-
-    // getItems() {
-    //     return this.items;
-    // }
-
-    // clearCart() {
-    //     this.items = [];
-    // }
-
-    
+  
+    saveCart(cart);
+  }
+  
+  export function deleteItem(productId) {
+    const cart = loadCart();
+  
+    const index = cart.findIndex((item) => item.productId === productId);
+  
+    if (index !== -1) {
+      cart.splice(index, 1);
+      saveCart(cart);
+    }
+  }
+  
+  export function clearCart() {
+    try {
+      localStorage.removeItem("cart");
+    } catch (error) {
+      console.error("Error clearing cart from localStorage:", error);
+    }
+  }
+  

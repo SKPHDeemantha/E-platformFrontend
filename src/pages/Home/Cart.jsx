@@ -12,26 +12,26 @@ export default function Cart() {
 
   useEffect(() => {
     setCart(loadCart());
-    console.log(loadCart);
 
     const cartItems = loadCart();
-    const productIds = cartItems.map(item => item.ProductId).join(',');
+    const productIds = cartItems.map((item) => item.ProductId).join(",");
 
-    axios.post("http://localhost:3000/api/orders/quote"+ productIds, {
-      orderedItems:loadCart(),
-    }).then((res)=>{
-      console.log(res.data);
-      if(res.data.total !=null){
-        setTotal(res.data.total);
-        setLabeledTotal(res.data.total);
-      }
-    })
+    axios
+      .post("http://localhost:3000/api/orders/quote" + productIds, {
+        orderedItems: loadCart(),
+      })
+      .then((res) => {
+        if (res.data.total != null) {
+          setTotal(res.data.total);
+          setLabeledTotal(res.data.total);
+        }
+      });
   }, []);
 
   function onOrderCheckout() {
     navigate("/shipping", {
       state: {
-        items: loadCart()
+        items: loadCart(),
       },
     });
 
@@ -69,23 +69,23 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map((item)=>{
-            return(
+          {cart.map((item) => {
+            console.log(item);
+            return (
               <CartCard
-              key={item.ProductId}
-              ProductId={item.ProductId}
-              qty={item.qty}/>
-            )
+                key={item.productId}
+                productId={item.productId}
+                qty={item.qty}
+              />
+            );
           })}
-           
-         
         </tbody>
       </table>
       <h1 className="text-3xl font-bold text-accent">
         Total: LKR. {labeledTotal?.toFixed(2) || "0.00"}
       </h1>
       <h1 className="text-3xl font-bold text-accent">
-        Discount: LKR. {((labeledTotal - total) || 0).toFixed(2)}
+        Discount: LKR. {(labeledTotal - total || 0).toFixed(2)}
       </h1>
       <h1 className="text-3xl font-bold text-accent">
         Grand Total: LKR. {total?.toFixed(2) || "0.00"}

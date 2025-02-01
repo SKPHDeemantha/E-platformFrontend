@@ -29,7 +29,8 @@ export default function ProductOverView() {
 
   const onAddToCartClick = () => {
     if (product) {
-      addToCart(product.productId, 1);
+      addToCart(product.ProductId, 1);
+      console.log(product);
       toast.success(`${product.productName} added to cart!`);
     }
   };
