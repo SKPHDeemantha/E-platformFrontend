@@ -75,7 +75,7 @@ export default function(){
 
       {selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-md p-4 rounded-lg shadow-lg">
+          <div className="bg-white w-full max-w-md p-4 rounded-lg shadow-lg overflow-y-scroll max-h-screen">
             <h2 className="text-lg font-bold mb-4">Order Details</h2>
             <p>
               <span className="font-semibold">Order ID:</span> {selectedOrder.orderId}
@@ -126,7 +126,7 @@ export default function(){
             </div>
             <div className="flex justify-end mt-4">
               <button
-                className="bg-pink-800 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                className="bg-pink-800 text-white px-4 py-2 rounded-lg hover:bg-red-600 "
                 onClick={closeModal}
               >
                 Close

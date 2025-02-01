@@ -62,7 +62,7 @@ export default function AdminOrdersPage() {
 
     axios
       .put(
-        `http://localhost:3000//api/orders/${selectedOrder.orderId}`,
+        `http://localhost:3000/api/orders/${selectedOrder.orderId}`,
         { status: updateData.status, notes: updateData.notes },
         {
           headers: {
