@@ -16,7 +16,7 @@ export default function AdminOrdersPage() {
       return;
     }
     axios
-      .get("http://localhost:3000//api/orders", {
+      .get("http://localhost:3000/api/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
