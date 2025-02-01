@@ -40,6 +40,7 @@ export default function ProductOverView() {
       state:{
         items:[
           {
+            productId: productId,
             qty :1
           }
         ]

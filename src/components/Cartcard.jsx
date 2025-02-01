@@ -5,19 +5,18 @@ import { deleteItem } from "../utils/Cartfunction";
 export default function CartCard(props) {
   const productId = props.productId;
   console.log(props.qty);
+  console.log(props.productId);
   const qty = props.qty;
 
   const [product, setProduct] = useState(null);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     if (!loaded) {
-
       axios
-        .get("http://localhost:3000/api/products/" + productId)
+        .get(`http://localhost:3000/api/products/${productId}`)
         .then((response) => {
           if (response.data != null) {
             setProduct(response.data);
-            console.log(response.data, "product");
             setLoaded(true);
           } else {
             deleteItem(productId);
@@ -27,7 +26,8 @@ export default function CartCard(props) {
           console.log(error);
         });
     }
-  }, []);
+  }, [productId, loaded]);
+  
 
   return (
     <>

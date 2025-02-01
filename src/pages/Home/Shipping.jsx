@@ -79,7 +79,8 @@ export default function ShippingPage() {
           },
         }
       )
-      .then(() => {
+      .then((res) => {
+        console.log(res.data);
         toast.success("Order placed successfully!");
         navigate("/orders");
       })
@@ -90,16 +91,21 @@ export default function ShippingPage() {
   }
 
   if (!cart.length) {
+    toast.error("oops there is a error");
     return null;
   }
-
+  console.log("Cart items:", cart);
   return (
     <div className="w-full h-full bg-gray-100 ">
-        <Header/>
+      <Header />
       <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 m-4 ">
-        <h1 className="text-2xl font-bold mb-4 text-fuchsia-900">Shipping Details</h1>
+        <h1 className="text-2xl font-bold mb-4 text-fuchsia-900">
+          Shipping Details
+        </h1>
         <div className="mb-4">
-          <label className="block font-medium text-fuchsia-800 mb-1">Name</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">
+            Name
+          </label>
           <input
             type="text"
             className="w-full p-2 border border-gray-300 rounded-md"
@@ -109,7 +115,9 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-fuchsia-800 mb-1">Address</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">
+            Address
+          </label>
           <textarea
             className="w-full p-2 border border-gray-300 rounded-md"
             value={address}
@@ -118,7 +126,9 @@ export default function ShippingPage() {
           />
         </div>
         <div className="mb-4">
-          <label className="block font-medium text-fuchsia-800 mb-1">Phone</label>
+          <label className="block font-medium text-fuchsia-800 mb-1">
+            Phone
+          </label>
           <input
             type="text"
             className="w-full p-2 border border-gray-300 rounded-md"
@@ -128,7 +138,9 @@ export default function ShippingPage() {
           />
         </div>
 
-        <h2 className="text-xl font-bold mt-6 mb-4 text-purple-900">Order Summary</h2>
+        <h2 className="text-xl font-bold mt-6 mb-4 text-purple-900">
+          Order Summary
+        </h2>
         <table className="w-full border-collapse border border-gray-300 mb-4">
           <thead>
             <tr className="bg-gray-200">
@@ -142,7 +154,7 @@ export default function ShippingPage() {
           </thead>
           <tbody>
             {cart.map((item) => (
-              <CartCard key={item.ProductId} product={item} />
+              <CartCard key={item.productId} productId={item.productId} qty={item.qty} />
             ))}
           </tbody>
         </table>
@@ -162,7 +174,7 @@ export default function ShippingPage() {
           Checkout
         </button>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
