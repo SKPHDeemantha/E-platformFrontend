@@ -27,6 +27,7 @@ export default function AdminOrdersPage() {
       })
       .catch((err) => {
         toast.error("Failed to fetch orders. Please try again.");
+        console.log(err);
         setLoading(false);
       });
   }, []);
