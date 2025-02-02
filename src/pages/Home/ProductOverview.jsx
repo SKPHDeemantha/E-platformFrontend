@@ -52,7 +52,7 @@ export default function ProductOverView() {
     <div className="w-full h-auto min-h-[calc(100vh-100px)] bg-gray-100 p-4">
       {status === "loading" && (
         <div className="w-full h-full flex items-center justify-center">
-          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-accent"></div>
+          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
         </div>
       )}
       {status === "not found" && <ProductNotFound />}
@@ -85,13 +85,13 @@ export default function ProductOverView() {
             </p>
             <button
               onClick={onAddToCartClick}
-              className="bg-mycolor hover:bg-accent hover:text-wrap text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
+              className="bg-mycolor hover:bg-mycolor hover:text-wrap text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
             >
               Add to Cart
             </button>
             <button
               onClick={onBynowClick}
-              className="bg-mycolor hover:bg-accent hover:text-wrap mx-3 text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
+              className="bg-mycolor hover:bg-mycolor hover:text-wrap mx-3 text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"
             >
               Buy Now 
             </button>

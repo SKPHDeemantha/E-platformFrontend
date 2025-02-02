@@ -82,19 +82,19 @@ export default function Cart() {
           })}
         </tbody>
       </table>
-      <h1 className="text-3xl font-bold text-accent">
+      <h1 className="text-3xl font-bold text-mycolor">
         Total: LKR. {labeledTotal?.toFixed(2) || "0.00"}
       </h1>
-      <h1 className="text-3xl font-bold text-accent">
+      <h1 className="text-3xl font-bold text-mycolor">
         Discount: LKR. {((Number(labeledTotal) - Number(total)) || 0).toFixed(2)}
       </h1>
-      <h1 className="text-3xl font-bold text-accent">
+      <h1 className="text-3xl font-bold text-mycolor">
         Grand Total: LKR. {total?.toFixed(2) || "0.00"}
       </h1>
 
       <button
         onClick={onOrderCheckout}
-        className="bg-accent hover:bg-accent-light text-white p-2 rounded-lg w-[300px] mt-4"
+        className="bg-mycolor hover:bg-pink-800 text-white p-2 rounded-lg w-[300px] mt-4"
       >
         Checkout
       </button>

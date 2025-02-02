@@ -34,7 +34,7 @@ export default function CartCard(props) {
       {!loaded ? (
         <tr>loading</tr>
       ) : (
-        <tr className="hover:bg-accent hover:text-white cursor-pointer">
+        <tr className="hover:bg-mycolor hover:text-white cursor-pointer">
           <td className="">
             <img
               src={product?.images?.[0]}
