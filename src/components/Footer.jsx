@@ -17,10 +17,10 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
                         <ul className="text-sm space-y-2">
-                            <li><a href="#" className="hover:underline">Home</a></li>
-                            <li><a href="#" className="hover:underline">About</a></li>
+                            <li><a href="/" className="hover:underline">Home</a></li>
+                            <li><a href="aboutus" className="hover:underline">About</a></li>
                             <li><a href="#" className="hover:underline">Services</a></li>
-                            <li><a href="#" className="hover:underline">Contact</a></li>
+                            <li><a href="contactus" className="hover:underline">Contact</a></li>
                         </ul>
                     </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-8 text-center text-sm">
-                    &copy; 2025 velvetglowcompany(pvt)Ltd. All rights reserved.
+                    &copy; 2025 VelwetGlow (PVT)LTD. All rights reserved.
                 </div>
             </div>
         </footer>

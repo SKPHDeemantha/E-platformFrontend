@@ -3,29 +3,35 @@ import { useEffect, useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
-import { data, Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export default function AdminProductsPage() {
   const [products, setProducts] = useState([]);
-  const [productsLoaded, setProductsLoaded] = useState(false);
+  const [loadingstatus, setLoadingstatus] = useState("loading");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!productsLoaded) {
-      axios
-        .get("http://localhost:3000/api/products")
-        .then((res) => {
-          setProducts(res.data);
-          setProductsLoaded(true);
-        })
-        .catch((err) => {
-          console.error("Failed to fetch products:", err);
-        });
-    }
-  }, [productsLoaded]);
- 
-  const navigate =useNavigate();
-  const Location =useLocation();
+    axios
+      .get("http://localhost:3000/api/products")
+      .then((res) => {
+        setProducts(res.data);
+        setLoadingstatus("loaded"); // Update the status after data is loaded
+      })
+      .catch((err) => {
+        console.error("Failed to fetch products:", err);
+        setLoadingstatus("error"); // Optional: handle error status
+      });
+  }, []);
+
+  if (loadingstatus === "loading") {
+    return (
+      <div className="flex justify-center items-center h-40">
+          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 p-5">
@@ -64,54 +70,35 @@ export default function AdminProductsPage() {
                 <td className="border border-gray-300 px-4 py-2">{product.description}</td>
                 <td className="border border-gray-300 px-4 py-2">
                   <div className="flex items-center gap-2">
-                    <button className="bg-secondary text-white px-3 py-1 rounded hover:bg-yellow-500 "
+                    <button
+                      className="bg-secondary text-white px-3 py-1 rounded hover:bg-yellow-500"
                       title="Edit"
-
-                      onClick={()=>{
-                        navigate("/admin/products/editproduct" , {state : {product : product}});
-                        // const token = localStorage.getItem("token");
-
-                        // axios.delete(`http://localhost:3000/api/products/${product.productId}`, {
-                        //   headers: {
-                        //     Authorization: `Bearer ${token}`,
-                        //   },
-                        // }).then((res) => {
-                        //   console.log(res.data);
-                        //   toast.success("Product Edited successfully");
-                        //   setProductsLoaded(false);
-                        // }).catch((error)=>{
-                        //   toast.error("Failed to Edited product");
-                          
-                        // })
-                   
-                      }}>
+                      onClick={() => {
+                        navigate("/admin/products/editproduct", { state: { product } });
+                      }}
+                    >
                       <ImPencil size={16} />
                     </button>
                     <button
-                      className="text-red-500  px-3 py-1 rounded  hover:text-red-700 mr-2"
+                      className="text-red-500 px-3 py-1 rounded hover:text-red-700 mr-2"
                       title="Delete"
-
-                      onClick={()=>{
+                      onClick={() => {
                         const token = localStorage.getItem("token");
-                      // methana prashne thibbe oyage (product.ProductId) undifind wnewa ekai product eka delete une naththe
-                        axios.delete(`http://localhost:3000/api/products/${product.ProductId}`, {
-                          headers: {
-                            Authorization: `Bearer ${token}`,
-                          },
-                        }).then((res) => {
-                          console.log(res.data);
-                          toast.success("Product deleted successfully");
-                          setProductsLoaded(false);
-                        }).catch((error)=>{
-                          toast.error("Failed to deleted product");
-                          
-                        })
-                   
+                        axios
+                          .delete(`http://localhost:3000/api/products/${product.ProductId}`, {
+                            headers: { Authorization: `Bearer ${token}` },
+                          })
+                          .then((res) => {
+                            toast.success("Product deleted successfully");
+                            setLoadingstatus("loading"); // Reload products after deletion
+                          })
+                          .catch(() => {
+                            toast.error("Failed to delete product");
+                          });
                       }}
                     >
-                     <RiDeleteBin5Fill size={16} />
+                      <RiDeleteBin5Fill size={16} />
                     </button>
-                    
                   </div>
                 </td>
               </tr>

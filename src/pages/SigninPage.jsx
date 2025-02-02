@@ -12,6 +12,7 @@ export default function SignUpPage() {
   const [password, setPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
   const navigate = useNavigate();
+  
 
   async function handleImageUpload(file) {
     try {
@@ -33,6 +34,7 @@ export default function SignUpPage() {
       password,
       profilePicture,
     };
+    
 
     try {
       const result = await axios.post("http://localhost:3000/api/users", user);
@@ -43,6 +45,7 @@ export default function SignUpPage() {
       console.error("Error during signup:", err);
       toast.error("Failed to sign up.");
     }
+  
   }
 
 
@@ -111,17 +114,23 @@ export default function SignUpPage() {
           type="button"
           onClick={submit}
           className="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-lg shadow-lg transition duration-300"
+          
         >
           Sign Up
         </button>
+        
+        
 
         <p className="text-center text-sm text-gray-600 mt-4">
           Already have an account?{' '}
           <Link to="/login" className="text-pink-500 hover:underline">
             Login
           </Link>
+          
         </p>
+        
       </div>
+      
     </div>
   );
 }
