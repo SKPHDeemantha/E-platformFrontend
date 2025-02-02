@@ -14,16 +14,17 @@ export default function Cart() {
     setCart(loadCart());
 
     const cartItems = loadCart();
-    const productIds = cartItems.map((item) => item.ProductId).join(",");
+    const productIds = cartItems.map((item) => item.productId).join(",");
 
     axios
-      .post("http://localhost:3000/api/orders/quote" + productIds, {
+      .post(`http://localhost:3000/api/orders/quote?productIds=` + productIds, {
         orderedItems: loadCart(),
       })
       .then((res) => {
         if (res.data.total != null) {
           setTotal(res.data.total);
           setLabeledTotal(res.data.total);
+          console.log(res.data.total)
         }
       });
   }, []);
@@ -85,7 +86,7 @@ export default function Cart() {
         Total: LKR. {labeledTotal?.toFixed(2) || "0.00"}
       </h1>
       <h1 className="text-3xl font-bold text-accent">
-        Discount: LKR. {(labeledTotal - total || 0).toFixed(2)}
+        Discount: LKR. {((Number(labeledTotal) - Number(total)) || 0).toFixed(2)}
       </h1>
       <h1 className="text-3xl font-bold text-accent">
         Grand Total: LKR. {total?.toFixed(2) || "0.00"}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductCard from '../../components/ProductCard';
 import { ImSearch } from "react-icons/im";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -10,6 +10,7 @@ export default function Productpage(){
   const [products,setProducts] =useState([]);
   const [loadingstatus,setLoadingstatus] =useState("loading");
   const [query, setQuery] = useState("");
+  const navigate =useNavigate();
 
   useEffect(
     ()=>{
@@ -26,8 +27,12 @@ export default function Productpage(){
         ).catch(
           ()=>toast.error('Error loading products')
         )     
+      } else if (products == null) {
+        navigate("/error");
       }
+        
       
+    
     }
   ,[])
 
@@ -53,6 +58,8 @@ export default function Productpage(){
           setLoadingstatus("loaded");
         })
         .catch((err) => toast.error("Error loading products"));
+    }if (products == null) {
+      navigate("/error");
     }
   }
 
