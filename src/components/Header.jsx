@@ -65,7 +65,7 @@ export default function Header() {
         </nav>
 
         {/* Cart for Mobile Screens */}
-        <div className="relative lg:hidden">
+        {/* <div className="relative lg:hidden">
           <Link
             className="p-2 text-2xl text-white shadow-xl hover:shadow-xl hover:outline hover:text-pink-900 hover:scale-105 transition-transform hover:rounded-lg"
             to="/cart"
@@ -75,7 +75,7 @@ export default function Header() {
           <span className="absolute top-0 right-0 shadow-xl bg-red-500 text-white text-xs rounded-full px-1">
       
           </span>
-        </div>
+        </div> */}
       </header>
     </>
   );
