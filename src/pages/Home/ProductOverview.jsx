@@ -12,7 +12,7 @@ export default function ProductOverView() {
   const [product, setProduct] = useState(null);
   const [status, setStatus] = useState("loading");
   const navigate =useNavigate();
-
+  
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/products/${productId}`)
@@ -26,6 +26,8 @@ export default function ProductOverView() {
       })
       .catch(() => setStatus("not found"));
   }, [productId]);
+
+  
 
   const onAddToCartClick = () => {
     if (product) {
@@ -47,6 +49,15 @@ export default function ProductOverView() {
       }
     })
   }
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => {
+    setCounter(counter + 1);
+  };
+
+  const decrement = () => {
+    setCounter(counter - 1);
+  };
 
   return (
     <div className="w-full h-auto min-h-[calc(100vh-100px)] bg-gray-100 p-4">
@@ -83,6 +94,13 @@ export default function ProductOverView() {
             <p className="text-gray-600 text-sm lg:text-base line-clamp-3">
               {product.description}
             </p>
+            <div className="w-auto h-auto flex flex-row ">
+              <p className="subtittle"></p>
+            <button onClick={increment}  className="w-14 h-14 bg-slate-300 items-center justify-center  text-2xl rounded-l-lg border-r-black" > +</button>
+            <button className="w-14 h-14 bg-slate-300 items-center justify-center text-2xl" > {counter}</button>
+            <button onClick={decrement} className="w-14 h-14 bg-slate-300 items-center justify-center text-2xl rounded-r-lg" >-</button>
+            </div>
+            
             <button
               onClick={onAddToCartClick}
               className="bg-mycolor hover:bg-mycolor hover:text-wrap text-white px-4 lg:px-6 py-2 rounded-lg text-sm lg:text-base transition-all"

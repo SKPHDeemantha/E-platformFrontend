@@ -13,7 +13,7 @@ export default function Header() {
       {isSliderOpen && <NavSlider closeSlider={() => setIsSliderOpen(false)} />}
 
    
-      <header className="bg-gradient-to-b from-pink-900 to-red-300 w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative">
+      <header className="bg-pink-900 w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative animate-slideIn">
 
         
         <img
