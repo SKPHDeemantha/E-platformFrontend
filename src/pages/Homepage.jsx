@@ -1,13 +1,14 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import ProductOverView from "./Home/ProductOverview";
 import Productpage from "./Home/Productpage";
 import Cart from "./Home/Cart";
 import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
+import Footer from "../components/Footer";
 
 function ScrollToTop() {
   return (
@@ -24,8 +25,8 @@ export default function HomePage() {
   return (
     <div className="relative w-full min-h-screen bg-slate-100">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('/homebackdrop.jpg')" }}>
-        <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 w-full h-screen bg-cover bg-center" style={{ backgroundImage: "url('/Homebackdrop.jpg')" }}>
+        {/* <div className="absolute inset-0 bg-black/50"></div> */}
       </div>
 
       <Header />
@@ -76,11 +77,7 @@ export default function HomePage() {
           <Route
             path="/*"
             element={
-              <h1 className="text-slate-800 text-3xl text-center">
-                Welcome to the <br />
-                <span className="text-3xl text-pink-950 font-bold">VELVETGLOW!</span>
-              </h1>
-            }
+              <h1 className="text-slate-800 text-3xl text-center"></h1>}
           />
           <Route path="/login" element={<h1 className="text-slate-800 text-3xl">Login Page</h1>} />
           <Route path="/productInfo/:id" element={<ProductOverView />} />
@@ -93,7 +90,7 @@ export default function HomePage() {
       </div>
 
       <ScrollToTop />
-      <Footer />
+   <Footer/>
     </div>
   );
 }
