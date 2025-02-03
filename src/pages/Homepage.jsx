@@ -1,51 +1,30 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { ImSearch } from "react-icons/im";
-import { GiShoppingCart } from "react-icons/gi";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ProductOverView from "./Home/ProductOverview";
 import Productpage from "./Home/Productpage";
 import Cart from "./Home/Cart";
-import { Carousel } from "@material-tailwind/react";
-import Footer from "../components/Footer";
 import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
 
 function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    isVisible && (
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-4 right-4 p-3 bg-green-400 text-white rounded-full shadow-lg hover:bg-yellow-300"
-      >
-        ↑
-      </button>
-    )
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-4 right-4 p-3 bg-green-400 text-white rounded-full shadow-lg hover:bg-yellow-300"
+    >
+      ↑
+    </button>
   );
 }
 
 export default function HomePage() {
   return (
-    <div className="relative w-full h-screen bg-slate-100">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('/home.jpg')" }}>
+    <div className="relative w-full min-h-screen bg-slate-100">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('/homebackdrop.jpg')" }}>
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
@@ -73,6 +52,7 @@ export default function HomePage() {
           Discover exclusive deals and handpicked products just for you!
         </p>
 
+        {/* Call-to-Action Buttons */}
         <div className="mt-6 flex space-x-6">
           <Link
             to="/products"
@@ -88,6 +68,28 @@ export default function HomePage() {
             Login
           </Link>
         </div>
+      </div>
+
+      {/* Routes Section */}
+      <div className="relative z-10 w-full flex-grow flex items-center justify-center p-4">
+        <Routes>
+          <Route
+            path="/*"
+            element={
+              <h1 className="text-slate-800 text-3xl text-center">
+                Welcome to the <br />
+                <span className="text-3xl text-pink-950 font-bold">VELVETGLOW!</span>
+              </h1>
+            }
+          />
+          <Route path="/login" element={<h1 className="text-slate-800 text-3xl">Login Page</h1>} />
+          <Route path="/productInfo/:id" element={<ProductOverView />} />
+          <Route path="/products" element={<Productpage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/error" element={<ProductNotFound />} />
+        </Routes>
       </div>
 
       <ScrollToTop />
