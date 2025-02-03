@@ -43,95 +43,54 @@ function ScrollToTop() {
 
 export default function HomePage() {
   return (
-    <div className="w-full h-auto flex flex-col bg-slate-100">
- 
+    <div className="relative w-full h-screen bg-slate-100">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: "url('/home.jpg')" }}>
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+
       <Header />
 
-<div className="w-full flex items-center justify-center py-6">
-  <div className="relative w-[85%] sm:w-3/4 md:w-2/3 h-[40vh] rounded-2xl overflow-hidden shadow-xl">
-    <Carousel
-      loop
-      autoplay
-      transition={{ duration: 1.5 }}
-      className="w-full h-full">
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xl md:text-2xl font-bold p-6 text-center"
-      >
-        Welcome to Our Store - Your one-stop shop for everything!
-        <Link
-          to="/products"
-          className="mt-4 px-5 py-2 bg-white text-indigo-600 rounded-lg shadow hover:scale-105 transition-transform">
-          Shop Now
-        </Link>
-      </motion.div>
-
-      
-      <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-pink-500 to-orange-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
-        Discover Amazing Products Handpicked Just for You!
-      </div>
-
-      <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-500 to-teal-500 text-white text-xl md:text-2xl font-bold p-6 text-center">
-        Exclusive Deals & Discounts Await You!
-      </div>
-    </Carousel>
-  </div>
-</div>
-
-   
-      <div className="w-full py-8 flex justify-center space-x-6">
-        
-        <Link
-          to="/products"
-          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform glow-on-hover"
+      {/* Branding Section */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-[80vh] text-white text-center px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg"
         >
-          Explore Products
-        </Link>
-
-        {/* Login Button */}
-        <Link
-          to="/login"
-          className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform glow-on-hover"
+          WELCOME TO
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2 }}
+          className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 drop-shadow-xl"
         >
-          Login
-        </Link>
-      </div>
-           
+          VELVETGLOW
+        </motion.h2>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl">
+          Discover exclusive deals and handpicked products just for you!
+        </p>
 
-      <div className="w-full flex-grow flex items-center justify-center p-4">
-        <Routes>
-        
-          <Route
-            path="/*"
-            element={
-              <h1 className="text-slate-800 text-3xl text-center">
-                Welcome to the <br />
-                <span className="text-3xl text-pink-950 font-bold">VELVETGLOW!</span>
-              </h1> }/>
+        <div className="mt-6 flex space-x-6">
+          <Link
+            to="/products"
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+          >
+            Explore Products
+          </Link>
 
-      
-          <Route
-            path="/login"
-            element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}/>
-          <Route path="/productInfo/:id" element={<ProductOverView />} />
-     
-          <Route path="/products" element={<Productpage />} />
-
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/shipping" element={<Shipping/>}/>
-          <Route path="/orders" element={<Orders/>}/>
-          <Route path="error" element={<ProductNotFound/>}/>
-
-        </Routes>
+          <Link
+            to="/login"
+            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+          >
+            Login
+          </Link>
+        </div>
       </div>
 
-    
       <ScrollToTop />
-
-
       <Footer />
     </div>
   );

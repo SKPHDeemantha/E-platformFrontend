@@ -32,33 +32,33 @@ export default function Header() {
 
         <div className="relative hidden lg:flex items-center ">
           <Link
-            className="p-2 text-xl text-white shadow-xl hover:text-pink-900 hover:shadow-xl hover:outline flex items-center hover:scale-105 transition-transform hover:rounded-lg"
+            className="p-2 text-xl text-white shadow-xl  hover:shadow-xl hover:outline flex items-center hover:scale-105 transition-transform hover:rounded-lg"
             to="/cart" >
-            <span className=" text-white hover:text-pink-900  text-transparent"> View Cart</span>
+            <span className=" text-white   text-transparent"> View Cart</span>
             <GiShoppingCart className="ml-1" />
           </Link>
         </div>
           <Link
             to="/"
-            className="text-white font-bold shadow-xl p-2 bg-opacity-30 text-xl hover:shadow-xl hover:outline hover:border-b border-primary hover:text-pink-900 hover:scale-105 transition-transform hover:rounded-lg"
+            className="text-white font-bold shadow-xl p-2 bg-opacity-30 text-xl hover:shadow-xl hover:outline hover:border-b border-primary  hover:scale-105 transition-transform hover:rounded-lg"
           >
             Home
           </Link>
           <Link
             to="/products"
-            className="text-white font-bold p-2 shadow-xl text-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900 hover:scale-105 transition-transform hover:rounded-lg"
+            className="text-white font-bold p-2 shadow-xl text-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"
           >
             Products
           </Link>
           <Link
             to="/contactus"
-            className="text-white p-2 font-bold shadow-xl text-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900 hover:scale-105 transition-transform hover:rounded-lg"
+            className="text-white p-2 font-bold shadow-xl text-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"
           >
             Contact Us
           </Link>
           <Link
             to="/signup"
-            className="text-white p-2 font-bold text-xl shadow-xl hover:border-b hover:shadow-xl hover:outline border-primary hover:text-pink-900 hover:scale-105 transition-transform hover:rounded-lg"
+            className="text-white p-2 font-bold text-xl shadow-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"
           >
             Sign Up
           </Link>
