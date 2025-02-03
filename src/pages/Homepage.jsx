@@ -20,78 +20,121 @@ function ScrollToTop() {
   );
 }
 
+
 export default function HomePage() {
   return (
-    <div className="relative w-full min-h-screen bg-slate-100">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-screen bg-cover bg-center" >
-        <img src="/Homebackdrop.jpg" alt="homebackdrop" className="w-full h-screen object-cover"/>
-        {/* <div className="absolute inset-0 bg-black/50"></div> */}
-       
-      </div>
+    <div className="relative w-full h-screen flex flex-col">
 
-      <Header />
+      <Header className="fixed top-0 left-0 w-full bg-white shadow-md z-50" />
 
-      {/* Branding Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-[80vh] text-white text-center px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg"
-        >
-          WELCOME TO
-        </motion.h1>
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 drop-shadow-xl"
-        >
-          VELVETGLOW
-        </motion.h2>
-        <p className="mt-4 text-lg md:text-xl max-w-2xl">
-          Discover exclusive deals and handpicked products just for you!
-        </p>
-
-        {/* Call-to-Action Buttons */}
-        <div className="mt-6 flex space-x-6">
-          <Link
-            to="/products"
-            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
-          >
-            Explore Products
-          </Link>
-
-          <Link
-            to="/login"
-            className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
-          >
-            Login
-          </Link>
-        </div>
-      </div>
-
-      {/* Routes Section */}
-      <div className="relative z-10 w-full flex-grow flex items-center justify-center p-4">
-        <Routes>
-          <Route
-            path="/*"
-            element={
-              <h1 className="text-slate-800 text-3xl text-center"></h1>}
+      <div className=" h-[calc(100vh-80px)] overflow-y-auto bg-slate-100">
+     
+        <div className="relative w-full h-[100vh]">
+          <img
+            src="/Homebackdrop.jpg"
+            alt="homebackdrop"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-          <Route path="/login" element={<h1 className="text-slate-800 text-3xl">Login Page</h1>} />
-          <Route path="/productInfo/:id" element={<ProductOverView />} />
-          <Route path="/products" element={<Productpage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/shipping" element={<Shipping />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/error" element={<ProductNotFound />} />
-        </Routes>
-      </div>
+          <div className="absolute inset-0 bg-black/20"></div>
 
-      <ScrollToTop />
-   <Footer/>
+       
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
+            <motion.h1
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg"
+            >
+              WELCOME TO
+            </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 drop-shadow-xl"
+            >
+              VELVETGLOW
+            </motion.h2>
+            <p className="mt-4 text-lg md:text-xl max-w-2xl">
+              Discover exclusive deals and handpicked products just for you!
+            </p>
+
+            {/* Call-to-Action Buttons */}
+            <div className="mt-6 flex space-x-6">
+              <Link
+                to="/products"
+                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+              >
+                Explore Products
+              </Link>
+
+              <Link
+                to="/login"
+                className="px-6 py-3 bg-gradient-to-r from-pink-500 to-red-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="relative w-full  mt-7">
+      <motion.div
+        initial={{ x: 0 }}
+        animate={{ x: "-100%" }}
+        transition={{
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 30,
+          ease: "linear",
+        }}
+        className="flex w-[500%] space-x-4"
+      >
+        
+           {[...Array(2)].map((_, i) => (
+          <div key={i} className="flex space-x-4">
+            <img src="/home.jpg" className="w-40 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/Loginpage.jpg" className="w-40 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/EditPage.jpg" className="w-40 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+            <img src="/home.jpg" className="w-56 h-60 mx-2 rounded-lg shadow-lg" />
+          </div>
+        ))} 
+ 
+          
+          
+     
+      </motion.div>
+    </div>
+
+        {/*  Routes Section */}
+        <div className="w-full flex-grow flex items-center justify-center p-4">
+          <Routes>
+            <Route
+              path="/*"
+              element={
+                <h1 className="text-slate-800 text-3xl text-center"> </h1>
+              }
+            />
+            <Route path="/login" element={<h1 className="text-slate-800 text-3xl">Login Page</h1>} />
+            <Route path="/productInfo/:id" element={<ProductOverView />} />
+            <Route path="/products" element={<Productpage />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/error" element={<ProductNotFound />} />
+          </Routes>
+        </div>
+
+        <ScrollToTop />
+        <Footer />
+      </div>
     </div>
   );
 }

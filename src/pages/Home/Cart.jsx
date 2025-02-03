@@ -57,7 +57,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="w-full h-full overflow-y-scroll flex flex-col items-end p-4">
+    <div className="w-full h-full overflow-y-scroll flex flex-col items-end p-4 mt-8">
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
@@ -82,22 +82,25 @@ export default function Cart() {
           })}
         </tbody>
       </table>
+      <div className="h-auto w-auto flex items-center flex-col">
       <h1 className="text-3xl font-bold text-mycolor">
         Total: LKR. {labeledTotal?.toFixed(2) || "0.00"}
       </h1>
       <h1 className="text-3xl font-bold text-mycolor">
         Discount: LKR. {((Number(labeledTotal) - Number(total)) || 0).toFixed(2)}
       </h1>
-      <h1 className="text-3xl font-bold text-mycolor">
+      <h1 className="text-5xl font-bold text-green-700">
         Grand Total: LKR. {total?.toFixed(2) || "0.00"}
       </h1>
-
       <button
         onClick={onOrderCheckout}
         className="bg-mycolor hover:bg-pink-800 text-white p-2 rounded-lg w-[300px] mt-4"
       >
         Checkout
       </button>
+      </div>
+
+      
     </div>
   );
 }
