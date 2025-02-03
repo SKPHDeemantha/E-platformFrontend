@@ -49,13 +49,14 @@ export default function ProductOverView() {
       }
     })
   }
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
 
   const increment = () => {
     setCounter(counter + 1);
   };
 
   const decrement = () => {
+    if(counter >=2)
     setCounter(counter - 1);
   };
 
@@ -97,7 +98,7 @@ export default function ProductOverView() {
             <div className="w-auto h-auto flex flex-row ">
               <p className="subtittle"></p>
             <button onClick={increment}  className="w-14 h-14 bg-slate-300 items-center justify-center  text-2xl rounded-l-lg border-r-black" > +</button>
-            <button className="w-14 h-14 bg-slate-300 items-center justify-center text-2xl" > {counter}</button>
+            <input className="w-14 h-14 bg-slate-300 items-center justify-center text-xl" onChange={counter} type=""/>
             <button onClick={decrement} className="w-14 h-14 bg-slate-300 items-center justify-center text-2xl rounded-r-lg" >-</button>
             </div>
             

@@ -78,7 +78,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative w-full  mt-7">
-      <motion.div
+      {/* <motion.div
         initial={{ x: 0 }}
         animate={{ x: "-100%" }}
         transition={{
@@ -110,7 +110,7 @@ export default function HomePage() {
           
           
      
-      </motion.div>
+      </motion.div> */}
     </div>
 
         {/*  Routes Section */}
