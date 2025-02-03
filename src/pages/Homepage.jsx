@@ -1,7 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
-
 import ProductOverView from "./Home/ProductOverview";
 import Productpage from "./Home/Productpage";
 import Cart from "./Home/Cart";
@@ -25,8 +24,10 @@ export default function HomePage() {
   return (
     <div className="relative w-full min-h-screen bg-slate-100">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-screen bg-cover bg-center" style={{ backgroundImage: "url('/Homebackdrop.jpg')" }}>
+      <div className="absolute inset-0 w-full h-screen bg-cover bg-center" >
+        <img src="/Homebackdrop.jpg" alt="homebackdrop" className="w-full h-screen object-cover"/>
         {/* <div className="absolute inset-0 bg-black/50"></div> */}
+       
       </div>
 
       <Header />
