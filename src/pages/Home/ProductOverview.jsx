@@ -5,6 +5,7 @@ import ProductNotFound from "./ProductNotFound";
 import { addToCart } from "../../utils/Cartfunction";
 import toast from "react-hot-toast";
 import ImageSlider from "../../components/ImageSlider";
+import Review from "../../components/Review";
 
 export default function ProductOverView() {
   const params = useParams();
@@ -74,8 +75,8 @@ export default function ProductOverView() {
           <div className="w-full lg:w-1/2">
             <ImageSlider images={product.images} />
           </div>
-       
-          <div className="w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-6 space-y-4">
+          <div className="flex flex-col w-full h-full">
+          <div className="w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-6 space-y-4 ">
             <h1 className="text-2xl lg:text-4xl font-extrabold text-gray-800">
               {product.productName}
             </h1>
@@ -116,6 +117,11 @@ export default function ProductOverView() {
               Buy Now 
             </button>
           </div>
+          <div className="w-20 h-20 bg-slate-400 flex flex-col">
+            <Review/>
+          </div>
+          
+        </div>
         </div>
       )}
     </div>
