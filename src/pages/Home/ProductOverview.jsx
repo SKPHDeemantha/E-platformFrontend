@@ -68,7 +68,7 @@ export default function ProductOverView() {
       {status === "not found" && <ProductNotFound />}
       {status === "found" && product && (
         <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center gap-6 p-4">
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/3">
             <ImageSlider images={product.images} />
           </div>
           <div className="flex flex-col w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-4 sm:p-6 space-y-4">
@@ -95,7 +95,7 @@ export default function ProductOverView() {
             <div className="flex items-center gap-2">
               <button
                 onClick={decrement}
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-xl rounded-l-lg"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-2xl rounded-l-lg font-bold"
               >
                 -
               </button>
@@ -104,7 +104,7 @@ export default function ProductOverView() {
               </div>
               <button
                 onClick={increment}
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-xl rounded-r-lg"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-xl rounded-r-lg font-bold"
               >
                 +
               </button>
@@ -113,13 +113,13 @@ export default function ProductOverView() {
             <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={onAddToCartClick}
-                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all"
+                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Add to Cart
               </button>
               <button
                 onClick={onBuyNowClick}
-                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all"
+                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Buy Now
               </button>
@@ -127,7 +127,7 @@ export default function ProductOverView() {
            
      
             <button
-              className="w-full bg-slate-300 py-2 rounded-lg text-center"
+              className="w-full bg-gradient-to-b shadow-lg from-pink-500 to-white py-2 rounded-lg text-center font-bold text-xl"
               onClick={() => setViewDetails(!viewDetails)}
             >
               Add Review

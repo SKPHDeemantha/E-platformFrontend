@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Review from "./Review";
-import { MdStarPurple500 } from "react-icons/md";
+
 
 export default function ProductCard(props) {
   const { product } = props;
@@ -43,9 +43,7 @@ export default function ProductCard(props) {
               LKR.{product.price}
             </p>
           )}
-          <div className="flex items-center mt-2">
-            <Review />
-          </div>
+          
         </div>
       </div>
     </Link>
