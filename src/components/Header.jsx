@@ -6,6 +6,7 @@ import NavSlider from "./NavSlider";
 
 export default function Header() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
@@ -56,12 +57,14 @@ export default function Header() {
           >
             Contact Us
           </Link>
+
           <Link
             to="/signup"
             className="text-white p-2 font-bold text-xl shadow-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"
-          >
+          > 
             Sign Up
           </Link>
+          
         </nav>
 
         {/* Cart for Mobile Screens */}

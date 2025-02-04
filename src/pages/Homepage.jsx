@@ -8,6 +8,7 @@ import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 function ScrollToTop() {
   return (
@@ -22,6 +23,7 @@ function ScrollToTop() {
 
 
 export default function HomePage() {
+
   return (
     <div className="relative w-full h-screen flex flex-col">
 

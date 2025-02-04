@@ -31,7 +31,7 @@ export default function ProductOverView() {
 
   const onAddToCartClick = () => {
     if (product) {
-      addToCart(product.ProductId, 1);
+      addToCart(product.ProductId, counter);
       console.log(product);
       toast.success(`${product.productName} added to cart!`);
     }
@@ -97,9 +97,10 @@ export default function ProductOverView() {
             </p>
             <div className="w-auto h-auto flex flex-row ">
               <p className="subtittle"></p>
-            <button onClick={increment}  className="w-14 h-14 bg-slate-300 items-center justify-center  text-2xl rounded-l-lg border-r-black" > +</button>
-            <input className="w-14 h-14 bg-slate-300 items-center justify-center text-xl" onChange={counter} />
-            <button onClick={decrement} className="w-14 h-14 bg-slate-300 items-center justify-center text-2xl rounded-r-lg" >-</button>
+
+            <button onClick={decrement} className="w-14 h-14 bg-slate-200 hover:bg-slate-300 items-center justify-center text-2xl rounded-r-lg" >-</button> 
+             <div className="w-14 h-14 bg-slate-200 items-center justify-center text-xl flex font-semibold">{counter}</div>
+            <button onClick={increment}  className="w-14 h-14 bg-slate-200 hover:bg-slate-300 items-center justify-center  text-2xl rounded-l-lg border-r-black" > +</button>
             </div>
             
             <button
