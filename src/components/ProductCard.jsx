@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Review from "./Review";
 
 export default function ProductCard(props) {
   const { product } = props;
@@ -46,11 +47,11 @@ export default function ProductCard(props) {
               .fill()
               .map((_, i) => (
                 <span key={i} className="text-yellow-400 text-lg">
-                  &#9733;
+                  
                 </span>
               ))}
             <span className="ml-2 text-sm text-gray-500">
-              ({product.ratingCount || 0})
+              ({product.ratingCount || <Review/>})
             </span>
           </div>
         </div>
