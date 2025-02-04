@@ -14,7 +14,7 @@ export default function Header() {
       {isSliderOpen && <NavSlider closeSlider={() => setIsSliderOpen(false)} />}
 
    
-      <header className="bg-pink-800  w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative animate-slideIn ">
+      <header className="bg-pink-800  w-full h-[100px] flex justify-between items-center px-4 md:px-8 shadow-md relative animate-slideIn p-14">
 
         
         <img
@@ -57,7 +57,7 @@ export default function Header() {
           >
             Contact Us
           </Link>
-
+          
           <Link
             to="/signup"
             className="text-white p-2 font-bold text-xl shadow-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"

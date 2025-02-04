@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import Review from "./Review";
+
 
 export default function ProductCard(props) {
   const { product } = props;
 
   return (
-    <Link to={`/productinfo/${product.ProductId}`}> 
+    <Link to={`/productinfo/${product.ProductId}`}>
       <div className="w-[350px] h-[550px] m-[60px] justify-center  shadow-lg hover:shadow-3xl hover:scale-105 transition-all duration-300 relative group ">
         {/* {product.isNew && (
           <div className="absolute top-2 left-2 bg-green-500 text-white font-bold px-2 py-1 rounded-md shadow-md">
@@ -41,20 +43,24 @@ export default function ProductCard(props) {
               LKR.{product.price}
             </p>
           )}
-          <div className="flex items-center mt-2">
-            {Array(product.rating || 0)
-              .fill()
-              .map((_, i) => (
-                <span key={i} className="text-yellow-400 text-lg">
-                  &#9733;
-                </span>
-              ))}
-            <span className="ml-2 text-sm text-gray-500">
-              ({product.ratingCount || 0})
-            </span>
-          </div>
+          
         </div>
       </div>
     </Link>
   );
+}
+
+{
+  /* <div className="flex items-center mt-2">
+            {Array(product.rating || 0)
+              .fill()
+              .map((_, i) => (
+                <span key={i} className="text-yellow-400 text-lg">
+                  
+                </span>
+              ))}
+            <span className="ml-2 text-sm text-gray-500">
+              ({product.ratingCount || <Review/>})
+            </span>
+          </div> */
 }
