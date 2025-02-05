@@ -60,7 +60,7 @@ export default function(){
         <p>No orders found.</p>
       ) : (
         <table className="w-full max-w-4xl border border-gray-300 shadow-md rounded-lg overflow-hidden">
-  <thead className="bg-gradient-to-r from-pink-600 to-purple-300 text-white">
+  <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
     <tr>
       <th className="p-3 border-b text-left font-semibold">Order ID</th>
       <th className="p-3 border-b text-left font-semibold">Status</th>

@@ -39,7 +39,7 @@ export default function Cart() {
 
   return (
     <div className="w-full h-full flex flex-col items-center p-6 bg-gradient-to-r from-indigo-50 to-pink-100 min-h-screen">
-      {/* Animated Heading */}
+      {/* Animated  */}
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function Cart() {
       {/* Cart Table */}
       <div className="w-full max-w-6xl overflow-x-auto shadow-lg rounded-lg">
         <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
-          <thead className="bg-gradient-to-r from-pink-600 to-purple-500 text-white">
+          <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
             <tr>
               <th className="p-4 text-left font-semibold">Image</th>
               <th className="p-4 text-left font-semibold">Product Name</th>

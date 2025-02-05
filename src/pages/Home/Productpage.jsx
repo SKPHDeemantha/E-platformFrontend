@@ -12,7 +12,7 @@ export default function ProductPage() {
   const [loadingStatus, setLoadingStatus] = useState("loading");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const [review,setReview]=useState()
+  const [review, setReview] = useState();
 
   useEffect(() => {
     axios
@@ -50,16 +50,14 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="bg-pink-50  min-h-screen w-full flex flex-col">  
-       {/* bg-[#f1f1f1]  */}
-     
+    <div className="bg-pink-50  min-h-screen w-full flex flex-col">
+      {/* bg-[#f1f1f1]  */}
+
       <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
         <Header />
       </div>
 
-
       <div className="mt-28 flex flex-col items-center overflow-y-auto w-full px-4">
-    
         <div className="flex items-center space-x-2 w-full max-w-lg sm:max-w-md lg:max-w-[50%] mx-auto mt-6 px-4 relative">
           <input
             type="text"
@@ -73,7 +71,6 @@ export default function ProductPage() {
           </Link>
         </div>
 
-      
         {loadingStatus === "loaded" && (
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
             {products.map((product) => (
@@ -82,7 +79,6 @@ export default function ProductPage() {
           </div>
         )}
 
-      
         {loadingStatus === "loading" && (
           <div className="flex justify-center items-center h-80">
             <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
@@ -90,7 +86,6 @@ export default function ProductPage() {
         )}
       </div>
 
-      
       <Footer />
     </div>
   );
