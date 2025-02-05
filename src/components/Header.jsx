@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import { GiShoppingCart } from "react-icons/gi";
 import { FiAlignJustify } from "react-icons/fi";
-import { useState } from "react";
 import NavSlider from "./NavSlider";
 import { motion } from "framer-motion";
 
-export default function Header() {
-  const [isSliderOpen, setIsSliderOpen] = useState(false);
-
+export default function Header({ isSliderOpen, setIsSliderOpen }) {
   return (
     <>
+      {/* Slider Component */}
       {isSliderOpen && <NavSlider closeSlider={() => setIsSliderOpen(false)} />}
 
       <motion.header
