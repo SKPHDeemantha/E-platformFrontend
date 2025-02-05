@@ -39,6 +39,12 @@ export default function Header() {
             <GiShoppingCart className="ml-1" />
           </Link>
         </div>
+        <Link
+            to="/orders"
+            className="text-white font-bold p-2 shadow-xl text-xl hover:border-b hover:shadow-xl hover:outline border-primary  hover:scale-105 transition-transform hover:rounded-lg"
+          >
+            My Orders
+          </Link>
           <Link
             to="/"
             className="text-white font-bold shadow-xl p-2 bg-opacity-30 text-xl hover:shadow-xl hover:outline hover:border-b border-primary  hover:scale-105 transition-transform hover:rounded-lg"

@@ -21,16 +21,12 @@ function ScrollToTop() {
   );
 }
 
-
 export default function HomePage() {
-
   return (
     <div className="relative w-full h-screen flex flex-col">
-
       <Header className="fixed top-0 left-0 w-full bg-white shadow-md z-50" />
 
       <div className=" h-[calc(100vh-80px)] overflow-y-auto bg-slate-100">
-     
         <div className="relative w-full h-[100vh]">
           <img
             src="/Homebackdrop.jpg"
@@ -39,7 +35,6 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-black/20"></div>
 
-       
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
             <motion.h1
               initial={{ opacity: 0, y: -30 }}
@@ -80,7 +75,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative w-full  mt-7">
-      {/* <motion.div
+          {/* <motion.div
         initial={{ x: 0 }}
         animate={{ x: "-100%" }}
         transition={{
@@ -113,7 +108,7 @@ export default function HomePage() {
           
      
       </motion.div> */}
-    </div>
+        </div>
 
         {/*  Routes Section */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
@@ -124,7 +119,10 @@ export default function HomePage() {
                 <h1 className="text-slate-800 text-3xl text-center"> </h1>
               }
             />
-            <Route path="/login" element={<h1 className="text-slate-800 text-3xl">Login Page</h1>} />
+            <Route
+              path="/login"
+              element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}
+            />
             <Route path="/productInfo/:id" element={<ProductOverView />} />
             <Route path="/products" element={<Productpage />} />
             <Route path="/cart" element={<Cart />} />
