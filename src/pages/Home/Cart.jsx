@@ -22,9 +22,11 @@ export default function Cart() {
         orderedItems: loadCart(),
       })
       .then((res) => {
+        console.log(loadCart());
+        console.log(res.data);
         if (res.data.total != null) {
           setTotal(res.data.total);
-          setLabeledTotal(res.data.total);
+          setLabeledTotal(res.data.labeledTotal);
         }
       });
   }, []);
@@ -85,7 +87,7 @@ export default function Cart() {
           Total: <span className="text-pink-600">LKR {labeledTotal?.toFixed(2) || "0.00"}</span>
         </h1>
         <h1 className="text-xl font-bold text-gray-500 mt-2">
-          Discount: <span className="text-red-500">LKR {(Number(labeledTotal) - Number(total)).toFixed(2) || "0.00"}</span>
+          Discount: <span className="text-red-500">LKR {((labeledTotal - total)).toFixed(2) || "0.00"}</span>
         </h1>
         <h1 className="text-4xl font-bold text-green-600 mt-3">
           Grand Total: LKR {total?.toFixed(2) || "0.00"}

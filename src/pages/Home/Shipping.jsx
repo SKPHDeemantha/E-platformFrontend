@@ -106,14 +106,14 @@ export default function ShippingPage() {
         transition={{ duration: 1 }}
         className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8 mt-8"
       >
-        {/* Animated Heading */}
+        {/* Animated h1 */}
         <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg text-center">
           Shipping Details
         </h1>
 
         {/* Form Fields */}
         <div className="mt-6">
-          <label className="block font-medium text-gray-700">Name</label>
+          <label className="block font-medium text-gray-700 ">Name</label>
           <input
             type="text"
             className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
@@ -177,13 +177,13 @@ export default function ShippingPage() {
           className="mt-6 text-center"
         >
           <h1 className="text-xl font-bold text-gray-700">
-            Total: <span className="text-pink-600">LKR {total.toFixed(2)}</span>
+            Total: <span className="text-pink-600">LKR {labeledTotal.toFixed(2)}</span>
           </h1>
           <h1 className="text-lg font-bold text-gray-600 mt-2">
             Discount: <span className="text-red-500">LKR {(labeledTotal - total).toFixed(2)}</span>
           </h1>
           <h1 className="text-3xl font-bold text-green-600 mt-3">
-            Grand Total: LKR {labeledTotal.toFixed(2)}
+            Grand Total: LKR {total.toFixed(2)}
           </h1>
 
           {/* Checkout Button */}
@@ -196,7 +196,7 @@ export default function ShippingPage() {
         </motion.div>
       </motion.div>
 
-      <Footer />
+      <Footer className="flex " />
     </div>
   );
 }
