@@ -12,7 +12,7 @@ export default function ProductPage() {
   const [loadingStatus, setLoadingStatus] = useState("loading");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const [review, setReview] = useState();
+
 
   useEffect(() => {
     axios
