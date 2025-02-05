@@ -75,7 +75,7 @@ export default function ProductPage() {
 
       
         {loadingStatus === "loaded" && (
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -84,7 +84,7 @@ export default function ProductPage() {
 
       
         {loadingStatus === "loading" && (
-          <div className="flex justify-center items-center h-40">
+          <div className="flex justify-center items-center h-80">
             <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
           </div>
         )}

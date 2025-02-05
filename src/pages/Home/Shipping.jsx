@@ -99,7 +99,7 @@ export default function ShippingPage() {
     <div className="w-full h-full bg-gray-100 ">
       <Header />
       <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 m-4 ">
-        <h1 className="text-2xl font-bold mb-4 text-fuchsia-900">
+        <h1 className="text-2xl font-bold mb-4 text-fuchsia-900 ml-80">
           Shipping Details
         </h1>
         <div className="mb-4">

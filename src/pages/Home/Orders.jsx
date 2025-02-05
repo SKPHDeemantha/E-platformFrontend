@@ -1,4 +1,5 @@
 import axios from "axios";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
 
@@ -40,36 +41,57 @@ export default function(){
 
   return(
     <div className="w-full h-full flex flex-col items-center p-4">
-      <h1 className="text-xl font-bold mb-4">My Orders</h1>
+       <motion.h1
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg p-5"
+            >
+             My Orders
+            </motion.h1>
+      
       {loading ? (
         <p>Loading orders...</p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-200 shadow-sm rounded-lg">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-2 border-b text-left">Order ID</th>
-              <th className="p-2 border-b text-left">Status</th>
-              <th className="p-2 border-b text-left">Date</th>
-              <th className="p-2 border-b text-left">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr
-                key={order.orderId}
-                className="hover:bg-gray-50 cursor-pointer"
-                onClick={() => handleRowClick(order)}
-              >
-                <td className="p-2 border-b">{order.orderId}</td>
-                <td className="p-2 border-b">{order.status}</td>
-                <td className="p-2 border-b">{new Date(order.date).toLocaleDateString()}</td>
-                <td className="p-2 border-b">LKR {calculateTotal(order.orderedItems).toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <table className="w-full max-w-4xl border border-gray-300 shadow-md rounded-lg overflow-hidden">
+  <thead className="bg-gradient-to-r from-pink-600 to-purple-300 text-white">
+    <tr>
+      <th className="p-3 border-b text-left font-semibold">Order ID</th>
+      <th className="p-3 border-b text-left font-semibold">Status</th>
+      <th className="p-3 border-b text-left font-semibold">Date</th>
+      <th className="p-3 border-b text-left font-semibold">Total</th>
+    </tr>
+  </thead>
+  <tbody className="bg-white divide-y divide-gray-200">
+    {orders.map((order, index) => (
+      <tr
+        key={order.orderId}
+        className={`cursor-pointer transition-all duration-300 ${
+          index % 2 === 0 ? "bg-gray-50" : "bg-white"
+        } hover:bg-pink-100 hover:shadow-lg`}
+        onClick={() => handleRowClick(order)}
+      >
+        <td className="p-3 font-medium text-gray-800">{order.orderId}</td>
+        <td
+          className={`p-3 font-semibold ${
+            order.status === "Delivered" ? "text-green-600" : "text-red-500"
+          }`}
+        >
+          {order.status}
+        </td>
+        <td className="p-3 text-gray-700">
+          {new Date(order.date).toLocaleDateString()}
+        </td>
+        <td className="p-3 font-semibold text-indigo-600">
+          LKR {calculateTotal(order.orderedItems).toFixed(2)}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
       )}
 
 
