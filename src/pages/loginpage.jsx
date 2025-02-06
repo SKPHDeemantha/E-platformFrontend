@@ -73,9 +73,9 @@ export default function LoginPage() {
         {/* Left Side - Image */}
         <div className="w-1/2 hidden sm:block">
           <img
-            src="/Loginpage.jpg"
+            src="/cosmetic.jpg"
             alt="Loginpage background"
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-cover rounded-lg "
           />
         </div>
 
