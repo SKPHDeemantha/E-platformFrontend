@@ -3,8 +3,10 @@ import { GiShoppingCart } from "react-icons/gi";
 import { FiAlignJustify } from "react-icons/fi";
 import NavSlider from "./NavSlider";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-export default function Header({ isSliderOpen, setIsSliderOpen }) {
+export default function Header() {
+  const [isSliderOpen, setIsSliderOpen]=useState(false);
   return (
     <>
       {/* Slider Component */}
@@ -20,7 +22,7 @@ export default function Header({ isSliderOpen, setIsSliderOpen }) {
         <motion.img
           src="/company logo.jpg"
           alt="Company Logo"
-          className="cursor-pointer rounded-full w-16 h-16 md:w-20 md:h-20 absolute left-6"
+          className="cursor-pointer rounded-full w-16 h-16 md:w-20 md:h-20 absolute left-6 "
           whileHover={{ scale: 1.1 }}
         />
 

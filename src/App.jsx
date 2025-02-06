@@ -15,6 +15,8 @@ import Productpage from './pages/Home/Productpage'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import Shipping from './pages/Home/Shipping'
 import ProductNotFound from './pages/Home/ProductNotFound'
+import ProductOverView from './pages/Home/ProductOverview'
+import Orders from './pages/Home/Orders'
 
 
 function App() {
@@ -38,7 +40,8 @@ function App() {
     <Route path="/test" element={<FileUploardTest/>}/>
     <Route path="/shipping" element={<Shipping/>}/>
     <Route path="/error" element={<ProductNotFound/>}/>
-   
+    <Route path="/productInfo/:id" element={<ProductOverView />} />
+     <Route path="/orders" element={<Orders />} />
     </Routes>
 
  </GoogleOAuthProvider>

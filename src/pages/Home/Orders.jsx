@@ -2,6 +2,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function(){
   const [orders,setOrders]=useState([]);
@@ -40,7 +42,11 @@ export default function(){
   };
 
   return(
+
+    <div className="w-full h-full flex flex-col items-center ">
+      <Header/>
     <div className="w-full h-full flex flex-col items-center p-4">
+      
        <motion.h1
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,6 +167,8 @@ export default function(){
           </div>
         </div>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 }
