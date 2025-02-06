@@ -129,7 +129,7 @@ export default function SignUpPage() {
           <button
             type="button"
             onClick={submit}
-            className="w-full py-3 mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-lg shadow-lg transition duration-300"
+            className="w-full py-3 mt-6 bg-gradient-to-r from-pink-400 to-purple-600 hover:bg-gradient-to-tr text-white font-bold rounded-lg shadow-lg transition duration-300 text-xl"
           >
             Sign Up
           </button>
