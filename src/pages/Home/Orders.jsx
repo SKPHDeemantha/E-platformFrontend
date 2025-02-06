@@ -45,7 +45,7 @@ export default function(){
 
     <div className="w-full h-full flex flex-col items-center ">
       <Header/>
-    <div className="w-full h-full flex flex-col items-center p-4">
+    <div className="w-full h-screen flex flex-col items-center p-4">
       
        <motion.h1
               initial={{ opacity: 0, y: -30 }}
