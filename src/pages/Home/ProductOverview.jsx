@@ -113,13 +113,13 @@ export default function ProductOverView() {
             <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={onAddToCartClick}
-                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
+                className="bg-gradient-to-r from-pink-600 to-purple-500 hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Add to Cart
               </button>
               <button
                 onClick={onBuyNowClick}
-                className="bg-mycolor hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
+                className="bg-gradient-to-r from-pink-600 to-purple-500 hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Buy Now
               </button>
@@ -145,7 +145,7 @@ export default function ProductOverView() {
       <Review />
 
       {/* Submit Button */}
-      <button className="w-full bg-pink-500 text-white font-semibold text-lg py-2 rounded-lg mt-4
+      <button className="w-full bg-gradient-to-r from-pink-600 to-purple-500 text-white font-semibold text-lg py-2 rounded-lg mt-4
       hover:bg-pink-600" onClick={()=>{
         closeSlider();
         toast.success("Thank you for your Review!");

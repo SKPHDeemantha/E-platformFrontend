@@ -1,23 +1,12 @@
 import { Link } from "react-router-dom";
-import Review from "./Review";
-
+import { FaStar } from "react-icons/fa";
 
 export default function ProductCard(props) {
   const { product } = props;
 
   return (
     <Link to={`/productinfo/${product.ProductId}`}>
-      <div className="w-[350px] h-[550px] m-[60px] justify-center  shadow-lg hover:shadow-3xl hover:scale-105 transition-all duration-300 relative group ">
-        {/* {product.isNew && (
-          <div className="absolute top-2 left-2 bg-green-500 text-white font-bold px-2 py-1 rounded-md shadow-md">
-            New
-          </div>
-        )}
-        {product.isOnSale && (
-          <div className="absolute top-2 right-2 bg-red-500 text-white font-bold px-2 py-1 rounded-md shadow-md">
-            Sale
-          </div>
-        )} */}
+      <div className="w-[350px] h-[550px] m-[60px] justify-center shadow-lg hover:shadow-3xl hover:scale-105 transition-all duration-300 relative group">
         <img
           src={product.images[0]}
           alt={product.productName}
@@ -28,7 +17,7 @@ export default function ProductCard(props) {
             Quick View
           </button>
         </div>
-        <div className="max-h-[40%] h-[35%] p-4 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ">
+        <div className="max-h-[40%] h-[35%] p-4 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200">
           <h1 className="text-wrap font-bold text-2xl text-center text-pink-900 drop-shadow-lg">
             {product.productName}
           </h1>
@@ -43,24 +32,29 @@ export default function ProductCard(props) {
               LKR.{product.price}
             </p>
           )}
-          
+          {/* Star Rating */}
+          <div className="flex justify-center mt-2">
+            {[...Array(5)].map((_, index) => (
+              <FaStar key={index} className="text-yellow-400 text-xl mx-0.5 hover:text-red-400" />
+            ))}
+          </div>
         </div>
       </div>
     </Link>
   );
 }
 
-{
-  /* <div className="flex items-center mt-2">
-            {Array(product.rating || 0)
-              .fill()
-              .map((_, i) => (
-                <span key={i} className="text-yellow-400 text-lg">
-                  
-                </span>
-              ))}
-            <span className="ml-2 text-sm text-gray-500">
-              ({product.ratingCount || <Review/>})
-            </span>
-          </div> */
-}
+// {
+//   <div className="flex items-center mt-2">
+//             {Array(product.rating || 0)
+//               .fill()
+//               .map((_, i) => (
+//                 <span key={i} className="text-yellow-400 text-lg">
+
+//                 </span>
+//               ))}
+//             <span className="ml-2 text-sm text-gray-500">
+//               ({product.ratingCount || <Review/>})
+//             </span>
+//           </div> */
+// }

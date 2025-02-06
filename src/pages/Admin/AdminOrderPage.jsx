@@ -90,7 +90,9 @@ export default function AdminOrdersPage() {
     <div className="w-full h-full flex flex-col items-center p-4">
       <h1 className="text-xl font-bold mb-4">Admin Orders</h1>
       {loading ? (
-        <p>Loading orders...</p>
+        <p><div className="flex justify-center items-center h-80">
+        <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+      </div></p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
