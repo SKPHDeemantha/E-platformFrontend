@@ -50,26 +50,7 @@ export default function CartCard(props) {
           <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
           <td className="text-center">
             {(product?.lastPrice * qty).toFixed(2)}
-            <button
-              className="text-red-500 px-3 py-1 rounded hover:text-red-700 space text-9xl"
-              title="Delete"
-              onClick={() => {
-                const token = localStorage.getItem("token");
-                axios
-                  .delete(`http://localhost:3000/api/products/${product.ProductId}`, {
-                    headers: { Authorization: `Bearer ${token}` },
-                  })
-                  .then(() => {
-                    toast.success("Product deleted successfully");
-                    setLoadingstatus("loading"); // Reload products after deletion
-                  })
-                  .catch(() => {
-                    toast.error("Failed to delete product");
-                  });
-              }}
-            >
-              <RiDeleteBin5Fill size={16} />
-            </button>
+
           </td>
         </tr>
       )}

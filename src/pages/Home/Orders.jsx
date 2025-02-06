@@ -43,7 +43,7 @@ export default function(){
 
   return(
 
-    <div className="w-full h-full flex flex-col items-center ">
+    <div className="w-full h-full flex flex-col items-center bg-gradient-to-bl ">
       <Header/>
     <div className="w-full h-screen flex flex-col items-center p-4">
       
@@ -65,7 +65,7 @@ export default function(){
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-300 shadow-md rounded-lg overflow-hidden">
+        <table className="w-full max-w-4xl border border-gray-300 shadow-md rounded-lg overflow-hidden ">
   <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
     <tr>
       <th className="p-3 border-b text-left font-semibold">Order ID</th>
