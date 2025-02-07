@@ -10,7 +10,9 @@ export default {
         "primary" : "#FFF9B0",
         "secondary" : "#FFD384",
          "accent" : "#FF884B",
-         "mycolor": "#FF577F"
+         "mycolor": "#FF577F",
+         "adminprimary":"#075985",
+         "adminsecondary" :"#67e8f9"
       }
     },
   },

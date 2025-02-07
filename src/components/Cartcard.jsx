@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { deleteItem } from "../utils/Cartfunction";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 export default function CartCard(props) {
   const productId = props.productId;
@@ -49,6 +50,7 @@ export default function CartCard(props) {
           <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
           <td className="text-center">
             {(product?.lastPrice * qty).toFixed(2)}
+
           </td>
         </tr>
       )}

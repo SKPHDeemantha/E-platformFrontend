@@ -16,7 +16,7 @@ export default function Header() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-gradient-to-r from-pink-600 to-purple-700 w-full h-[90px] flex justify-between items-center px-6 md:px-10 shadow-lg relative"
+        className="bg-gradient-to-r from-pink-600 to-purple-700 w-full h-[130px] flex justify-between items-center px-6 md:px-10 shadow-lg relative"
       >
         {/* Logo */}
         <motion.img

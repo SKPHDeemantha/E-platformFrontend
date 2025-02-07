@@ -4,6 +4,7 @@ import CartCard from "../../components/cartCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 export default function Cart() {
   const [cart, setCart] = useState([]);
@@ -62,6 +63,7 @@ export default function Cart() {
               <th className="p-4 text-left font-semibold">Qty</th>
               <th className="p-4 text-left font-semibold">Price</th>
               <th className="p-4 text-left font-semibold">Total</th>
+              <th className="p-4 text-left font-semibold">Action</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -70,8 +72,30 @@ export default function Cart() {
                 key={item.productId}
                 productId={item.productId}
                 qty={item.qty}
+             
               />
+             
             ))}
+            {/* <button
+                      className="text-red-500 px-3 py-1 rounded hover:text-red-700 mr-2"
+                      title="Delete"
+                      onClick={() => {
+                        const token = localStorage.getItem("token");
+                        axios
+                          .delete(`http://localhost:3000/api/products/${product.ProductId}`, {
+                            headers: { Authorization: `Bearer ${token}` },
+                          })
+                          .then((res) => {
+                            toast.success("Product deleted successfully");
+                            setLoadingstatus("loading"); // Reload products after deletion
+                          })
+                          .catch(() => {
+                            toast.error("Failed to delete product");
+                          });
+                      }}
+                    >
+                      <RiDeleteBin5Fill size={16} />
+                    </button> */}
           </tbody>
         </table>
       </div>

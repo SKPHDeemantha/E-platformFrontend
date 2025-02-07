@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 import ImageSlider from "../../components/ImageSlider";
 import Review from "../../components/Review";
 import { IoMdCloseCircle } from "react-icons/io";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function ProductOverView() {
   const params = useParams();
@@ -59,7 +61,10 @@ export default function ProductOverView() {
   }
 
   return (
+    <div>
+       <Header/>
     <div className="w-full min-h-[calc(100vh-100px)] bg-gray-100 p-4">
+     
       {status === "loading" && (
         <div className="flex items-center justify-center h-full">
           <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
@@ -72,7 +77,7 @@ export default function ProductOverView() {
             <ImageSlider images={product.images} />
           </div>
           <div className="flex flex-col w-full lg:w-1/2 bg-white shadow-lg rounded-lg p-4 sm:p-6 space-y-4">
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-gray-800">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-extrabold text-gray-900">
               {product.productName}
             </h1>
             <h2 className="text-sm sm:text-base lg:text-lg font-medium text-gray-500">
@@ -113,13 +118,13 @@ export default function ProductOverView() {
             <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={onAddToCartClick}
-                className="bg-gradient-to-r from-pink-600 to-purple-500 hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
+                className="bg-gradient-to-bl from-pink-500 to-purple-400 hover:bg-mycolor-dark hover:scale-105  text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Add to Cart
               </button>
               <button
                 onClick={onBuyNowClick}
-                className="bg-gradient-to-r from-pink-600 to-purple-500 hover:bg-mycolor-dark text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
+                className="bg-gradient-to-tl from-pink-600 to-purple-500 hover:bg-mycolor-dark hover:scale-105 text-white px-4 py-2 rounded-lg text-sm sm:text-base transition-all hover:animate-pulse"
               >
                 Buy Now
               </button>
@@ -127,7 +132,7 @@ export default function ProductOverView() {
            
      
             <button
-              className="w-full bg-gradient-to-b shadow-lg from-pink-500 to-white py-2 rounded-lg text-center font-bold text-xl"
+              className="w-full bg-gradient-to-tr shadow-lg from-pink-500 to-white hover:scale-105 py-2 rounded-lg text-center font-bold text-xl text-purple-900 hover:bg-gradient-to-t "
               onClick={() => setViewDetails(!viewDetails)}
             >
               Add Review
@@ -165,6 +170,8 @@ export default function ProductOverView() {
           </div>
         </div>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 }

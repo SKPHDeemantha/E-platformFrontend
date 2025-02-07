@@ -17,31 +17,31 @@ export default function AdminProductsPage() {
       .get("http://localhost:3000/api/products")
       .then((res) => {
         setProducts(res.data);
-        setLoadingstatus("loaded"); // Update the status after data is loaded
+        setLoadingstatus("loaded");
       })
       .catch((err) => {
         console.error("Failed to fetch products:", err);
-        setLoadingstatus("error"); // Optional: handle error status
+        setLoadingstatus("error");
       });
   }, []);
 
   if (loadingstatus === "loading") {
     return (
       <div className="flex justify-center items-center h-40">
-          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+        <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-adminprimary"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-5">
+    <div className="min-h-screen bg-gradient-to-t from-adminprimary to-adminsecondary p-5">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-5">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-semibold text-gray-800">Admin Products</h1>
+          <h1 className="text-2xl font-semibold text-adminprimary">Admin Products</h1>
           <Link
             to="/admin/products/addProduct"
-            className="flex items-center gap-2 bg-mycolor text-white px-4 py-2 rounded-lg hover:bg-accent"
-          >
+            className="flex items-center gap-2 bg-gradient-to-t from-adminprimary to-adminsecondary text-white px-4 py-2 rounded-lg hover:bg-adminsecondary "
+           >
             <IoMdAdd size={18} />
             <span>Add Product</span>
           </Link>
@@ -49,7 +49,7 @@ export default function AdminProductsPage() {
 
         <table className="w-full table-auto border-collapse border border-gray-200">
           <thead>
-            <tr className="bg-gray-100">
+            <tr className="bg-gradient-to-t from-adminprimary to-adminsecondary text-white">
               <th className="border border-gray-300 px-4 py-2 text-left">Product Id</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Product Name</th>
               <th className="border border-gray-300 px-4 py-2 text-left">Price</th>
@@ -71,7 +71,7 @@ export default function AdminProductsPage() {
                 <td className="border border-gray-300 px-4 py-2">
                   <div className="flex items-center gap-2">
                     <button
-                      className="bg-secondary text-white px-3 py-1 rounded hover:bg-yellow-500"
+                      className="bg-adminsecondary text-adminprimary px-3 py-1 rounded hover:bg-adminprimary hover:text-white"
                       title="Edit"
                       onClick={() => {
                         navigate("/admin/products/editproduct", { state: { product } });
@@ -90,7 +90,7 @@ export default function AdminProductsPage() {
                           })
                           .then((res) => {
                             toast.success("Product deleted successfully");
-                            setLoadingstatus("loading"); // Reload products after deletion
+                            setLoadingstatus("loading");
                           })
                           .catch(() => {
                             toast.error("Failed to delete product");
