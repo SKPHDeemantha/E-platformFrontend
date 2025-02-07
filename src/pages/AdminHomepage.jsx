@@ -51,27 +51,27 @@ export default function AdminHomepage() {
     <div className="bg-pink-100 w-full h-screen flex">
 
     
-      <div className="bg-pink-900 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg">
+      <div className="bg-indigo-950 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg">
         <h1 className="text-white text-2xl font-bold mt-6">Admin Panel</h1>
-        <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
           <Link className="flex flex-row items-center text-white text-xl hover:text-pink-900" to="/admin/dashboard">
             <VscGraph className="mr-2" />
             Dashboard
           </Link>
         </button>
-        <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
           <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/products">
             <FaJediOrder className="mr-2" />
             Products
           </Link>
         </button>
-        <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
           <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/orders">
             <MdProductionQuantityLimits className="mr-2" />
             Orders
           </Link>
         </button>
-        <button className="bg-pink-300 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
           <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/customers">
             <LiaUserCircle className="mr-2" />
             Customers
