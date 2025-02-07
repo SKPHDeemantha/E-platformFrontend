@@ -26,7 +26,9 @@ export default function Dashboard() {
 
     async function submit() {
         const user = { email, firstName, lastName, password, profilePicture };
-        try {
+        user.type = "admin";
+        try { 
+            console.log(user);
             await axios.post("http://localhost:3000/api/users", user);
             toast.success("Signup successfully!");
             navigate("/login");
@@ -57,7 +59,7 @@ export default function Dashboard() {
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="relative w-full max-w-lg bg-white p-8 rounded-lg shadow-2xl">
                         <button onClick={() => setModalVisible(false)} className="absolute top-4 right-4 text-gray-500 hover:text-gray-800">✖</button>
-                        <h1 className="text-2xl font-bold text-center text-adminprimary mb-6">Create  Admin Account</h1>
+                        <h1 className="text-2xl font-bold text-center text-adminprimary mb-6 ">Create  Admin Account</h1>
 
                         <label className="block mb-2 font-medium text-adminprimary">Email</label>
                         <input 
