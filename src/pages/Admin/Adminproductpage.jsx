@@ -40,7 +40,7 @@ export default function AdminProductsPage() {
           <h1 className="text-xl font-semibold text-gray-700">Admin Products</h1>
           <Link
             to="/admin/products/addProduct"
-            className="flex items-center gap-2 bg-gradient-to-br from-blue-600 to-purple-400 text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+            className="flex items-center gap-2 bg-gradient-to-br from-adminprimary to-adminsecondary text-white px-4 py-2 rounded-lg hover:bg-gray-800"
           >
             <IoMdAdd size={18} />
             <span>Add Product</span>
@@ -72,7 +72,7 @@ export default function AdminProductsPage() {
                   <td className="border border-gray-300 px-4 py-2">
                     <div className="flex items-center gap-2">
                       <button
-                        className="bg-gradient-to-br from-blue-600 to-purple-400 text-white px-3 py-1 rounded hover:bg-gray-700"
+                        className="bg-gradient-to-br from-adminprimary to-adminsecondary text-white px-3 py-1 rounded hover:bg-gray-700"
                         title="Edit"
                         onClick={() => {
                           navigate("/admin/products/editproduct", { state: { product } });
