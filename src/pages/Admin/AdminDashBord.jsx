@@ -4,6 +4,7 @@ import FullCalendarComponent from "../../components/Calender";
 import axios from "axios";
 import UploadMediaToSupabase from "../../utils/MediaUpload";
 import { toast } from "react-hot-toast";
+import AdminNavSlider from "../../components/AdminNavslider";
 
 export default function Dashboard() {
     const [email, setEmail] = useState("");
@@ -13,7 +14,8 @@ export default function Dashboard() {
     const [profilePicture, setProfilePicture] = useState("");
     const [modalVisible, setModalVisible] = useState(false);
     const navigate = useNavigate();
-
+    const [isSliderOpen, setIsSliderOpen]=useState(false);
+    
     async function handleImageUpload(file) {
         try {
             const url = await UploadMediaToSupabase(file);
@@ -40,6 +42,7 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-gray-100 p-6">
             <header className="mb-6">
+                 {isSliderOpen && <AdminNavSlider closeSlider={() => setIsSliderOpen(false)} />}
                 <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
                 <p className="text-gray-600">Overview of system performance</p>
             </header>
