@@ -53,85 +53,78 @@ export default function AddProductForm() {
   }
 
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center p-4">
-      <div className="relative z-10 w-full max-w-lg bg-white p-6 rounded-lg shadow-2xl overflow-y-scroll">
-        <h1 className="text-3xl font-bold text-adminprimary text-center mb-6">Add New Product</h1>
+    <div className="h-screen flex flex-col items-center justify-center p-4 bg-gray-100">
+      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md overflow-y-auto">
+        <h1 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+          Add New Product
+        </h1>
 
-        {/* Product ID */}
-        <label className="block text-gray-700 font-medium mb-2">Product ID</label>
+        <label className="block text-gray-700 font-medium mb-1">Product ID</label>
         <input
           type="text"
           onChange={(e) => setProductId(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter product ID"
         />
 
-        {/* Product Name */}
-        <label className="block text-gray-700 font-medium mb-2">Product Name</label>
+        <label className="block text-gray-700 font-medium mb-1">Product Name</label>
         <input
           type="text"
           onChange={(e) => setProductName(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter product name"
         />
 
-        {/* Alternative Names */}
-        <label className="block text-gray-700 font-medium mb-2">Alternative Names</label>
+        <label className="block text-gray-700 font-medium mb-1">Alternative Names</label>
         <input
           type="text"
           onChange={(e) => setAlternativeNames(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter alternative names (comma-separated)"
         />
 
-        {/* Image Upload */}
-        <label className="block text-gray-700 font-medium mb-2">Image Upload</label>
+        <label className="block text-gray-700 font-medium mb-1">Image Upload</label>
         <input
           type="file"
           onChange={(e) => setImageFile(e.target.files)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           multiple
         />
 
-        {/* Price */}
-        <label className="block text-gray-700 font-medium mb-2">Price</label>
+        <label className="block text-gray-700 font-medium mb-1">Price</label>
         <input
           type="number"
           onChange={(e) => setPrice(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter price"
         />
 
-        {/* Last Price */}
-        <label className="block text-gray-700 font-medium mb-2">Last Price</label>
+        <label className="block text-gray-700 font-medium mb-1">Last Price</label>
         <input
           type="number"
           onChange={(e) => setLastPrice(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter last price"
         />
 
-        {/* Stock */}
-        <label className="block text-gray-700 font-medium mb-2">Stock</label>
+        <label className="block text-gray-700 font-medium mb-1">Stock</label>
         <input
           type="number"
           onChange={(e) => setStock(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter stock"
         />
 
-        {/* Description */}
-        <label className="block text-gray-700 font-medium mb-2">Description</label>
+        <label className="block text-gray-700 font-medium mb-1">Description</label>
         <textarea
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full p-2 mb-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-adminprimary"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400"
           placeholder="Enter description"
         ></textarea>
 
-        {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="w-full bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-bl text-white py-2 rounded-lg hover:bg-adminsecondary transition-colors"
+          className="w-full bg-gradient-to-br from-blue-600 to-purple-400 text-white py-2 rounded-lg hover:bg-gray-800 transition"
         >
           Submit
         </button>
