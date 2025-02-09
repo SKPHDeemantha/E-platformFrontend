@@ -53,8 +53,8 @@ export default function AddProductForm() {
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-adminprimary to-adminsecondary p-4">
-      <div className="relative z-10 w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
+    <div className="relative h-screen flex flex-col items-center justify-center p-4">
+      <div className="relative z-10 w-full max-w-lg bg-white p-6 rounded-lg shadow-2xl overflow-y-scroll">
         <h1 className="text-3xl font-bold text-adminprimary text-center mb-6">Add New Product</h1>
 
         {/* Product ID */}
@@ -131,7 +131,7 @@ export default function AddProductForm() {
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="w-full bg-adminprimary text-white py-2 rounded-lg hover:bg-adminsecondary transition-colors"
+          className="w-full bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-bl text-white py-2 rounded-lg hover:bg-adminsecondary transition-colors"
         >
           Submit
         </button>
