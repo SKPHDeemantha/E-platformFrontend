@@ -102,7 +102,7 @@ export default function Dashboard() {
                             <img src={profilePicture} alt="Profile Preview" className="w-20 h-20 rounded-full mx-auto mt-2" />
                         )}
 
-                        <button onClick={submit} className="w-full hover:scale-105 py-3 mt-6 bg-gradient-to-r from-sky-800 to-adminsecondary hover:bg-gradient-to-tr text-white font-bold rounded-lg shadow-lg transition duration-300 text-xl">
+                        <button onClick={submit} className="w-full hover:scale-105 py-3 mt-6 bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-tr text-white font-bold rounded-lg shadow-lg transition duration-300 text-xl">
                             Sign Up
                         </button>
                     </div>
