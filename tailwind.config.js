@@ -11,8 +11,8 @@ export default {
         "secondary" : "#FFD384",
          "accent" : "#FF884B",
          "mycolor": "#FF577F",
-         "adminprimary":"#075985",
-         "adminsecondary" :"#67e8f9"
+         "adminprimary":"#2563eb",
+         "adminsecondary" :"#c084fc"
       }
     },
   },

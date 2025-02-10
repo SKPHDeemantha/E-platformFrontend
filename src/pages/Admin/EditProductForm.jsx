@@ -16,12 +16,23 @@ export default function EditProductForm() {
 
   const [ProductId] = useState(product.ProductId);
   const [productName, setProductName] = useState(product.productName);
-  const [alternativeNames, setAlternativeNames] = useState(product.altNames.join(","));
+  const [alternativeNames, setAlternativeNames] = useState(
+    product.altNames.join(",")
+  );
   const [imageFile, setImageFile] = useState([]);
+  const [imagePreview, setImagePreview] = useState(product.images[0] || "");
   const [price, setPrice] = useState(product.price);
   const [lastPrice, setLastPrice] = useState(product.lastPrice);
   const [stock, setStock] = useState(product.stock);
   const [description, setDescription] = useState(product.description);
+
+  function handleImageChange(e) {
+    const files = e.target.files;
+    setImageFile(files);
+    if (files.length > 0) {
+      setImagePreview(URL.createObjectURL(files[0]));
+    }
+  }
 
   async function handleSubmit() {
     const altNames = alternativeNames.split(",");
@@ -49,13 +60,18 @@ export default function EditProductForm() {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.put(`http://localhost:3000/api/products/${ProductId}`, productData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      navigate("/admin/products");
+      await axios.put(
+        `http://localhost:3000/api/products/${ProductId}`,
+        productData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       toast.success("Product updated successfully");
+      navigate("/admin/products");
     } catch (err) {
-      toast.error("Failed to update product");
+      console.error("Error updating product:", err);
+      toast.error(err.response?.data?.message || "Failed to update product");
     }
   }
 
