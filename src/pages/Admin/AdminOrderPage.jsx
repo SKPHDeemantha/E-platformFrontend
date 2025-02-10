@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -90,8 +91,15 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center p-4 bg-white overflow-y-scroll">
-      <h1 className="text-xl font-bold mb-4 text-ellipsis ">Toatal Orders</h1>
+    <div className="w-full h-full flex flex-col items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 overflow-y-scroll">
+      <motion.h1
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-adminprimary to-adminsecondary drop-shadow-lg p-5"
+      >
+        Total Orders
+      </motion.h1>
       {loading ? (
         <p>
           <div className="flex justify-center items-center h-80">

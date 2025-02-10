@@ -50,7 +50,11 @@ export default function Dashboard() {
       </header>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <StatCard title="Total Sales" value="LKR.12,345" color="text-indigo-600" />
+        <StatCard
+          title="Total Sales"
+          value="LKR.12,345"
+          color="text-indigo-600"
+        />
         <StatCard title="Total Customers" value="10" color="text-green-600" />
         <StatCard title="Total Orders" value="20" color="text-blue-600" />
         <button
