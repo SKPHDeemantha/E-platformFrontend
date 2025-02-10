@@ -37,7 +37,7 @@ export default function AdminProductsPage() {
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-md p-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-semibold text-gray-700">Admin Products</h1>
+          <h1 className="text-xl font-bold text-gray-700 ">Admin Products</h1>
           <Link
             to="/admin/products/addProduct"
             className="flex items-center gap-2 bg-gradient-to-br from-adminprimary to-adminsecondary text-white px-4 py-2 rounded-lg hover:bg-gray-800"
@@ -72,7 +72,7 @@ export default function AdminProductsPage() {
                   <td className="border border-gray-300 px-4 py-2">
                     <div className="flex items-center gap-2">
                       <button
-                        className="bg-gradient-to-br from-adminprimary to-adminsecondary text-white px-3 py-1 rounded hover:bg-gray-700"
+                        className="bg-gradient-to-br from-gray-500 to-slate-300 text-white px-3 py-1 rounded hover:bg-gray-700"
                         title="Edit"
                         onClick={() => {
                           navigate("/admin/products/editproduct", { state: { product } });

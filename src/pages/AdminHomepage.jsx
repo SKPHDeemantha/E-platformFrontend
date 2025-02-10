@@ -49,29 +49,29 @@ export default function AdminHomepage() {
     <div className="bg-pink-100 w-full h-screen flex">
 
     
-      <div className="bg-indigo-950 w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg sm:hidden md:block">
+      <div className="bg-gradient-to-br from-indigo-950 to-adminsecondary  w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg ">
         <h1 className="text-white text-2xl font-bold mt-6">Admin Panel</h1>
-        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-white text-xl hover:text-pink-900" to="/admin/dashboard">
-            <VscGraph className="mr-2" />
+        <button className="bg-gradient-to-br from-adminprimary to-cyan-400 hover:bg-gradient-to-tr hover:scale-105 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+          <Link className="flex flex-row items-center text-white text-lg hover:text-pink-900 font-bold" to="/admin/dashboard">
+            <VscGraph className="mr-2" size={20} />
             Dashboard
           </Link>
         </button>
-        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/products">
-            <FaJediOrder className="mr-2" />
+        <button className="bg-gradient-to-br from-adminprimary to-cyan-400 hover:bg-gradient-to-tr hover:scale-105 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900 font-bold" to="/admin/products">
+            <FaJediOrder className="mr-2" size={20} />
             Products
           </Link>
         </button>
-        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/orders">
-            <MdProductionQuantityLimits className="mr-2" />
+        <button className="bg-gradient-to-br from-adminprimary to-cyan-400 hover:bg-gradient-to-tr p-4 w-[80%] hover: scale-105 h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900 font-bold" to="/admin/orders">
+            <MdProductionQuantityLimits className="mr-2"  size={20}/>
             Orders
           </Link>
         </button>
-        <button className="bg-cyan-400 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
-          <Link className="flex flex-row items-center text-white hover:text-pink-900" to="/admin/customers">
-            <LiaUserCircle className="mr-2" />
+        <button className="bg-gradient-to-br from-adminprimary to-cyan-400 hover:bg-gradient-to-tr hover:scale-105 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
+          <Link className="flex flex-row items-center text-white hover:text-pink-900 font-bold" to="/admin/customers">
+            <LiaUserCircle className="mr-2"  size={20}/>
             Customers
           </Link>
         </button>
