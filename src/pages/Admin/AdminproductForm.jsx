@@ -124,7 +124,7 @@ export default function AddProductForm() {
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-gradient-to-br from-blue-600 to-purple-400 text-white py-2 rounded-lg hover:bg-gray-800 transition"
+          className="w-full bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-tr text-white py-2 rounded-lg hover:bg-gray-800 transition"
         >
           Submit
         </button>
