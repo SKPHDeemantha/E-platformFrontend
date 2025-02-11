@@ -1,5 +1,7 @@
 import { FaFacebookSquare, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
+const facebook = "https://www.facebook.com/heshan.deemantha.7/?viewas=100000686899395";
+
 export default function Footer() {
   return (
     <footer className="bg-purple-950 text-white w-full py-10">
@@ -38,16 +40,16 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex justify-center md:justify-start space-x-6 text-2xl">
-              <a href="#" className="hover:text-yellow-300 transition-transform transform hover:scale-110">
+              <a href={facebook} className="hover:text-[#0864fe] transition-transform transform hover:scale-110">
                 <FaFacebookSquare />
               </a>
-              <a href="#" className="hover:text-yellow-300 transition-transform transform hover:scale-110">
+              <a href={facebook} className="hover:text-[#1b9ff1] transition-transform transform hover:scale-110">
                 <FaTwitter />
               </a>
-              <a href="#" className="hover:text-yellow-300 transition-transform transform hover:scale-110">
+              <a href={facebook} className="hover:text-[#fe009d] transition-transform transform hover:scale-110">
                 <FaInstagram />
               </a>
-              <a href="#" className="hover:text-yellow-300 transition-transform transform hover:scale-110">
+              <a href={facebook} className="hover:text-[#0073b2] transition-transform transform hover:scale-110">
                 <FaLinkedin />
               </a>
             </div>
@@ -56,7 +58,7 @@ export default function Footer() {
 
         {/* Copyright Text */}
         <div className="mt-8 text-center text-sm text-gray-300">
-          &copy; 2025 VelwetGlow Company. All rights reserved.
+          &copy; 2025 VelwetGlow Company. All rights reserved.Design By Heshan Deemantha
         </div>
       </div>
     </footer>

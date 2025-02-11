@@ -46,7 +46,7 @@ export default function AdminHomepage() {
     
   },[])
   return (
-    <div className="bg-pink-100 w-full h-screen flex">
+    <div className="bg-white w-full h-screen flex">
 
     
       <div className="bg-gradient-to-br from-indigo-950 to-adminsecondary  w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg ">
@@ -77,7 +77,7 @@ export default function AdminHomepage() {
         </button>
       </div>
 
-     <div className="bg-pink-50 w-[80%] h-screen p-6 overflow-auto">
+     <div className="bg-white w-[80%] h-screen p-6 overflow-auto">
           {user!=null&&<Routes path="/*">
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/*" element={<Dashboard />} />

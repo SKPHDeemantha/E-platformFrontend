@@ -91,7 +91,7 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 overflow-y-scroll">
+    <div className="w-full h-full flex flex-col items-center p-4 bg-gradient-to-r from-blue-50 to-purple-50 overflow-y-scroll shadow-2xl">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}

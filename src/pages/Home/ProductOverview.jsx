@@ -46,7 +46,7 @@ export default function ProductOverView() {
         items: [
           {
             productId: productId,
-            qty: 1,
+            qty: counter,
           },
         ],
       },

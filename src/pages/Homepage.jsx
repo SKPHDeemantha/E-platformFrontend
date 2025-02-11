@@ -9,6 +9,8 @@ import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
 import Footer from "../components/Footer";
+import AboutUs from "./About";
+
 
 function ScrollToTop() {
   return (
@@ -22,12 +24,12 @@ function ScrollToTop() {
 }
 
 export default function HomePage() {
-  // State to track if slider is open
+
   const [isSliderOpen, setIsSliderOpen] = useState(false);
 
   return (
     <div className="relative w-full h-screen flex flex-col">
-      {/* Pass state updater to Header */}
+ 
       <Header isSliderOpen={isSliderOpen} setIsSliderOpen={setIsSliderOpen} />
 
       <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100">
@@ -61,7 +63,7 @@ export default function HomePage() {
               <p className="mt-4 text-lg md:text-xl max-w-2xl">
                 Discover exclusive deals and handpicked products just for you!
               </p>
-
+        
               {/* Call-to-Action Buttons */}
               <div className="mt-6 flex space-x-6">
                 <Link
@@ -82,6 +84,9 @@ export default function HomePage() {
           )}
         </div>
 
+
+        
+
         {/* Routes Section */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
           <Routes>
@@ -101,6 +106,7 @@ export default function HomePage() {
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/error" element={<ProductNotFound />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </div>
 
