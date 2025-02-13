@@ -4,7 +4,7 @@ const facebook = "https://www.facebook.com/heshan.deemantha.7/?viewas=1000006868
 
 export default function Footer() {
   return (
-    <footer className="bg-purple-950 text-white w-full py-10">
+    <footer className="bg-purple-950 text-white w-full py-10 ">
       <div className="container mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
           
