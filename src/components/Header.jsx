@@ -48,8 +48,8 @@ export default function Header() {
           </motion.div>
 
           {[
-            { to: "/orders", text: "My Orders" },
-            { to: "/", text: "Home" },
+             { to: "/", text: "Home" },
+            { to: "/orders", text: "My Orders" },          
             { to: "/products", text: "Products" },
             { to: "/contactus", text: "Contact Us" },
             { to: "/signup", text: "Sign Up" },

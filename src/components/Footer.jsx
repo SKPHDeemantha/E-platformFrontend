@@ -20,7 +20,7 @@ export default function Footer() {
           {/* Quick Links Section */}
           <div>
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-            <ul className="text-sm space-y-3">
+            <ul className="text-sm space-y-3 ">
               {[
                 { to: "/", text: "Home" },
                 { to: "/aboutus", text: "About" },
@@ -28,7 +28,7 @@ export default function Footer() {
                 { to: "/contactus", text: "Contact" },
               ].map((link, index) => (
                 <li key={index}>
-                  <a href={link.to} className="hover:text-yellow-300 transition-colors">
+                  <a href={link.to} className="hover:text-yellow-300 transition-colors hover:underline">
                     {link.text}
                   </a>
                 </li>

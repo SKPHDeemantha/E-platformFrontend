@@ -44,7 +44,7 @@ function App() {
     <Route path="/error" element={<ProductNotFound/>}/>
     <Route path="/productInfo/:id" element={<ProductOverView />} />
      <Route path="/orders" element={<Orders />} />
-     <Route path="/about" element={<AboutUs/>} />
+     <Route path="/aboutus" element={<AboutUs/>} />
     </Routes>
 
  </GoogleOAuthProvider>

@@ -10,6 +10,7 @@ import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
 import Footer from "../components/Footer";
 import AboutUs from "./About";
+import Slideshow from "../components/Slider";
 
 
 function ScrollToTop() {
@@ -83,7 +84,11 @@ export default function HomePage() {
             </div>
           )}
         </div>
-
+        
+       <div className="w-full h-full bg-slate-300 flex flex-col p-5 ">
+        <h1 className="font-extrabold text-4xl text-center p-8">New Arrival</h1>
+        <Slideshow />
+       </div>
 
         
 
@@ -106,7 +111,7 @@ export default function HomePage() {
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/error" element={<ProductNotFound />} />
-            <Route path="/about" element={<AboutUs />} />
+            <Route path="/aboutus" element={<AboutUs />} />
           </Routes>
         </div>
 
