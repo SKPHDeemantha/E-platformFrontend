@@ -111,7 +111,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-3xl sm:text-4xl md:text-6xl font-bold bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg"
+                className="text-3xl sm:text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-pink-600 to-purple-600   drop-shadow-lg"
               >
                 WELCOME TO
               </motion.h1>
@@ -119,11 +119,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
-                className="text-4xl sm:text-5xl md:text-7xl font-extrabold bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 drop-shadow-xl"
+                className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-red-500   drop-shadow-xl"
               >
                 VELVETGLOW
               </motion.h2>
-              <p className="mt-4 text-base sm:text-lg md:text-xl max-w-2xl">
+              <p className="mt-4 text-base sm:text-lg md:text-xl max-w-2xl text-gray-800 font-semibold">
                 Discover exclusive deals and handpicked products just for you!
               </p>
               <div className="mt-6 flex space-x-4 sm:space-x-6">
@@ -148,6 +148,27 @@ export default function HomePage() {
             New Arrival
           </h1>
           <Slideshow />
+        </div>
+
+        <div className="w-full flex-grow flex items-center justify-center p-4">
+          <Routes>
+            <Route
+              path="/*"
+              element={
+                <h1 className="text-slate-800 text-3xl text-center"> </h1>
+              }
+            />
+            <Route
+              path="/login"
+              element={<h1 className="text-slate-800 text-3xl">Login Page</h1>}
+            />
+            <Route path="/productInfo/:id" element={<ProductOverView />} />
+            <Route path="/products" element={<Productpage />} />
+            {/* <Route path="/cart" element={<Cart />} /> */}
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/error" element={<ProductNotFound />} />
+          </Routes>
         </div>
         <ScrollToTop />
         <Footer />

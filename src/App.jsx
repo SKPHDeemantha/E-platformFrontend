@@ -18,6 +18,7 @@ import ProductNotFound from './pages/Home/ProductNotFound'
 import ProductOverView from './pages/Home/ProductOverview'
 import Orders from './pages/Home/Orders'
 import AboutUs from './pages/About'
+import Cart from './pages/Home/Cart'
 
 
 
@@ -45,6 +46,7 @@ function App() {
     <Route path="/productInfo/:id" element={<ProductOverView />} />
      <Route path="/orders" element={<Orders />} />
      <Route path="/aboutus" element={<AboutUs/>} />
+     <Route path="/cart" element={<Cart/>}/>
     </Routes>
 
  </GoogleOAuthProvider>
