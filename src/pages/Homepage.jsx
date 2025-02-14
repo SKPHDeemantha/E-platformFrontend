@@ -97,7 +97,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full h-screen flex flex-col">
       <Header isSliderOpen={isSliderOpen} setIsSliderOpen={setIsSliderOpen} />
-      <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100">
+      <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100 ">
         <div className="relative w-full h-[50vh] sm:h-[70vh] md:h-[100vh]">
           <img
             src="/Homebackdrop.jpg"
