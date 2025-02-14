@@ -13,7 +13,6 @@ export default function ProductPage() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/products`)

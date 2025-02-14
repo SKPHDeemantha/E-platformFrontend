@@ -6,7 +6,8 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-const facebook = "https://www.facebook.com/heshan.deemantha.7/?viewas=100000686899395";
+const facebook =
+  "https://www.facebook.com/heshan.deemantha.7/?viewas=100000686899395";
 
 export default function ContactMe() {
   return (
@@ -16,7 +17,6 @@ export default function ContactMe() {
 
       {/* Contact Section */}
       <div className="flex flex-col lg:flex-row items-center justify-center w-full flex-grow py-12 px-6">
-        
         {/* Contact Image */}
         <div className="w-full lg:w-1/2 flex justify-center items-center p-6">
           <img
@@ -28,14 +28,15 @@ export default function ContactMe() {
 
         {/* Contact Details */}
         <div className="w-full lg:w-1/2 flex flex-col items-center bg-gradient-to-br from-pink-200 to-purple-100 text-black p-8 rounded-xl shadow-2xl space-y-6">
-          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+            Get in Touch
+          </h2>
           <p className="text-lg text-center">
             Feel free to reach out to me via any of these platforms:
           </p>
 
           {/* Contact Links */}
           <div className="w-full flex flex-col space-y-4">
-            
             {/* WhatsApp */}
             <a
               href="https://wa.me/0776171219"
@@ -86,8 +87,8 @@ export default function ContactMe() {
   );
 }
 
-
-{/* <div className="flex flex-col space-y-4 w-full">
+{
+  /* <div className="flex flex-col space-y-4 w-full">
           <Link className="flex items-center p-4 bg-teal-500 text-white rounded-xl hover:bg-teal-600 transition duration-300">
             <SiWhatsapp className="mr-3 text-2xl" />
             0776171219
@@ -100,4 +101,5 @@ export default function ContactMe() {
             <IoIosMailUnread className="mr-3 text-2xl" />
             heshandeemantha99@gmail.com
           </Link>
-        </div> */}
+        </div> */
+}

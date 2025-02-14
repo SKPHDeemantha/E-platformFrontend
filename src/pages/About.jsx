@@ -12,14 +12,14 @@ export default function AboutUs() {
 
       <div className="min-h-screen px-4 md:px-8 lg:px-16 mt-28">
         <div className="max-w-4xl mx-auto text-center">
-        <motion.h1
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-slate-900 via-pink-500 to-purple-600 drop-shadow-lg p-5"
-            >
-             About Us
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-slate-900 via-pink-500 to-purple-600 drop-shadow-lg p-5"
+          >
+            About Us
+          </motion.h1>
           <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
             We are passionate about driving sustainable beauty forward. Our
             mission is to inspire conscious consumerism and promote eco-friendly
@@ -30,9 +30,9 @@ export default function AboutUs() {
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
           <div className="flex items-center justify-center">
             <motion.img
-               initial={{ opacity: 0, x: -30 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//vision4.jpg"
               alt="Our Mission"
               className="rounded-3xl shadow-2xl object-cover w-full h-60 md:h-80 hover:scale-105 transition-transform duration-500"
@@ -65,7 +65,9 @@ export default function AboutUs() {
         </div>
 
         <div className="w-full bg-purple-200 p-6 md:p-8 rounded-2xl shadow-md mt-10">
-          <h1 className="text-2xl md:text-3xl font-bold text-purple-800 mb-3 text-center">Why Choose Us?</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-purple-800 mb-3 text-center">
+            Why Choose Us?
+          </h1>
           <p className="text-gray-700 text-lg md:text-base leading-relaxed text-justify font-semibold">
             At VelvetGlow, we believe beauty is more than skin deep—it's a
             reflection of confidence, authenticity, and care. What sets us apart
