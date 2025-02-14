@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 export default function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -49,61 +50,68 @@ export default function ProductPage() {
   }
 
   return (
-    <div className="bg-pink-50  min-h-screen w-full flex flex-col">
-      {/* bg-[#f1f1f1]  */}
-
+    <div className="bg-pink-50 min-h-screen w-full flex flex-col">
       <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
         <Header />
       </div>
 
-      <div className="mt-28 flex flex-col items-center overflow-y-auto w-full px-4">
-        <div className="flex items-center space-x-2 w-full max-w-lg sm:max-w-md lg:max-w-[50%] mx-auto mt-6 px-4 relative">
-          <input
-            type="text"
-            onChange={search}
-            value={query}
-            placeholder="Search for products..."
-            className="w-full p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
-          />
-          <Link className="bg-pink-500 text-white p-3 rounded-full shadow-md hover:bg-pink-700 transition-all duration-300">
-            <ImSearch className="text-xl" />
-          </Link>
-        </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="mt-24 sm:mt-28 flex flex-col items-center w-full px-2 sm:px-4"
+      >
+        {/* Search Bar */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="w-full max-w-2xl mx-auto mt-4 px-2 sm:px-4"
+        >
+          <div className="flex items-center space-x-2 w-full relative sm:absolut mt-10">
+            <input
+              type="text"
+              onChange={search}
+              value={query}
+              placeholder="Search for products..."
+              className="w-full p-3 sm:p-4 text-sm sm:text-base rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-300"
+            />
+            <button className="absolute right-3 bg-pink-500 text-white p-2 sm:p-3 rounded-full shadow-md hover:bg-pink-700 transition-all duration-300">
+              <ImSearch className="text-lg sm:text-xl" />
+            </button>
+          </div>
+        </motion.div>
 
+        {/* Product Grid */}
         {loadingStatus === "loaded" && (
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4 sm:absolute mr-32">
+          <motion.div
+            layout
+            className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 p-2  sm:absolut mr-20 lg:m-5"
+          >
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProductCard product={product} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
+        {/* Loading State */}
         {loadingStatus === "loading" && (
-          <div className="flex justify-center items-center h-80">
-            <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center items-center h-64 sm:h-80"
+          >
+            <div className="animate-spin rounded-xl h-12 w-12 sm:h-16 sm:w-16 border-4 border-gray-300 border-t-pink-500" />
+          </motion.div>
         )}
-      </div>
+      </motion.div>
 
       <Footer />
     </div>
   );
 }
-
-//   return (
-
-//       <div className="flex justify-center items-center bg-slate-950 overflow-y-scroll">
-//            {/* {
-//             products.map(
-//               (product)=>
-//                 <div key={product.id} className='flex flex-col items-center'>
-//                   <h1>{product.productName}</h1>
-//                   </div>
-
-//             )
-//            } */}
-
-//       </div>
-
-//   );
-// }
