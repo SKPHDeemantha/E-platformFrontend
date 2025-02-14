@@ -68,7 +68,7 @@ export default function LoginPage() {
         </div>
       )}
 
-      <div className="flex bg-white/100 shadow-2xl rounded-lg p-8 w-full max-w-4xl mx-4 sm:mx-auto">
+      <div className="flex bg-white/100 shadow-2xl rounded-lg p-8 w-full max-w-4xl mx-4 sm:mx-auto ">
         {/* Left Side - Image */}
         <div className="w-1/2 hidden sm:block">
           <img

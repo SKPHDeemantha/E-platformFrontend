@@ -36,7 +36,7 @@ export default function NavSlider(props) {
             Cart
           </Link>
           <Link
-            to="/contact"
+            to="/contactus"
             className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-2xl hover:border-b border-b-pink-800 p-3"
           >
             Contact Us
