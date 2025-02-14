@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-
 export default function StarRating() {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
@@ -19,10 +18,8 @@ export default function StarRating() {
     setHoverValue(undefined);
   };
 
-
   return (
     <div className="flex flex-col items-center p-4 bg-slate-200 rounded-md shadow-2xl ">
-          
       <div className="flex space-x-2">
         {stars.map((_, index) => {
           const starValue = index + 1;

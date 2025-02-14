@@ -28,7 +28,6 @@ export default function CartCard(props) {
         });
     }
   }, [productId, loaded]);
-  
 
   return (
     <>
@@ -50,7 +49,6 @@ export default function CartCard(props) {
           <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
           <td className="text-center">
             {(product?.lastPrice * qty).toFixed(2)}
-
           </td>
         </tr>
       )}

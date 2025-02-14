@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  { src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738522439196EditPage.jpg,EditPage.jpg", caption: "Caption Text" },
-  { src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738522748906cosmetology-natural-product-with-flowers.jpg,cosmetology-natural-product-with-flowers.jpg", caption: "Caption Two" },
-  { src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738948296271Login.jpg,Login.jpg", caption: "Caption Three" },
+  {
+    src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738522439196EditPage.jpg,EditPage.jpg",
+    caption: "Caption Text",
+  },
+  {
+    src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738522748906cosmetology-natural-product-with-flowers.jpg,cosmetology-natural-product-with-flowers.jpg",
+    caption: "Caption Two",
+  },
+  {
+    src: "https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//1738948296271Login.jpg,Login.jpg",
+    caption: "Caption Three",
+  },
 ];
 
 export default function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
 
   useEffect(() => {
     const interval = setInterval(() => {

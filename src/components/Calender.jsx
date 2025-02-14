@@ -11,7 +11,7 @@ const FullCalendarComponent = () => {
         initialView="dayGridMonth"
         events={[
           { title: "Meeting", date: "2025-02-10" },
-          { title: "Project Deadline", date: "2025-02-15" }
+          { title: "Project Deadline", date: "2025-02-15" },
         ]}
       />
     </div>

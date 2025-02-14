@@ -35,7 +35,10 @@ export default function ProductCard(props) {
           {/* Star Rating */}
           <div className="flex justify-center mt-2">
             {[...Array(5)].map((_, index) => (
-              <FaStar key={index} className="text-yellow-400 text-xl mx-0.5 hover:text-red-400" />
+              <FaStar
+                key={index}
+                className="text-yellow-400 text-xl mx-0.5 hover:text-red-400"
+              />
             ))}
           </div>
         </div>
