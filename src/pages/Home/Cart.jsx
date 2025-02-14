@@ -14,6 +14,7 @@ export default function Cart() {
   const [labeledTotal, setLabeledTotal] = useState(0);
   const navigate = useNavigate();
   const [selectCart, setSelectCart] = useState(null);
+  const [detailModalVisible, setDetailModalVisible] = useState(false);
 
   useEffect(() => {
     setCart(loadCart());
@@ -86,17 +87,17 @@ export default function Cart() {
         {/* Cart Table */}
         <div className="w-full max-w-6xl overflow-x-auto shadow-lg rounded-lg">
           <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
-            <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
+            <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white ">
               <tr>
-                <th className="p-4 text-left font-semibold">Image</th>
-                <th className="p-4 text-left font-semibold">Product Name</th>
-                <th className="p-4 text-left font-semibold">Product ID</th>
-                <th className="p-4 text-left font-semibold">Qty</th>
-                <th className="p-4 text-left font-semibold">Price</th>
-                <th className="p-4 text-left font-semibold">Total</th>
+                <th className="p-4 text-center font-semibold">Image</th>
+                <th className="p-4 text-center font-semibold">Product Name</th>
+                <th className="p-4 text-center font-semibold">Product ID</th>
+                <th className="p-4 text-center font-semibold">Qty</th>
+                <th className="p-4 text-center font-semibold">Price</th>
+                <th className="p-4 text-center font-semibold">Total</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-white divide-y divide-gray-200 ">
               {cart.map((item) => (
                 <CartCard
                   key={item.productId}
@@ -109,7 +110,7 @@ export default function Cart() {
           </table>
         </div>
 
-        {selectCart && (
+        {selectCart && detailModalVisible && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white w-full max-w-md p-4 rounded-lg shadow-lg">
               <h2 className="text-lg font-bold mb-4">Order Details</h2>
@@ -136,8 +137,9 @@ export default function Cart() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-lg mt-8 p-6 bg-white shadow-xl rounded-xl text-center"
+          className="w-full max-w-lg mt-8 p-6 bg-white shadow-xl rounded-lg text-left"
         >
+          <h1 className="p-2 font-bold text-xl">Order Summery</h1>
           <h1 className="text-2xl font-bold text-gray-700">
             Total:{" "}
             <span className="text-pink-600">
