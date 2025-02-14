@@ -130,7 +130,7 @@ export default function ProductOverView() {
               </div>
 
               <button
-                className="w-full bg-gradient-to-tr shadow-lg from-pink-500 to-white hover:scale-105 py-2 rounded-lg text-center font-bold text-xl text-purple-900 hover:bg-gradient-to-t "
+                className="w-full bg-gradient-to-tr shadow-lg from-pink-500 to-red-300  hover:scale-105 py-2 rounded-lg text-center font-bold text-xl text-purple-900 hover:bg-gradient-to-t "
                 onClick={() => setViewDetails(!viewDetails)}
               >
                 Add Review

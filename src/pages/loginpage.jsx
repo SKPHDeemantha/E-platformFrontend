@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
-  const [loarding, setLoarding] = useState(false);
+    const [loarding,setLoarding]=useState(false);
   const googleLogin = useGoogleLogin({
     onSuccess: (res) => {
       console.log(res);
@@ -61,14 +61,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-fuchsia-200 to-pink-300">
-      {loarding && (
-        <div className="flex justify-center items-center h-80">
-          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
-        </div>
-      )}
+  <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-fuchsia-200 to-pink-300">
 
-      <div className="flex bg-white/100 shadow-2xl rounded-lg p-8 w-full max-w-4xl mx-4 sm:mx-auto ">
+     {loarding && (
+          <div className="flex justify-center items-center h-80">
+            <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+          </div>
+        )}
+
+      <div className="flex bg-white/100 shadow-2xl rounded-lg p-8 w-full max-w-4xl mx-4 sm:mx-auto">
         {/* Left Side - Image */}
         <div className="w-1/2 hidden sm:block">
           <img

@@ -50,6 +50,7 @@ export default function () {
   return (
     <div className="w-full h-full flex flex-col items-center bg-gradient-to-bl ">
       <Header />
+      <div className="w-[90%] h-[80%]   bg-violet-100 m-10">
       <div className="w-full h-screen flex flex-col items-center p-4">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
@@ -183,6 +184,7 @@ export default function () {
             </div>
           </div>
         )}
+      </div>
       </div>
       <Footer />
     </div>
