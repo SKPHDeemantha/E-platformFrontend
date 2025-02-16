@@ -5,6 +5,7 @@ import axios from "axios";
 import UploadMediaToSupabase from "../../utils/MediaUpload";
 import { toast } from "react-hot-toast";
 import AdminNavSlider from "../../components/AdminNavslider";
+import { motion } from "framer-motion";
 
 export default function Dashboard() {
   const [email, setEmail] = useState("");
@@ -45,15 +46,22 @@ export default function Dashboard() {
         {isSliderOpen && (
           <AdminNavSlider closeSlider={() => setIsSliderOpen(false)} />
         )}
-        <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
+
+
+        <motion.h1
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+        className="text-3xl font-bold text-gray-800">Admin Dashboard</motion.h1>
         <p className="text-gray-600">Overview of system performance</p>
       </header>
 
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
         <StatCard
           title="Total Sales"
           value="LKR.12,345"
-          color="text-indigo-600"
+          color="text-indigo-600 "
+    
         />
         <StatCard title="Total Customers" value="10" color="text-green-600" />
         <StatCard title="Total Orders" value="20" color="text-blue-600" />

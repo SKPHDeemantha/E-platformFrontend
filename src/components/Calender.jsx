@@ -4,14 +4,14 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 
 const FullCalendarComponent = () => {
   return (
-    <div>
+    <div className="lg:w-[90%]  lg: relative h-[70%]">
       <h2>Event Calendar</h2>
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         events={[
-          { title: "Meeting", date: "2025-02-10" },
-          { title: "Project Deadline", date: "2025-02-15" }
+          { title: "speecil Momentom", date: "2025-02-10" },
+          { title: "Project Deadline", date: "2025-03-02" },
         ]}
       />
     </div>

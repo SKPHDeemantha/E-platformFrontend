@@ -42,12 +42,12 @@ export default function AdminCustomerPage() {
   }
 
   return (
-    <div className="bg-slate-200 h-screen p-5 flex flex-col items-center">
+    <div className="bg-slate-200 h-auto p-5 flex flex-col items-center">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-adminprimary to-adminsecondary drop-shadow-lg p-5"
+        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-adminprimary to-adminsecondary drop-shadow-lg p-3"
       >
         Customer Details
       </motion.h1>
