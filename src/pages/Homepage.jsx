@@ -98,7 +98,7 @@ export default function HomePage() {
     <div className="relative w-full h-screen flex flex-col">
       <Header isSliderOpen={isSliderOpen} setIsSliderOpen={setIsSliderOpen} />
       <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100 ">
-        <div className="relative w-full h-[50vh] sm:h-[70vh] md:h-[100vh]">
+        <div className="relative w-full h-[87vh] sm:h-[70vh] md:h-[100vh]">
           <img
             src="/Homebackdrop.jpg"
             alt="homebackdrop"
@@ -106,12 +106,12 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-black/20"></div>
           {!isSliderOpen && (
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 sm:px-6">
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 sm:px-6 ">
               <motion.h1
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="text-3xl sm:text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-pink-600 to-purple-600   drop-shadow-lg"
+                className=" text-5xl sm:text-6xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-pink-600 to-purple-600   drop-shadow-lg"
               >
                 WELCOME TO
               </motion.h1>
@@ -119,17 +119,17 @@ export default function HomePage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
-                className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-red-500   drop-shadow-xl"
+                className="text-5xl sm:text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-red-500   drop-shadow-xl"
               >
                 VELVETGLOW
               </motion.h2>
-              <p className="mt-4 text-base sm:text-lg md:text-xl max-w-2xl text-gray-800 font-semibold">
+              <p className="mt-4  justify-center  text-2xl md:text-xl max-w-2xl text-gray-800 font-semibold">
                 Discover exclusive deals and handpicked products just for you!
               </p>
-              <div className="mt-6 flex space-x-4 sm:space-x-6">
+              <div className="mt-6 flex space-x-4 sm:space-x-6 ">
                 <Link
                   to="/products"
-                  className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+                  className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg  font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
                 >
                   Explore Products
                 </Link>
@@ -144,21 +144,26 @@ export default function HomePage() {
           )}
         </div>
         <div className="h-full bg-gradient-to-t from-purple-100 via-red-100 to-pink-50 flex flex-col p-2 mt-5">
-          <motion.h1 
-          initial={{ opacity: 0, y:10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            ease: 'linear',
-            duration: 1.5,
-        
-          }}
-          className="font-extrabold  text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-3xl sm:text-4xl text-center p-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              ease: "linear",
+              duration: 1.5,
+            }}
+            className="font-extrabold font-[nunito] text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-5xl sm:text-4xl text-center p-6"
+          >
             New Arrival
           </motion.h1>
           <Slideshow />
+          <div className="lg:hidden mt-10">
+          <Slideshow />
+          </div>
         </div>
+        
 
+{/* Routes */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
           <Routes>
             <Route
