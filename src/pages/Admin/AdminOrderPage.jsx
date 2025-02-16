@@ -109,28 +109,28 @@ export default function AdminOrdersPage() {
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-200 shadow-sm rounded-lg">
+        <table className="w-full max-w-4xl border border-gray-400 shadow-sm rounded-lg">
           <thead className="bg-gradient-to-br from-blue-300 to-purple-200">
             <tr>
-              <th className="p-2 border-b text-left">Order ID</th>
-              <th className="p-2 border-b text-left">Status</th>
-              <th className="p-2 border-b text-left">Date</th>
-              <th className="p-2 border-b text-left">Total</th>
-              <th className="p-2 border-b text-left">Actions</th>
+              <th className="p-2  text-left bg-gradient-to-r from-blue-300 to-purple-200">Order ID</th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Status</th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Date</th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Total</th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Actions</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               <tr key={order.orderId} className="hover:bg-gray-50">
-                <td className="p-2 border-b">{order.orderId}</td>
-                <td className="p-2 border-b">{order.status}</td>
-                <td className="p-2 border-b">
+                <td className="p-2 border border-gray-300">{order.orderId}</td>
+                <td className="p-2 border border-gray-300">{order.status}</td>
+                <td className="p-2 border border-gray-300">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
-                <td className="p-2 border-b">
+                <td className="p-2 border border-gray-300">
                   LKR {calculateTotal(order.orderedItems).toFixed(2)}
                 </td>
-                <td className="p-2 border-b">
+                <td className="p-2 border border-gray-300">
                   <button
                     className="bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-tr text-white px-3 py-1 rounded-lg mr-2 hover:bg-blue-600"
                     onClick={() => handleViewDetails(order)}

@@ -42,7 +42,7 @@ export default function AdminProductsPage() {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-adminprimary to-adminsecondary drop-shadow-lg p-5"
+            className="text-3xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-adminprimary to-adminsecondary drop-shadow-lg p-5"
           >
             Admin Products
           </motion.h1>
@@ -59,25 +59,25 @@ export default function AdminProductsPage() {
           <table className="w-full border border-gray-300 text-sm">
             <thead>
               <tr className="bg-gray-200 text-gray-700">
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left  bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Product Id
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left bg-gradient-to-r from-blue-300 to-purple-200  text-lg">
                   Product Name
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Price
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Last Price
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Stock
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left hidden md:table-cell">
+                <th className="border border-gray-300 px-4 py-2 text-left hidden md:table-cell bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Description
                 </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
+                <th className="border border-gray-300 px-4 py-2 text-left bg-gradient-to-r from-blue-300 to-purple-200 text-lg">
                   Action
                 </th>
               </tr>
@@ -87,14 +87,14 @@ export default function AdminProductsPage() {
                 <tr key={product._id} className="hover:bg-gray-50">
                   <td className="border border-gray-300 px-4 py-2">{product.ProductId}</td>
                   <td className="border border-gray-300 px-4 py-2">{product.productName}</td>
-                  <td className="border border-gray-300 px-4 py-2">${product.price.toFixed(2)}</td>
-                  <td className="border border-gray-300 px-4 py-2">${product.lastPrice.toFixed(2)}</td>
+                  <td className="border border-gray-300 px-4 py-2">LKR {product.price.toFixed(2)}</td>
+                  <td className="border border-gray-300 px-4 py-2">LKR {product.lastPrice.toFixed(2)}</td>
                   <td className="border border-gray-300 px-4 py-2">{product.stock}</td>
                   <td className="border border-gray-300 px-4 py-2 hidden md:table-cell">{product.description}</td>
                   <td className="border border-gray-300 px-4 py-2">
                     <div className="flex items-center gap-2">
                       <button
-                        className="bg-gradient-to-br from-gray-500 to-slate-300 text-white px-3 py-1 rounded hover:bg-gray-700"
+                        className="bg-gradient-to-br from-cyan-400 to-lime-400 text-white px-3 py-1 rounded hover:bg-gray-700"
                         title="Edit"
                         onClick={() => {
                           navigate("/admin/products/editproduct", {
@@ -125,7 +125,7 @@ export default function AdminProductsPage() {
                             });
                         }}
                       >
-                        <RiDeleteBin5Fill size={16} />
+                        <RiDeleteBin5Fill size={20} />
                       </button>
                     </div>
                   </td>
