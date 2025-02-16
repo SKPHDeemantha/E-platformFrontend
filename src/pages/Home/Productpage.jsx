@@ -84,14 +84,19 @@ export default function ProductPage() {
         {loadingStatus === "loaded" && (
           <motion.div
             layout
-            className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 p-2  sm:absolut mr-20 lg:m-5"
+            className="w-full justify-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:-ml-24 sm:gap-4 p-2  sm:absolut mr-20 lg:m-5"
           >
             {products.map((product) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y:10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{
+                  ease: 'linear',
+                  duration: 1.5,
+                  delay: 0.15
+                }}
               >
                 <ProductCard product={product} />
               </motion.div>

@@ -10,8 +10,8 @@ const FullCalendarComponent = () => {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         events={[
-          { title: "Meeting", date: "2025-02-10" },
-          { title: "Project Deadline", date: "2025-02-15" },
+          { title: "speecil Momentom", date: "2025-02-10" },
+          { title: "Project Deadline", date: "2025-03-02" },
         ]}
       />
     </div>

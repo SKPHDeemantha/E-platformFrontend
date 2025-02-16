@@ -144,9 +144,18 @@ export default function HomePage() {
           )}
         </div>
         <div className="h-full bg-gradient-to-t from-purple-100 via-red-100 to-pink-50 flex flex-col p-2 mt-5">
-          <h1 className="font-extrabold  text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-3xl sm:text-4xl text-center p-6">
+          <motion.h1 
+          initial={{ opacity: 0, y:10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            ease: 'linear',
+            duration: 1.5,
+        
+          }}
+          className="font-extrabold  text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-3xl sm:text-4xl text-center p-6">
             New Arrival
-          </h1>
+          </motion.h1>
           <Slideshow />
         </div>
 
