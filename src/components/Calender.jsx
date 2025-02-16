@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 
 const FullCalendarComponent = () => {
   return (
-    <div>
+    <div className="lg:w-[90%]  lg: relative h-[70%]">
       <h2>Event Calendar</h2>
       <FullCalendar
         plugins={[dayGridPlugin]}
