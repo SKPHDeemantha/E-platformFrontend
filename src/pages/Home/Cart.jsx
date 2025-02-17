@@ -76,7 +76,6 @@ export default function Cart() {
                 <th className="p-4 text-center font-semibold">Qty</th>
                 <th className="p-4 text-center font-semibold">Price</th>
                 <th className="p-4 text-center font-semibold">Total</th>
-                <th className="p-4 text-center font-semibold">Action</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
@@ -85,7 +84,6 @@ export default function Cart() {
                   key={item.productId}
                   productId={item.productId}
                   qty={item.qty}
-                  handleDelete={() => handleDelete(item.productId)} // Pass delete function
                 />
               ))}
             </tbody>

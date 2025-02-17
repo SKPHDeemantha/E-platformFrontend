@@ -50,12 +50,7 @@ export default function CartCard(props) {
           <td className="text-center">
             LKR. {(product?.lastPrice * qty).toFixed(2)}
           </td>
-          <td>
-            {/* Delete Button */}
-            <button className="bg-red-500 text-white px-3 py-1 rounded">
-              Delete
-            </button>
-          </td>
+
         </tr>
       )}
     </>

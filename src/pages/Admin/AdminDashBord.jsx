@@ -28,13 +28,24 @@ export default function Dashboard() {
   }
 
   async function submit() {
-    const user = { email, firstName, lastName, password, profilePicture };
-    user.type = "admin";
+    const User = { email, firstName, lastName, password, profilePicture };
+    User.type = "admin";
+    const user=User;
     try {
-      console.log(user);
-      await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", user);
-      toast.success("Signup successfully!");
-      navigate("/login");
+      const response = await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/api/users",
+        user,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      );
+      console.log(response.data);
+      toast.success("Admin account created successfully!");
+      setModalVisible(false);
+      
+      
     } catch (err) {
       toast.error("Failed to sign up.");
     }
