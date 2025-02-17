@@ -10,6 +10,9 @@ import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
 import AboutUs from "./About";
+import axios from "axios";
+import toast from "react-hot-toast";
+import CustomerFeedbackSlider from "../components/CommentSlideshow";
 
 function ScrollToTop() {
   return (
@@ -93,6 +96,38 @@ function Slideshow() {
 
 export default function HomePage() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/users/getCurrentUser")
+      .then((res) => {
+        if (res.data.user) {
+          setUser(res.data.user);
+        } else {
+          setUser(null);
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching user:", err);
+        setUser(null);
+      });
+  }, []);
+
+  const handleCommentSubmit = () => {
+    if (!user) {
+      toast.error("You must be logged in to post a comment.");
+      return;
+    }
+
+    if (newComment.trim() !== "") {
+      setComments([...comments, newComment]);
+      setNewComment("");
+      toast.success("Comment added successfully!");
+    }
+  };
 
   return (
     <div className="relative w-full h-screen flex flex-col">
@@ -154,16 +189,93 @@ export default function HomePage() {
             }}
             className="font-extrabold font-[nunito] text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-5xl sm:text-4xl text-center p-6"
           >
-            New Arrival
+            New Launches
+            <h2 className="text-lg">New wellness range just for you!</h2>
           </motion.h1>
+
           <Slideshow />
           <div className="lg:hidden mt-10">
-          <Slideshow />
+            <Slideshow />
           </div>
-        </div>
-        
 
-{/* Routes */}
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <div className="w-[80%] flex flex-col justify-center items-center">
+            <h3 className="text-xl font-semibold mb-2">Leave a Comment</h3>
+            <textarea
+              className="w-full p-3 rounded-lg shadow-md border border-gray-300"
+              rows="3"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write a comment..."
+            ></textarea>
+            <button
+              className="mt-2 px-4 py-2 bg-pink-500 text-white rounded-lg hover:scale-105 transition-transform shadow-lg"
+              onClick={handleCommentSubmit}
+            >
+              Submit
+            </button>
+          </div>
+
+          {comments.length > 0 && (
+            <div className="w-full mt-4">
+              <h3 className="text-xl font-semibold mb-2">Comments</h3>
+              <ul className="space-y-2">
+                {comments.map((comment, index) => (
+                  <li key={index} className="p-3 bg-white rounded-lg shadow-md">
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+         <h1 className="text-xl font-semibold text-center p-3">Why choose us?</h1>
+        <div className="w-[90%] h-auto bg-purple-200 p-6 mt-5 lg:ml-20">
+ 
+  <div className="flex flex-col md:flex-row items-center justify-center  gap-6 lg:gap-56 p-3">
+    <div className="flex flex-col items-center text-center">
+      <img
+        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//user.jpg"
+        className="w-16 h-16 md:w-12 md:h-12"
+        alt="Users"
+      />
+      <p className="p-1 lg:text-lg md:text-base">
+        150+<br />
+        Registered Users Until Today
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center">
+      <img
+        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Orders.jpg"
+        className="w-16 h-16 md:w-12 md:h-12"
+        alt="Orders"
+      />
+      <p className="lg:text-lg md:text-base">
+        1500+<br />
+        Total Orders
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center">
+      <img
+        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Items.png"
+        className="w-16 h-16 md:w-12 md:h-12"
+        alt="Items"
+      />
+      <p className="lg:text-lg md:text-base ">
+        200+<br />
+        Items Available
+      </p>
+    </div>
+  </div>
+</div>
+
+           <h1 className="text-xl">What Our Customers have to say</h1>
+        <div className="flex flex-row">
+        <CustomerFeedbackSlider/>
+        </div>
+
+        {/* Routes */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
           <Routes>
             <Route
