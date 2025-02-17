@@ -16,7 +16,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/products`)
+      .get(import.meta.env.VITE_BACKEND_URL + `/api/products`)
       .then((res) => {
         setProducts(res.data);
         setLoadingStatus("loaded");
@@ -37,8 +37,8 @@ export default function ProductPage() {
 
     const endpoint =
       query === ""
-        ? `http://localhost:3000/api/products`
-        : `http://localhost:3000/api/products/search/${query}`;
+        ? import.meta.env.VITE_BACKEND_URL + `/api/products`
+        : import.meta.env.VITE_BACKEND_URL + `/api/products/search/${query}`;
 
     axios
       .get(endpoint)
@@ -89,13 +89,13 @@ export default function ProductPage() {
             {products.map((product) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y:10 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{
-                  ease: 'linear',
+                  ease: "linear",
                   duration: 1.5,
-                  delay: 0.15
+                  delay: 0.15,
                 }}
               >
                 <ProductCard product={product} />

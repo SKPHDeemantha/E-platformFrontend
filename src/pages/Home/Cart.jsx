@@ -23,7 +23,7 @@ export default function Cart() {
     const productIds = cartItems.map((item) => item.productId).join(",");
 
     axios
-      .post(`http://localhost:3000/api/orders/quote?productIds=` + productIds, {
+      .post(import.meta.env.VITE_BACKEND_URL+`/api/orders/quote?productIds=` + productIds, {
         orderedItems: loadCart(),
       })
       .then((res) => {

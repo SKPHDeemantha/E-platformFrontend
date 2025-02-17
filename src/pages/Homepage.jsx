@@ -5,16 +5,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductOverView from "./Home/ProductOverview";
 import Productpage from "./Home/Productpage";
-import Cart from "./Home/Cart";
 import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
-import AboutUs from "./About";
 import axios from "axios";
 import toast from "react-hot-toast";
 import CustomerFeedbackSlider from "../components/CommentSlideshow";
-import CountUp from "react-countup";
-import ScrollTrigger from "react-scroll-trigger";
 import StatsCounter from "../components/Counter";
 
 function ScrollToTop() {
@@ -102,11 +98,11 @@ export default function HomePage() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [user, setUser] = useState(null);
-   const [counterOn,setCounterOn]=useState(false);
+  const [counterOn, setCounterOn] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/users/getCurrentUser")
+      .get(import.meta.env.VITE_BACKEND_URL + "/api/users/getCurrentUser")
       .then((res) => {
         if (res.data.user) {
           setUser(res.data.user);
@@ -135,8 +131,6 @@ export default function HomePage() {
 
   // function statsCounter(){
   //
-
-  
 
   // }
 
@@ -213,23 +207,23 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-center p-3">
           Why choose us?
         </h1>
-       <StatsCounter/>
+        <StatsCounter />
 
         <h1 className="text-2xl font-bold flex items-center justify-center mt-5">
           What Our Customers have to say
         </h1>
 
-        <motion.div className="flex flex-row"
-    
+        <motion.div
+          className="flex flex-row"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
-          transition=
-          {{
+          transition={{
             ease: "linear",
             duration: 1.5,
             delay: 0.15,
-          }}>
+          }}
+        >
           <CustomerFeedbackSlider />
         </motion.div>
         <div className="flex flex-col justify-center items-center">

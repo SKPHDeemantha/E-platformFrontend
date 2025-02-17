@@ -32,7 +32,7 @@ export default function Dashboard() {
     user.type = "admin";
     try {
       console.log(user);
-      await axios.post("http://localhost:3000/api/users", user);
+      await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", user);
       toast.success("Signup successfully!");
       navigate("/login");
     } catch (err) {
@@ -47,12 +47,14 @@ export default function Dashboard() {
           <AdminNavSlider closeSlider={() => setIsSliderOpen(false)} />
         )}
 
-
         <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5 }}
-        className="text-3xl font-bold text-gray-800">Admin Dashboard</motion.h1>
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          className="text-3xl font-bold text-gray-800"
+        >
+          Admin Dashboard
+        </motion.h1>
         <p className="text-gray-600">Overview of system performance</p>
       </header>
 
@@ -61,7 +63,6 @@ export default function Dashboard() {
           title="Total Sales"
           value="LKR.12,345"
           color="text-indigo-600 "
-    
         />
         <StatCard title="Total Customers" value="10" color="text-green-600" />
         <StatCard title="Total Orders" value="20" color="text-blue-600" />

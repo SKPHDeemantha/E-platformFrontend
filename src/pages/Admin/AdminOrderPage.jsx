@@ -17,7 +17,7 @@ export default function AdminOrdersPage() {
       return;
     }
     axios
-      .get("http://localhost:3000/api/orders", {
+      .get(import.meta.env.VITE_BACKEND_URL + "/api/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,8 @@ export default function AdminOrdersPage() {
 
     axios
       .put(
-        `http://localhost:3000/api/orders/${selectedOrder.orderId}`,
+        import.meta.env.VITE_BACKEND_URL +
+          `/api/orders/${selectedOrder.orderId}`,
         { status: updateData.status, notes: updateData.notes },
         {
           headers: {
@@ -112,11 +113,21 @@ export default function AdminOrdersPage() {
         <table className="w-full max-w-4xl border border-gray-400 shadow-sm rounded-lg">
           <thead className="bg-gradient-to-br from-blue-300 to-purple-200">
             <tr>
-              <th className="p-2  text-left bg-gradient-to-r from-blue-300 to-purple-200">Order ID</th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Status</th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Date</th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Total</th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">Actions</th>
+              <th className="p-2  text-left bg-gradient-to-r from-blue-300 to-purple-200">
+                Order ID
+              </th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+                Status
+              </th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+                Date
+              </th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+                Total
+              </th>
+              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+                Actions
+              </th>
             </tr>
           </thead>
           <tbody>

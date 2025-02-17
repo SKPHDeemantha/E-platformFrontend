@@ -12,7 +12,7 @@ export default function LoginPage() {
     onSuccess: (res) => {
       console.log(res);
       axios
-        .post("http://localhost:3000/api/users/google", {
+        .post(import.meta.env.VITE_BACKEND_URL + "/api/users/google", {
           token: res.access_token,
         })
         .then((res) => {
@@ -38,7 +38,7 @@ export default function LoginPage() {
   function login(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/users/login", {
+      .post(import.meta.env.VITE_BACKEND_URL + "/api/users/login", {
         email,
         password,
       })
