@@ -132,7 +132,7 @@ export default function HomePage() {
     <div className="relative w-full h-screen flex flex-col">
       <Header isSliderOpen={isSliderOpen} setIsSliderOpen={setIsSliderOpen} />
       <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100 ">
-        <div className="relative w-full h-[87vh] sm:h-[70vh] md:h-[100vh]">
+        <div className="relative w-full h-[87vh] sm:h-[100vh] md:h-[100vh]">
           <img
             src="/Homebackdrop.jpg"
             alt="homebackdrop"
@@ -201,7 +201,7 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-center p-3">
           Why choose us?
         </h1>
-        <div>
+        <div className="relative md:ml-16 lg:mr-4">
           <StatsCounter />
         </div>
 
