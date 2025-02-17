@@ -92,7 +92,7 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center p-4 bg-gradient-to-r from-blue-100 to-purple-100 overflow-y-scroll shadow-2xl">
+    <div className="w-full h-full flex flex-col items-center p-4 bg-slate-200 overflow-y-scroll shadow-2xl">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,28 +104,28 @@ export default function AdminOrdersPage() {
       {loading ? (
         <p>
           <div className="flex justify-center items-center h-80">
-            <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+            <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-500 border-t-mycolor"></div>
           </div>
         </p>
       ) : orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (
-        <table className="w-full max-w-4xl border border-gray-400 shadow-sm rounded-lg">
+        <table className="w-full max-w-4xl border border-gray-500 shadow-sm rounded-lg">
           <thead className="bg-gradient-to-br from-blue-300 to-purple-200">
             <tr>
               <th className="p-2  text-left bg-gradient-to-r from-blue-300 to-purple-200">
                 Order ID
               </th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+              <th className="p-2 border border-gray-500 text-left bg-gradient-to-r from-blue-300 to-purple-200">
                 Status
               </th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+              <th className="p-2 border border-gray-500 text-left bg-gradient-to-r from-blue-300 to-purple-200">
                 Date
               </th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+              <th className="p-2 border border-gray-500 text-left bg-gradient-to-r from-blue-300 to-purple-200">
                 Total
               </th>
-              <th className="p-2 border border-gray-400 text-left bg-gradient-to-r from-blue-300 to-purple-200">
+              <th className="p-2 border border-gray-500 text-left bg-gradient-to-r from-blue-300 to-purple-200">
                 Actions
               </th>
             </tr>
@@ -133,15 +133,15 @@ export default function AdminOrdersPage() {
           <tbody>
             {orders.map((order) => (
               <tr key={order.orderId} className="hover:bg-gray-50">
-                <td className="p-2 border border-gray-300">{order.orderId}</td>
-                <td className="p-2 border border-gray-300">{order.status}</td>
-                <td className="p-2 border border-gray-300">
+                <td className="p-2 border border-gray-500">{order.orderId}</td>
+                <td className="p-2 border border-gray-500">{order.status}</td>
+                <td className="p-2 border border-gray-500">
                   {new Date(order.date).toLocaleDateString()}
                 </td>
-                <td className="p-2 border border-gray-300">
+                <td className="p-2 border border-gray-500">
                   LKR {calculateTotal(order.orderedItems).toFixed(2)}
                 </td>
-                <td className="p-2 border border-gray-300">
+                <td className="p-2 border border-gray-500">
                   <button
                     className="bg-gradient-to-br from-adminprimary to-adminsecondary hover:bg-gradient-to-tr text-white px-3 py-1 rounded-lg mr-2 hover:bg-blue-600"
                     onClick={() => handleViewDetails(order)}

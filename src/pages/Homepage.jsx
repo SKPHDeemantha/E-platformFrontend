@@ -98,23 +98,22 @@ export default function HomePage() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [user, setUser] = useState(null);
-  const [counterOn, setCounterOn] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(import.meta.env.VITE_BACKEND_URL + "/api/users/getCurrentUser")
-      .then((res) => {
-        if (res.data.user) {
-          setUser(res.data.user);
-        } else {
-          setUser(null);
-        }
-      })
-      .catch((err) => {
-        console.error("Error fetching user:", err);
-        setUser(null);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(import.meta.env.VITE_BACKEND_URL + "/api/users/getCurrentUser")
+  //     .then((res) => {
+  //       if (res.data.user) {
+  //         setUser(res.data.user);
+  //       } else {
+  //         setUser(null);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching user:", err);
+  //       setUser(null);
+  //     });
+  // }, []);
 
   const handleCommentSubmit = () => {
     if (!user) {
@@ -128,11 +127,6 @@ export default function HomePage() {
       toast.success("Comment added successfully!");
     }
   };
-
-  // function statsCounter(){
-  //
-
-  // }
 
   return (
     <div className="relative w-full h-screen flex flex-col">
