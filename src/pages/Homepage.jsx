@@ -13,6 +13,9 @@ import AboutUs from "./About";
 import axios from "axios";
 import toast from "react-hot-toast";
 import CustomerFeedbackSlider from "../components/CommentSlideshow";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+import StatsCounter from "../components/Counter";
 
 function ScrollToTop() {
   return (
@@ -99,6 +102,7 @@ export default function HomePage() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [user, setUser] = useState(null);
+   const [counterOn,setCounterOn]=useState(false);
 
   useEffect(() => {
     axios
@@ -128,6 +132,13 @@ export default function HomePage() {
       toast.success("Comment added successfully!");
     }
   };
+
+  // function statsCounter(){
+  //
+
+  
+
+  // }
 
   return (
     <div className="relative w-full h-screen flex flex-col">
@@ -197,10 +208,32 @@ export default function HomePage() {
           <div className="lg:hidden mt-10">
             <Slideshow />
           </div>
-
         </div>
+
+        <h1 className="text-2xl font-semibold text-center p-3">
+          Why choose us?
+        </h1>
+       <StatsCounter/>
+
+        <h1 className="text-2xl font-bold flex items-center justify-center mt-5">
+          What Our Customers have to say
+        </h1>
+
+        <motion.div className="flex flex-row"
+    
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition=
+          {{
+            ease: "linear",
+            duration: 1.5,
+            delay: 0.15,
+          }}>
+          <CustomerFeedbackSlider />
+        </motion.div>
         <div className="flex flex-col justify-center items-center">
-          <div className="w-[80%] flex flex-col justify-center items-center">
+          <div className="w-[80%] flex flex-col justify-center items-center mt-5">
             <h3 className="text-xl font-semibold mb-2">Leave a Comment</h3>
             <textarea
               className="w-full p-3 rounded-lg shadow-md border border-gray-300"
@@ -230,51 +263,6 @@ export default function HomePage() {
             </div>
           )}
         </div>
-         <h1 className="text-xl font-semibold text-center p-3">Why choose us?</h1>
-        <div className="w-[90%] h-auto bg-purple-200 p-6 mt-5 lg:ml-20">
- 
-  <div className="flex flex-col md:flex-row items-center justify-center  gap-6 lg:gap-56 p-3">
-    <div className="flex flex-col items-center text-center">
-      <img
-        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//user.jpg"
-        className="w-16 h-16 md:w-12 md:h-12"
-        alt="Users"
-      />
-      <p className="p-1 lg:text-lg md:text-base">
-        150+<br />
-        Registered Users Until Today
-      </p>
-    </div>
-    <div className="flex flex-col items-center text-center">
-      <img
-        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Orders.jpg"
-        className="w-16 h-16 md:w-12 md:h-12"
-        alt="Orders"
-      />
-      <p className="lg:text-lg md:text-base">
-        1500+<br />
-        Total Orders
-      </p>
-    </div>
-    <div className="flex flex-col items-center text-center">
-      <img
-        src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Items.png"
-        className="w-16 h-16 md:w-12 md:h-12"
-        alt="Items"
-      />
-      <p className="lg:text-lg md:text-base ">
-        200+<br />
-        Items Available
-      </p>
-    </div>
-  </div>
-</div>
-
-           <h1 className="text-xl">What Our Customers have to say</h1>
-        <div className="flex flex-row">
-        <CustomerFeedbackSlider/>
-        </div>
-
         {/* Routes */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
           <Routes>
