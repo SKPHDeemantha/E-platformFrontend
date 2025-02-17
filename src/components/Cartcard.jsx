@@ -14,7 +14,7 @@ export default function CartCard(props) {
   useEffect(() => {
     if (!loaded) {
       axios
-        .get(`http://localhost:3000/api/products/${productId}`)
+        .get(import.meta.env.VITE_BACKEND_URL + `/api/products/${productId}`)
         .then((response) => {
           if (response.data != null) {
             setProduct(response.data);
@@ -48,7 +48,13 @@ export default function CartCard(props) {
           <td className="text-center">{qty}</td>
           <td className="text-center">LKR. {product?.lastPrice.toFixed(2)}</td>
           <td className="text-center">
-            {(product?.lastPrice * qty).toFixed(2)}
+            LKR. {(product?.lastPrice * qty).toFixed(2)}
+          </td>
+          <td>
+            {/* Delete Button */}
+            <button className="bg-red-500 text-white px-3 py-1 rounded">
+              Delete
+            </button>
           </td>
         </tr>
       )}
