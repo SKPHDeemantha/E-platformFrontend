@@ -66,7 +66,7 @@ export default function Dashboard() {
         >
           Admin Dashboard
         </motion.h1>
-        <p className="text-gray-600">Overview of system performance</p>
+        <p className="text-gray-600 text-lg">Overview of system performance</p>
       </header>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
@@ -177,7 +177,9 @@ export default function Dashboard() {
       <section className="bg-white shadow-md rounded-lg p-6 mb-8">
         <h2 className="text-lg font-bold text-gray-800">Sales Analytics</h2>
         <div className="h-64 flex items-center justify-center bg-gray-50 text-gray-400">
-          <p>Graph Placeholder</p>
+          <img src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Graph.jpg"
+          alt="graph" 
+          className="w-full h-full"/>
         </div>
       </section>
 

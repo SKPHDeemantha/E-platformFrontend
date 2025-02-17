@@ -46,7 +46,7 @@ export default function AdminHomepage() {
       });
   }, []);
   return (
-    <div className="bg-white w-full h-screen flex">
+    <div className="bg-white w-full h-screen flex ">
       <div className="bg-gradient-to-br from-indigo-950 to-adminsecondary  w-[20%] h-screen flex flex-col items-center text-justify rounded-lg shadow-lg ">
         <h1 className="text-white text-2xl font-bold mt-6">Admin Panel</h1>
         <button className="bg-gradient-to-br from-adminprimary to-cyan-400 hover:bg-gradient-to-tr hover:scale-105 p-4 w-[80%] h-auto text-justify items-center justify-center text-pink-900 shadow-md mt-6 rounded-lg hover:bg-pink-400">
