@@ -201,7 +201,9 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-center p-3">
           Why choose us?
         </h1>
-        <StatsCounter />
+        <div>
+          <StatsCounter />
+        </div>
 
         <h1 className="text-2xl font-bold flex items-center justify-center mt-5">
           What Our Customers have to say

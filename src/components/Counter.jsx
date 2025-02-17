@@ -7,7 +7,7 @@ const StatsCounter = () => {
 
   return (
     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-      <div className="w-[90%] h-auto bg-purple-200 p-12 mt-5 lg:ml-20 shadow-xl rounded-lg">
+      <div className="w-[90%] h-auto bg-purple-200 p-12 mt-5 lg:ml-20 shadow-xl rounded-lg ">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-56 p-3">
           {/* Users Counter */}
           <div className="flex flex-col items-center text-center">
