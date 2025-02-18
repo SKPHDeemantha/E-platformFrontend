@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteItem, loadCart } from "../../utils/Cartfunction";
-import CartCard from "../../components/cartCard";
+import CartCard from "../../components/Cartcard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
