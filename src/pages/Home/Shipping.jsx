@@ -25,7 +25,7 @@ export default function ShippingPage() {
     }
 
     axios
-      .post("http://localhost:3000/api/orders/quote", {
+      .post(import.meta.env.VITE_BACKEND_URL + "/api/orders/quote", {
         orderedItems: cart,
       })
       .then((res) => {
@@ -67,7 +67,7 @@ export default function ShippingPage() {
 
     axios
       .post(
-        "http://localhost:3000/api/orders/",
+        import.meta.env.VITE_BACKEND_URL + "/api/orders/",
         {
           orderedItems: cart,
           name,
@@ -154,8 +154,12 @@ export default function ShippingPage() {
             <thead className="bg-gradient-to-r from-pink-600 to-purple-500 text-white">
               <tr>
                 <th className="p-3 border-b text-left font-semibold">Image</th>
-                <th className="p-3 border-b text-left font-semibold">Product Name</th>
-                <th className="p-3 border-b text-left font-semibold">Product ID</th>
+                <th className="p-3 border-b text-left font-semibold">
+                  Product Name
+                </th>
+                <th className="p-3 border-b text-left font-semibold">
+                  Product ID
+                </th>
                 <th className="p-3 border-b text-left font-semibold">Qty</th>
                 <th className="p-3 border-b text-left font-semibold">Price</th>
                 <th className="p-3 border-b text-left font-semibold">Total</th>
@@ -163,7 +167,11 @@ export default function ShippingPage() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {cart.map((item) => (
-                <CartCard key={item.productId} productId={item.productId} qty={item.qty} />
+                <CartCard
+                  key={item.productId}
+                  productId={item.productId}
+                  qty={item.qty}
+                />
               ))}
             </tbody>
           </table>
@@ -177,10 +185,14 @@ export default function ShippingPage() {
           className="mt-6 text-center"
         >
           <h1 className="text-xl font-bold text-gray-700">
-            Total: <span className="text-pink-600">LKR {labeledTotal.toFixed(2)}</span>
+            Total:{" "}
+            <span className="text-pink-600">LKR {labeledTotal.toFixed(2)}</span>
           </h1>
           <h1 className="text-lg font-bold text-gray-600 mt-2">
-            Discount: <span className="text-red-500">LKR {(labeledTotal - total).toFixed(2)}</span>
+            Discount:{" "}
+            <span className="text-red-500">
+              LKR {(labeledTotal - total).toFixed(2)}
+            </span>
           </h1>
           <h1 className="text-3xl font-bold text-green-600 mt-3">
             Grand Total: LKR {total.toFixed(2)}

@@ -7,12 +7,12 @@ import { FcGoogle } from "react-icons/fc";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
-    const [loarding,setLoarding]=useState(false);
+  const [loarding, setLoarding] = useState(false);
   const googleLogin = useGoogleLogin({
     onSuccess: (res) => {
       console.log(res);
       axios
-        .post("http://localhost:3000/api/users/google", {
+        .post(import.meta.env.VITE_BACKEND_URL + "/api/users/google", {
           token: res.access_token,
         })
         .then((res) => {
@@ -38,7 +38,7 @@ export default function LoginPage() {
   function login(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/users/login", {
+      .post(import.meta.env.VITE_BACKEND_URL + "/api/users/login", {
         email,
         password,
       })
@@ -61,13 +61,12 @@ export default function LoginPage() {
   }
 
   return (
-  <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-fuchsia-200 to-pink-300">
-
-     {loarding && (
-          <div className="flex justify-center items-center h-80">
-            <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
-          </div>
-        )}
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 via-fuchsia-200 to-pink-300">
+      {loarding && (
+        <div className="flex justify-center items-center h-80">
+          <div className="animate-spin rounded-xl h-16 w-16 border-4 border-gray-300 border-t-mycolor"></div>
+        </div>
+      )}
 
       <div className="flex bg-white/100 shadow-2xl rounded-lg p-8 w-full max-w-4xl mx-4 sm:mx-auto">
         {/* Left Side - Image */}

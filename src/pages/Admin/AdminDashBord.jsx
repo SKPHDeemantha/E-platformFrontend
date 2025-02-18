@@ -28,13 +28,24 @@ export default function Dashboard() {
   }
 
   async function submit() {
-    const user = { email, firstName, lastName, password, profilePicture };
-    user.type = "admin";
+    const User = { email, firstName, lastName, password, profilePicture };
+    User.type = "admin";
+    const user=User;
     try {
-      console.log(user);
-      await axios.post("http://localhost:3000/api/users", user);
-      toast.success("Signup successfully!");
-      navigate("/login");
+      const response = await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/api/users",
+        user,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      );
+      console.log(response.data);
+      toast.success("Admin account created successfully!");
+      setModalVisible(false);
+      
+      
     } catch (err) {
       toast.error("Failed to sign up.");
     }
@@ -47,13 +58,15 @@ export default function Dashboard() {
           <AdminNavSlider closeSlider={() => setIsSliderOpen(false)} />
         )}
 
-
         <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5 }}
-        className="text-3xl font-bold text-gray-800">Admin Dashboard</motion.h1>
-        <p className="text-gray-600">Overview of system performance</p>
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          className="text-3xl font-bold text-gray-800"
+        >
+          Admin Dashboard
+        </motion.h1>
+        <p className="text-gray-600 text-lg">Overview of system performance</p>
       </header>
 
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
@@ -61,7 +74,6 @@ export default function Dashboard() {
           title="Total Sales"
           value="LKR.12,345"
           color="text-indigo-600 "
-    
         />
         <StatCard title="Total Customers" value="10" color="text-green-600" />
         <StatCard title="Total Orders" value="20" color="text-blue-600" />
@@ -165,7 +177,9 @@ export default function Dashboard() {
       <section className="bg-white shadow-md rounded-lg p-6 mb-8">
         <h2 className="text-lg font-bold text-gray-800">Sales Analytics</h2>
         <div className="h-64 flex items-center justify-center bg-gray-50 text-gray-400">
-          <p>Graph Placeholder</p>
+          <img src="https://xvuxswvxdsxzfjtsdorn.supabase.co/storage/v1/object/public/images//Graph.jpg"
+          alt="graph" 
+          className="w-full h-full"/>
         </div>
       </section>
 

@@ -10,7 +10,7 @@ export default function AdminCustomerPage() {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/users/details"
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/details`
       );
       setUsers(response.data);
       setIsLoading(false);

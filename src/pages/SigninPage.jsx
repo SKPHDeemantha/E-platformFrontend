@@ -28,7 +28,7 @@ export default function SignUpPage() {
     const user = { email, firstName, lastName, password, profilePicture };
 
     try {
-      await axios.post("http://localhost:3000/api/users", user);
+      await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/users", user);
       toast.success("Signup successfully!");
       navigate("/login");
     } catch (err) {

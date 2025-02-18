@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { loadCart } from "../../utils/Cartfunction";
+import { deleteItem, loadCart } from "../../utils/Cartfunction";
 import CartCard from "../../components/cartCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { RiDeleteBin5Fill } from "react-icons/ri";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -13,73 +12,55 @@ export default function Cart() {
   const [total, setTotal] = useState(0);
   const [labeledTotal, setLabeledTotal] = useState(0);
   const navigate = useNavigate();
-  const [selectCart, setSelectCart] = useState(null);
-  const [detailModalVisible, setDetailModalVisible] = useState(false);
 
   useEffect(() => {
-    setCart(loadCart());
-
     const cartItems = loadCart();
-    const productIds = cartItems.map((item) => item.productId).join(",");
+    setCart(cartItems);
 
-    axios
-      .post(`http://localhost:3000/api/orders/quote?productIds=` + productIds, {
-        orderedItems: loadCart(),
-      })
-      .then((res) => {
-        console.log(loadCart());
-        console.log(res.data);
-        if (res.data.total != null) {
-          setTotal(res.data.total);
-          setLabeledTotal(res.data.labeledTotal);
-        }
-      });
+    if (cartItems.length > 0) {
+      const productIds = cartItems.map((item) => item.productId).join(",");
+
+      axios
+        .post(
+          import.meta.env.VITE_BACKEND_URL +
+            `/api/orders/quote?productIds=` +
+            productIds,
+          { orderedItems: cartItems }
+        )
+        .then((res) => {
+          if (res.data.total != null) {
+            setTotal(res.data.total);
+            setLabeledTotal(res.data.labeledTotal);
+          }
+        })
+        .catch((error) => console.error("Error fetching quote:", error));
+    }
   }, []);
 
+  const handleDelete = (productId) => {
+    deleteItem(productId); // Remove from local storage
+    const updatedCart = cart.filter((item) => item.productId !== productId);
+    setCart(updatedCart); // Update state
+  };
+
   function onOrderCheckout() {
-    navigate("/shipping", {
-      state: {
-        items: loadCart(),
-      },
-    });
+    navigate("/shipping", { state: { items: cart } });
   }
 
-  const handleRowClick = (item) => {
-    setSelectCart(item);
-  };
-
-  // const handleQuantityChange = (productId, newQty) => {
-  //   const updatedCart = cart.map(item =>
-  //     item.productId === productId ? { ...item, qty: Math.max(1, newQty) } : item
-  //   );
-  //   setCart(updatedCart);
-  //   saveCart(updatedCart);
-  //   fetchQuote(updatedCart);
-  // };
-
-  // // Handle item removal
-  // const handleRemoveItem = (productId) => {
-  //   const updatedCart = cart.filter(item => item.productId !== productId);
-  //   setCart(updatedCart);
-  //   saveCart(updatedCart);
-  //   fetchQuote(updatedCart);
-  // };
-
-  const closeModal = () => {
-    setSelectCart(null);
-  };
-
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <Header />
-      <div className="w-full h-full flex flex-col items-center p-6 bg-gradient-to-r from-indigo-50 to-pink-100 min-h-screen overflow-y-scroll">
-        {/* Animated  */}
+    <div className="w-full min-h-screen flex flex-col">
+      {/* Header */}
+      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <Header />
+      </div>
 
+      {/* Cart Section */}
+      <div className="flex-grow flex flex-col items-center p-6 bg-gradient-to-r from-indigo-50 to-pink-100 mt-20 overflow-y-auto">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg p-5"
+          className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 drop-shadow-lg p-6"
         >
           My Cart
         </motion.h1>
@@ -87,7 +68,7 @@ export default function Cart() {
         {/* Cart Table */}
         <div className="w-full max-w-6xl overflow-x-auto shadow-lg rounded-lg">
           <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
-            <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white ">
+            <thead className="bg-gradient-to-r from-pink-500 to-purple-600 text-white">
               <tr>
                 <th className="p-4 text-center font-semibold">Image</th>
                 <th className="p-4 text-center font-semibold">Product Name</th>
@@ -97,49 +78,26 @@ export default function Cart() {
                 <th className="p-4 text-center font-semibold">Total</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200 ">
+            <tbody className="bg-white divide-y divide-gray-200">
               {cart.map((item) => (
                 <CartCard
                   key={item.productId}
                   productId={item.productId}
                   qty={item.qty}
-                  onClick={() => handleRowClick(item)} // Pass the correct item
                 />
               ))}
             </tbody>
           </table>
         </div>
 
-        {selectCart && detailModalVisible && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white w-full max-w-md p-4 rounded-lg shadow-lg">
-              <h2 className="text-lg font-bold mb-4">Order Details</h2>
-              <p>
-                <span className="font-semibold">Order ID:</span>{" "}
-                {selectCart.orderId}
-              </p>
-              <p>
-                <span className="font-semibold">Status:</span>{" "}
-                {selectCart.status}
-              </p>
-              <button
-                onClick={closeModal}
-                className="mt-4 bg-red-500 text-white py-2 px-4 rounded"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Checkout Summary Section */}
+        {/* Checkout Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="w-full max-w-lg mt-8 p-6 bg-white shadow-xl rounded-lg text-left"
         >
-          <h1 className="p-2 font-bold text-xl">Order Summery</h1>
+          <h1 className="p-2 font-bold text-xl">Order Summary</h1>
           <h1 className="text-2xl font-bold text-gray-700">
             Total:{" "}
             <span className="text-pink-600">
@@ -152,7 +110,7 @@ export default function Cart() {
               LKR {(labeledTotal - total).toFixed(2) || "0.00"}
             </span>
           </h1>
-          <h1 className="text-4xl font-bold text-green-600 mt-3">
+          <h1 className="text-3xl font-bold text-green-600 mt-3">
             Grand Total: LKR {total?.toFixed(2) || "0.00"}
           </h1>
 
@@ -165,6 +123,8 @@ export default function Cart() {
           </button>
         </motion.div>
       </div>
+
+      {/* Footer */}
       <Footer />
     </div>
   );

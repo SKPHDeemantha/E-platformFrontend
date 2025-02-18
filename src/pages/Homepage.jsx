@@ -5,11 +5,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductOverView from "./Home/ProductOverview";
 import Productpage from "./Home/Productpage";
-import Cart from "./Home/Cart";
 import Shipping from "./Home/Shipping";
 import Orders from "./Home/Orders";
 import ProductNotFound from "./Home/ProductNotFound";
-import AboutUs from "./About";
+import axios from "axios";
+import toast from "react-hot-toast";
+import CustomerFeedbackSlider from "../components/CommentSlideshow";
+import StatsCounter from "../components/Counter";
 
 function ScrollToTop() {
   return (
@@ -93,12 +95,44 @@ function Slideshow() {
 
 export default function HomePage() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+  const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(import.meta.env.VITE_BACKEND_URL + "/api/users/getCurrentUser")
+  //     .then((res) => {
+  //       if (res.data.user) {
+  //         setUser(res.data.user);
+  //       } else {
+  //         setUser(null);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching user:", err);
+  //       setUser(null);
+  //     });
+  // }, []);
+
+  const handleCommentSubmit = () => {
+    if (!user) {
+      toast.error("You must be logged in to post a comment.");
+      return;
+    }
+
+    if (newComment.trim() !== "") {
+      setComments([...comments, newComment]);
+      setNewComment("");
+      toast.success("Comment added successfully!");
+    }
+  };
 
   return (
     <div className="relative w-full h-screen flex flex-col">
       <Header isSliderOpen={isSliderOpen} setIsSliderOpen={setIsSliderOpen} />
       <div className="h-[calc(100vh-80px)] overflow-y-auto bg-slate-100 ">
-        <div className="relative w-full h-[87vh] sm:h-[70vh] md:h-[100vh]">
+        <div className="relative w-full h-[87vh] sm:h-[100vh] md:h-[100vh]">
           <img
             src="/Homebackdrop.jpg"
             alt="homebackdrop"
@@ -154,16 +188,72 @@ export default function HomePage() {
             }}
             className="font-extrabold font-[nunito] text-transparent bg-clip-text bg-gradient-to-b from-blue-900 to-slate-600  text-5xl sm:text-4xl text-center p-6"
           >
-            New Arrival
+            New Launches
+            <h2 className="text-lg">New wellness range just for you!</h2>
           </motion.h1>
+
           <Slideshow />
           <div className="lg:hidden mt-10">
-          <Slideshow />
+            <Slideshow />
           </div>
         </div>
-        
 
-{/* Routes */}
+        <h1 className="text-2xl font-semibold text-center p-3">
+          Why choose us?
+        </h1>
+        <div className="relative md:ml-16 lg:mr-4">
+          <StatsCounter />
+        </div>
+
+        <h1 className="text-2xl font-bold flex items-center justify-center mt-5">
+          What Our Customers have to say
+        </h1>
+
+        <motion.div
+          className="flex flex-row"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{
+            ease: "linear",
+            duration: 1.5,
+            delay: 0.15,
+          }}
+        >
+          <CustomerFeedbackSlider />
+        </motion.div>
+        <div className="flex flex-col justify-center items-center">
+          <div className="w-[80%] flex flex-col justify-center items-center mt-5">
+            <h3 className="text-xl font-semibold mb-2">Leave a Comment</h3>
+            <textarea
+              className="w-full p-3 rounded-lg shadow-md border border-gray-300"
+              rows="3"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write a comment..."
+            ></textarea>
+            <button
+              className="mt-2 px-4 py-2 bg-pink-500 text-white rounded-lg hover:scale-105 transition-transform shadow-lg"
+              onClick={handleCommentSubmit}
+            >
+              Submit
+            </button>
+          </div>
+
+          {comments.length > 0 && (
+            <div className="w-full mt-4">
+              <h3 className="text-xl font-semibold mb-2">Comments</h3>
+              <ul className="space-y-2">
+                {comments.map((comment, index) => (
+                  <li key={index} className="p-3 bg-white rounded-lg shadow-md">
+                    {comment}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        {/* Routes */}
         <div className="w-full flex-grow flex items-center justify-center p-4">
           <Routes>
             <Route
