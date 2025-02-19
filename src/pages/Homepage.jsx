@@ -139,8 +139,11 @@ export default function HomePage() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/20"></div>
+
+
           {!isSliderOpen && (
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 sm:px-6 ">
+            <div className=" z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 sm:px-6 "
+            onChange={()=> isSliderOpen(true)}>
               <motion.h1
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -157,10 +160,17 @@ export default function HomePage() {
               >
                 VELVETGLOW
               </motion.h2>
-              <p className="mt-4  justify-center  text-2xl md:text-xl max-w-2xl text-gray-800 font-semibold">
+
+              
+              <motion.p className="z-10 flex mt-4  justify-center drop-shadow-sm text-2xl md:text-xl max-w-2xl text-gray-800 font-semibold"
+               initial={{ opacity: 0, scale: 0.8 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 1.2 }} 
+               onChange={()=> isSliderOpen(true)}>
                 Discover exclusive deals and handpicked products just for you!
-              </p>
-              <div className="mt-6 flex space-x-4 sm:space-x-6 ">
+              </motion.p>
+              <div className="z-10 mt-6 flex space-x-4 sm:space-x-6 "
+               onChange={()=> isSliderOpen(true)}>
                 <Link
                   to="/products"
                   className="px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg  font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
@@ -193,9 +203,7 @@ export default function HomePage() {
           </motion.h1>
 
           <Slideshow />
-          <div className="lg:hidden mt-10">
-            <Slideshow />
-          </div>
+          
         </div>
 
         <h1 className="text-2xl font-semibold text-center p-3">
