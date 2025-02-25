@@ -50,7 +50,7 @@ function Slideshow() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden max-w-screen-lg mx-auto">
+    <div className="relative w-full  overflow-hidden max-w-screen-lg mx-auto">
       <div
         className="flex transition-transform duration-700 shadow-2xl"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -209,7 +209,7 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-center p-3">
           Why choose us?
         </h1>
-        <div className="relative md:ml-16 lg:mr-4">
+        <div className=" md:ml-16 lg:mr-4 sm:relative ml-10">
           <StatsCounter />
         </div>
 
