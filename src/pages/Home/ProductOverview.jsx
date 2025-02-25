@@ -103,7 +103,7 @@ export default function ProductOverView() {
                 >
                   -
                 </button>
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-200 flex items-center justify-center text-lg font-semibold">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-100 flex items-center justify-center text-lg font-semibold">
                   {counter}
                 </div>
                 <button
